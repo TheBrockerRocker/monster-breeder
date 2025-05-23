@@ -15,10 +15,18 @@ public class MonsterBreeder implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		// This code runs as soon as Minecraft is in a mod-load-ready state.
-		// However, some things (like resources) may still be uninitialized.
-		// Proceed with mild caution.
+//		ModItems.registerItems();
+//		ModBlocks.registerBlocks();
+//		ModEntities.registerEntities();
 
-		LOGGER.info("Hello Fabric world!");
+//		ModItems.modifyLootTables();
+
+/*		DNA_ALTAR_SCREEN_HANDLER = Registry.register(
+				Registry.SCREEN_HANDLER,
+				DNA_ALTAR_ID,
+				new ExtendedScreenHandlerType<>(DnaAltarScreenHandler::new)
+*/
+
+				LOGGER.info("momser breeder initialized");
 	}
 }
