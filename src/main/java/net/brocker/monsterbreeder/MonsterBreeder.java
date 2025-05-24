@@ -1,32 +1,35 @@
 package net.brocker.monsterbreeder;
 
+import net.brocker.monsterbreeder.block.ModBlocks;
+import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class MonsterBreeder implements ModInitializer {
-	public static final String MOD_ID = "monsterbreeder";
+public class MonsterBreeder implements ModInitializer, ClientModInitializer {
+    public static final String MOD_ID = "monsterbreeder";
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	// This logger is used to write text to the console and the log file.
-	// It is considered best practice to use your mod id as the logger's name.
-	// That way, it's clear which mod wrote info, warnings, and errors.
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+    @Override
+    public void onInitialize() {
+        try {
+            ModBlocks.registerModBlocks();
+            LOGGER.info("Monster Breeder initialized!");
+        } catch (Exception e) {
+            LOGGER.error("Failed to initialize Monster Breeder", e);
+            throw e;
+        }
+    }
 
-	@Override
-	public void onInitialize() {
-//		ModItems.registerItems();
-//		ModBlocks.registerBlocks();
-//		ModEntities.registerEntities();
-
-//		ModItems.modifyLootTables();
-
-/*		DNA_ALTAR_SCREEN_HANDLER = Registry.register(
-				Registry.SCREEN_HANDLER,
-				DNA_ALTAR_ID,
-				new ExtendedScreenHandlerType<>(DnaAltarScreenHandler::new)
-*/
-
-				LOGGER.info("momser breeder initialized");
-	}
+    @Override
+    public void onInitializeClient() {
+        // Client-side initialization
+        try {
+            net.brocker.monsterbreeder.client.ModScreens.registerScreens();
+            LOGGER.info("Monster Breeder client initialized!");
+        } catch (Exception e) {
+            LOGGER.error("Failed to initialize Monster Breeder client", e);
+            throw e;
+        }
+    }
 }
