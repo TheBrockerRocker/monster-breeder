@@ -1,6 +1,7 @@
 package net.brocker.monsterbreeder.block;
 
 import net.brocker.monsterbreeder.MonsterBreeder;
+import net.brocker.monsterbreeder.block.custom.DnaAltarBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
