@@ -1,9 +1,18 @@
 package net.brocker.monsterbreeder.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.brocker.monsterbreeder.block.entity.custom.DnaAltarBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.ItemScatterer;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.World;
@@ -20,7 +29,7 @@ public class DnaAltarBlock extends BlockWithEntity implements BlockEntityProvide
         super(settings);
     }
 
-    @Override
+    //@Override
     protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
         return SHAPE;
     }
@@ -33,7 +42,7 @@ public class DnaAltarBlock extends BlockWithEntity implements BlockEntityProvide
     @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return
+        return new DnaAltarBlockEntity(pos, state);
     }
 
     @Override
@@ -53,4 +62,28 @@ public class DnaAltarBlock extends BlockWithEntity implements BlockEntityProvide
         }
     }
 
+    @Override
+    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world,
+                                             BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+
+        if(world.getBlockEntity(pos) instanceof DnaAltarBlockEntity DnaAltarBlockEntity) {
+            if(DnaAltarBlockEntity.isEmpty() && !stack.isEmpty()) {
+                DnaAltarBlockEntity.setStack(0, stack.copyWithCount(1));
+                world.playSound(player, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 1f, 2f);
+                stack.decrement(1);
+
+                DnaAltarBlockEntity.markDirty();
+                world.updateListeners(pos, state, state, 0);
+            } else if(stack.isEmpty() && !player.isSneaking()) {
+                ItemStack stackOnPedestal = DnaAltarBlockEntity.getStack(0);
+                player.setStackInHand(Hand.MAIN_HAND, stackOnPedestal);
+                world.playSound(player, pos, SoundEvents.ENTITY_ITEM_PICKUP, SoundCategory.BLOCKS, 1f, 1f);
+                DnaAltarBlockEntity.clear();
+
+                DnaAltarBlockEntity.markDirty();
+                world.updateListeners(pos, state, state, 0);
+            }
+        }
+        return ItemActionResult.SUCCESS;
+    }
 }

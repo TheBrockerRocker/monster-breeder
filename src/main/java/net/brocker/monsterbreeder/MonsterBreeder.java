@@ -1,6 +1,7 @@
 package net.brocker.monsterbreeder;
 
 import net.brocker.monsterbreeder.block.ModBlocks;
+import net.brocker.monsterbreeder.block.entity.ModBlockEntities;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -12,24 +13,14 @@ public class MonsterBreeder implements ModInitializer, ClientModInitializer {
 
     @Override
     public void onInitialize() {
-        try {
-            ModBlocks.registerModBlocks();
-            LOGGER.info("Monster Breeder initialized!");
-        } catch (Exception e) {
-            LOGGER.error("Failed to initialize Monster Breeder", e);
-            throw e;
-        }
+        ModBlocks.registerModBlocks();
+        ModBlockEntities.registerBlockEntities();
     }
+
 
     @Override
     public void onInitializeClient() {
-        // Client-side initialization
-        try {
-            net.brocker.monsterbreeder.client.ModScreens.registerScreens();
-            LOGGER.info("Monster Breeder client initialized!");
-        } catch (Exception e) {
-            LOGGER.error("Failed to initialize Monster Breeder client", e);
-            throw e;
-        }
+        net.brocker.monsterbreeder.client.ModScreens.registerScreens();
+
     }
 }
