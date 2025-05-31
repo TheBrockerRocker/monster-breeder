@@ -82,6 +82,8 @@ public class DnaAltarBlock extends BlockWithEntity implements BlockEntityProvide
 
                 DnaAltarBlockEntity.markDirty();
                 world.updateListeners(pos, state, state, 0);
+            }else if (player.isSneaking() && !world.isClient()) {
+                player.openHandledScreen(DnaAltarBlockEntity);
             }
         }
         return ItemActionResult.SUCCESS;

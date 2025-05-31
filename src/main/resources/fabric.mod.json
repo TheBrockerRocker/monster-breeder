@@ -1,37 +1,41 @@
 {
-	"schemaVersion": 1,
-	"id": "monsterbreeder",
-	"version": "${version}",
-	"name": "monster breeder",
-	"description": "This is an example description! Tell everyone what your mod is about!",
-	"authors": [
-		"Me!"
-	],
-	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
-	},
-	"license": "CC0-1.0",
-	"icon": "assets/monsterbreeder/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"net.brocker.monsterbreeder.MonsterBreeder"
-		],
-		"fabric-datagen": [
-			"net.brocker.monsterbreeder.MonsterBreederDataGenerator"
-		]
-	},
-	"mixins": [
-		"monsterbreeder.mixins.json"
-	],
-	"depends": {
-		"fabricloader": ">=0.16.14",
-		"minecraft": "~1.21.1",
-		"java": ">=21",
-		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
-	}
+  "schemaVersion": 1,
+  "id": "monsterbreeder",
+  "version": "${version}",
+  "name": "monster breeder",
+  "description": "Mix different mob to make weird yet cool monsters",
+  "authors": [
+    "The Brocker Rocker",
+    "Kevin Codes"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "CC0-1.0",
+  "icon": "assets/monsterbreeder/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.brocker.monsterbreeder.MonsterBreeder"
+    ],
+    "client": [
+      "net.brocker.monsterbreeder.MonsterBreederClient"
+    ],
+    "fabric-datagen": [
+      "net.brocker.monsterbreeder.MonsterBreederDataGenerator"
+    ]
+  },
+  "mixins": [
+    "monsterbreeder.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.14",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
 }
