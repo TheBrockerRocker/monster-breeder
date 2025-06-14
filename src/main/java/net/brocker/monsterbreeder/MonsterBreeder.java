@@ -2,6 +2,7 @@ package net.brocker.monsterbreeder;
 
 import net.brocker.monsterbreeder.block.ModBlocks;
 import net.brocker.monsterbreeder.block.entity.ModBlockEntities;
+import net.brocker.monsterbreeder.item.ModItems;
 import net.brocker.monsterbreeder.screen.ModScreenHandlers;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -13,6 +14,7 @@ public class MonsterBreeder implements ModInitializer{
 
     @Override
     public void onInitialize() {
+        ModItems.registerModItems();
         ModBlocks.registerModBlocks();
         ModBlockEntities.registerBlockEntities();
         ModScreenHandlers.registerScreenHandelers();
