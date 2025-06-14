@@ -30,7 +30,6 @@ Combine two DNA items in a GUI to create a hybrid mob with fixed properties.
 ### 🧬 Step 2 – DNA Items
 - Create a `DnaItem` class (optionally extend `Item`)
 - Register DNA items for ~10 mobs (e.g., `ZOMBIE_DNA`, `SKELETON_DNA`)
-- Add mob drops via `LivingEntityDropCallback`
 
 **Goal:** DNA items drop from mobs.
 
@@ -49,58 +48,45 @@ Combine two DNA items in a GUI to create a hybrid mob with fixed properties.
 | **Guardian**  | `guardian_dna`   | Water-based laser attacker                      | Adds thorns or ranged beam attack              |
 | **Phantom**   | `phantom_dna`    | Flying undead mob, night-based                  | Adds slow gliding/flying behavior              |
 
-**How to Change Loot Tables:**
-To inject custom drops into vanilla mob loot tables:
+**How to obtain Dna samples:** 
+- make a suringe
+- Use it to the mobs blood
+- put the blood in a sentrigue to turn it in to a Dna Sample
 
-```java
-LootTableEvents.MODIFY.register((resourceManager, manager, id, tableBuilder, source) -> {
-    if (id.equals(EntityType.ZOMBIE.getLootTableId())) {
-        LootPool pool = LootPool.builder()
-            .with(ItemEntry.builder(ModItems.ZOMBIE_DNA))
-            .rolls(ConstantLootNumberProvider.create(1))
-            .build();
-        tableBuilder.pool(pool);
-    }
-});
-```
-
-Make sure your item is registered in `ModItems` and your event is hooked in `onInitialize()`.
 
 ---
 
 ### 🧪 Step 3 – DNA Altar (Block + GUI)
 - Register a custom block `DnaAltarBlock`
-- Add a `BlockEntity` with 2 input slots
+- Add a `BlockEntity` with 1 input slots
 - Create a `HandledScreen` + `ScreenHandler`
-- Add a "Fuse" button to the GUI
+- Make it so if you use a flint and steel
 
-**Goal:** A working GUI with 2 input slots and interaction.
+**Goal:** A working GUI with 1 input slots and interaction, for summoning the monster.
 
 #### 🖼 GUI Concept
 - **Top bar:** Title "DNA Altar"
-- **Left slot:** DNA Sample #1 (slot with mob symbol overlay)
-- **Right slot:** DNA Sample #2 (slot with mob symbol overlay)
-- **Center:** Fusion animation or particles
-- **Bottom slot:** Output hybrid mob egg (grayed until valid)
-- **Bottom buttons:**
-  - "Fuse" button (activates only with 2 valid samples)
-  - Tooltip area for fusion result name, effects, purity & instability
+- **Slot:** DNA Sample
 
 **Visual Cues:**
-- Show DNA purity and fusion instability next to each DNA item slot
+- Show DNA purity and fusion instability next to the DNA item slot
 - Output shows hybrid with fusion symbol, stats and result glow
 - Tooltip when hovering over DNA: **Mob type**, **Purity**, **Instability**
 - Tooltip when hovering over fusion result: **Hybrid type**, **Abilities**, **Fusion quality**
 
 ---
 
-### 🧠 Step 4 – Fusion Logic
-- On "Fuse" click:
-  - Read the two DNA items
-  - Lookup combination in a `Map<Pair<Item, Item>, HybridDefinition>`
+### 🧠 Step 4 – Sumoning Logic
   - Spawn a hybrid mob near the altar
 
 **Goal:** Correct hybrid mob appears.
+
+---
+
+### Step 5 - Bio Reaction Chamber
+- On "Fuse" click:
+  - Read the two DNA items
+  - Lookup combination in a `Map<Pair<Item, Item>, HybridDefinition>`
 
 **Helper Methods:**
 ```java
