@@ -24,7 +24,7 @@ import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 
 public class DnaAltarBlockEntity extends BlockEntity implements ImplementedInventory, ExtendedScreenHandlerFactory<BlockPos> {
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY); // i'll turn it from a chest to a furness type later.
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
 
     public DnaAltarBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.DNA_ALTAR_BE, pos, state);
