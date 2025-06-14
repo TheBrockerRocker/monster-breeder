@@ -4,6 +4,7 @@ import net.brocker.monsterbreeder.MonsterBreeder;
 import net.brocker.monsterbreeder.api.Dna;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,10 +23,10 @@ public class DnaRegistry {
 		registries.put(Objects.requireNonNull(identifier), Objects.requireNonNull(registryObject));
 	}
 
-	public Dna getValue(Identifier identifier) {
+	public @Nullable Dna getValue(Identifier identifier) {
 		return registries.get(identifier);
 	}
-	public Identifier getKey(Dna registryObject) {
+	public @Nullable Identifier getKey(Dna registryObject) {
 		Map.Entry<Identifier, Dna> entry = registries.entrySet().stream().filter((entry2) -> entry2.getValue() == registryObject).findFirst().orElse(null);
 		return entry == null ? null : entry.getKey();
 	}

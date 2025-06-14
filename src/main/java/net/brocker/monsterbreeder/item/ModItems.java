@@ -19,6 +19,8 @@ public class ModItems {
     public static Item DNA_SAMPLE = registerItem("dna_sample", new DnaSampleItem());
     public static final Item SYRINGE = registerItem("syringe",
             new SyringeItem());
+    public static final Item USED_SYRINGE = registerItem("used_syringe",
+            new SyringeItem());
 
     public static final RegistryKey<ItemGroup> ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(MonsterBreeder.MOD_ID, "item_group"));
     public static final ItemGroup ITEM_GROUP = FabricItemGroup.builder()

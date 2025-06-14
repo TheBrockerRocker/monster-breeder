@@ -3,10 +3,21 @@
 
     "item.monsterbreeder.dna_sample": "%s DNA Sample",
     "item.monsterbreeder.syringe": "Empty Syringe",
+    "item.monsterbreeder.used_syringe": "Used Syringe",
 
     "block.monsterbreeder.dna_altar": "DNA Altar",
 
     "dna.monsterbreeder.unknown": "Unknown",
 
-    "monsterbreeder.dna_source": "Can be obtained from %s"
+    "monsterbreeder.blood": "%s Blood",
+    "monsterbreeder.dna": "%s DNA",
+    "monsterbreeder.dna_source": "Can be obtained from %s",
+    "monsterbreeder.mobs_only": "This only works on mobs!",
+    "monsterbreeder.unsupported_mob": "This mob is unsupported!",
+    "monsterbreeder.cross_contamination": "You can't mix blood from different mob types!",
+    "monsterbreeder.max_purity": "Max purity reached, you need a new syringe!",
+    "monsterbreeder.already_extracted": "You already extracted blood from this mob, try locating another one!",
+    "monsterbreeder.extracted_from": "Blood extracted from %s!",
+    "monsterbreeder.click_to_extract": "Interact with a mob to extract blood",
+    "monsterbreeder.purity": "%s%% purity"
 }
