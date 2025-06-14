@@ -1,5 +1,12 @@
 {
-    "block.mosterbreeder.dna_altar": "DNA Altar"
+    "itemGroup.monsterbreeder": "Monster Breeder",
 
+    "item.monsterbreeder.dna_sample": "%s DNA Sample",
+    "item.monsterbreeder.syringe": "Empty Syringe",
 
+    "block.monsterbreeder.dna_altar": "DNA Altar",
+
+    "dna.monsterbreeder.unknown": "Unknown",
+
+    "monsterbreeder.dna_source": "Can be obtained from %s"
 }
