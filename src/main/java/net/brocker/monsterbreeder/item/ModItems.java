@@ -9,8 +9,6 @@ import net.minecraft.util.Identifier;
 
 public class ModItems {
 
-    public static final Item DNA_SAMPLE = registerItem("dna_sample",
-            new DnaSampleItem(new Item.Settings()));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, Identifier.of(MonsterBreeder.MOD_ID, name), item);
