@@ -11,8 +11,10 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 
 public class SyringeItem extends Item {
-    public SyringeItem(Settings settings) {
-        super(settings);
+    public SyringeItem() {
+        super(new Settings()
+                .maxCount(1)
+        );
     }
 
     @Override
