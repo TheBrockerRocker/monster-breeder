@@ -1,6 +1,6 @@
 package net.brocker.monsterbreeder.screen.custom;
 
-import net.brocker.monsterbreeder.block.entity.custom.BioReactionChamberBlockEntity;
+import net.brocker.monsterbreeder.blockentity.custom.BioReactionChamberBlockEntity;
 import net.brocker.monsterbreeder.screen.ModScreenHandlers;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;

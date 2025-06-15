@@ -1,7 +1,7 @@
-package net.brocker.monsterbreeder.block.entity.custom;
+package net.brocker.monsterbreeder.blockentity.custom;
 
-import net.brocker.monsterbreeder.block.entity.ImplementedInventory;
-import net.brocker.monsterbreeder.block.entity.ModBlockEntities;
+import net.brocker.monsterbreeder.blockentity.ImplementedInventory;
+import net.brocker.monsterbreeder.blockentity.ModBlockEntities;
 import net.brocker.monsterbreeder.item.ModItems;
 import net.brocker.monsterbreeder.item.custom.DnaSampleItem;
 import net.brocker.monsterbreeder.recipe.BioReactionRecipe;

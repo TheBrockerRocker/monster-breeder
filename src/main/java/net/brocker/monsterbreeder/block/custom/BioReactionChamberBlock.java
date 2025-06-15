@@ -1,8 +1,8 @@
 package net.brocker.monsterbreeder.block.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.brocker.monsterbreeder.block.entity.ModBlockEntities;
-import net.brocker.monsterbreeder.block.entity.custom.BioReactionChamberBlockEntity;
+import net.brocker.monsterbreeder.blockentity.ModBlockEntities;
+import net.brocker.monsterbreeder.blockentity.custom.BioReactionChamberBlockEntity;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;

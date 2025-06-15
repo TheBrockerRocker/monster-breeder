@@ -1,9 +1,9 @@
-package net.brocker.monsterbreeder.block.entity;
+package net.brocker.monsterbreeder.blockentity;
 
 import net.brocker.monsterbreeder.MonsterBreeder;
 import net.brocker.monsterbreeder.block.ModBlocks;
-import net.brocker.monsterbreeder.block.entity.custom.BioReactionChamberBlockEntity;
-import net.brocker.monsterbreeder.block.entity.custom.DnaAltarBlockEntity;
+import net.brocker.monsterbreeder.blockentity.custom.BioReactionChamberBlockEntity;
+import net.brocker.monsterbreeder.blockentity.custom.DnaAltarBlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
