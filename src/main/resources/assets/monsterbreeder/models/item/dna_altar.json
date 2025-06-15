@@ -149,19 +149,24 @@
 	],
 	"display": {
 		"thirdperson_righthand": {
-			"scale": [0.4, 0.4, 0.4]
+			"scale": [0.5, 0.5, 0.5],
+			"translation": [-1, -2, 0]
 		},
 		"thirdperson_lefthand": {
-			"scale": [0.4, 0.4, 0.4]
+			"scale": [0.5, 0.5, 0.5],
+			"translation": [-1, -2, 0]
 		},
 		"firstperson_righthand": {
-			"scale": [0.4, 0.4, 0.4]
+			"scale": [0.5, 0.5, 0.5],
+			"translation": [0, 2, 0]
 		},
 		"firstperson_lefthand": {
-			"scale": [0.4, 0.4, 0.4]
+			"scale": [0.5, 0.5, 0.5],
+			"translation": [0, 2, 0]
 		},
 		"ground": {
-			"scale": [0.4, 0.4, 0.4]
+			"scale": [0.4, 0.4, 0.4],
+			"translation": [0, 4, 0]
 		}
 	}
 }
