@@ -1,6 +1,7 @@
 package net.brocker.monsterbreeder.block;
 
 import net.brocker.monsterbreeder.MonsterBreeder;
+import net.brocker.monsterbreeder.block.custom.BioReactionChamberBlock;
 import net.brocker.monsterbreeder.block.custom.DnaAltarBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock;
@@ -16,6 +17,9 @@ import net.minecraft.util.Identifier;
 public class ModBlocks {
     public static final Block DNA_ALTAR = registerBlock("dna_altar",
             new DnaAltarBlock(AbstractBlock.Settings.create().nonOpaque()));
+
+    public static final Block BIO_REACTION_CHAMBER =registerBlock("bio_reaction_chamber",
+            new BioReactionChamberBlock(AbstractBlock.Settings.create()));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

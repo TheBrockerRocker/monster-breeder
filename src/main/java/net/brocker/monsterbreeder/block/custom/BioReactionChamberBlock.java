@@ -2,13 +2,21 @@ package net.brocker.monsterbreeder.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.brocker.monsterbreeder.block.entity.ModBlockEntities;
+import net.brocker.monsterbreeder.block.entity.custom.BioReactionChamberBlockEntity;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.screen.NamedScreenHandlerFactory;
+import net.minecraft.util.Hand;
 import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.ItemScatterer;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -16,7 +24,8 @@ import org.jetbrains.annotations.Nullable;
 public class BioReactionChamberBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final MapCodec<BioReactionChamberBlock> CODEC = BioReactionChamberBlock.createCodec(BioReactionChamberBlock::new);
 
-    protected BioReactionChamberBlock(Settings settings) {
+
+    public BioReactionChamberBlock(Settings settings) {
         super(settings);
     }
 
@@ -27,9 +36,8 @@ public class BioReactionChamberBlock extends BlockWithEntity implements BlockEnt
 
     @Override
     public @Nullable BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-        return null; // fix later
+        return new BioReactionChamberBlockEntity(pos, state);
     }
-
 
     @Override
     protected BlockRenderType getRenderType(BlockState state) {
@@ -37,7 +45,8 @@ public class BioReactionChamberBlock extends BlockWithEntity implements BlockEnt
     }
 
 
-/*    @Override
+
+    @Override
     protected void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if(state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
@@ -68,6 +77,9 @@ public class BioReactionChamberBlock extends BlockWithEntity implements BlockEnt
             return null;
         }
 
-        return validateTicker(type, ModBlockEntities.GROWTH_CHAMBER_BE,
+        return validateTicker(type, ModBlockEntities.BIO_REACTION_CHAMBER_BE,
                 (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
-    */ }
+    }
+
+
+}
