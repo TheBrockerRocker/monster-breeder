@@ -95,7 +95,6 @@ public class ModDna {
 		DnaRegistry registry = DnaRegistry.INSTANCE;
 		registry.register(UNKNOWN, new Dna(
 				"dna.monsterbreeder.unknown",
-				false,
 				Rarity.COMMON,
 				Dna.Color.create("#ffffff", "#ffffff", "#ffffff", "#ffffff"),
 				new ArrayList<>()
@@ -119,6 +118,7 @@ public class ModDna {
 		);
 		registry.register(SPIDER, DnaBuilder
 				.create(EntityType.SPIDER.getTranslationKey())
+				.setColor("#d20303", "#d20303", "#3d3636", "#3d3636")
 				.addSourceMob(EntityType.SPIDER)
 				.build()
 		);
@@ -130,23 +130,26 @@ public class ModDna {
 		);
 		registry.register(FROG, DnaBuilder
 				.create(EntityType.FROG.getTranslationKey())
+				.setColor("#d79c51", "#d79c51", "#bc843b", "#bc843b")
 				.addSourceMob(EntityType.FROG)
 				.build()
 		);
 		registry.register(SQUID, DnaBuilder
 				.create(EntityType.SQUID.getTranslationKey())
+				.setColor("#6c8ca4", "#6c8ca4", "#496071", "#496071")
 				.addSourceMob(EntityType.SQUID)
 				.build()
 		);
 		registry.register(GLOW_SQUID, DnaBuilder
 				.create(EntityType.GLOW_SQUID.getTranslationKey())
+				.setColor("#6c8ca4", "#fffff2", "#7efcbe", "#496071")
 				.addSourceMob(EntityType.GLOW_SQUID)
 				.build()
 		);
 		registry.register(BOGGED, DnaBuilder
 				.create(EntityType.BOGGED.getTranslationKey())
+				.setColor("#dadada", "#1ac644", "#129e34", "#dadada")
 				.setRarity(Rarity.RARE)
-				.setSpecial()
 				.addSourceMob(EntityType.BOGGED)
 				.build()
 		);
@@ -165,14 +168,12 @@ public class ModDna {
 		registry.register(SNIFFER, DnaBuilder
 				.create(EntityType.SNIFFER.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.setSpecial()
 				.addSourceMob(EntityType.SNIFFER)
 				.build()
 		);
 		registry.register(SKELETON_HORSE, DnaBuilder
 				.create(EntityType.SKELETON_HORSE.getTranslationKey())
 				.setRarity(Rarity.EPIC)
-				.setSpecial()
 				.addSourceMob(EntityType.SKELETON_HORSE)
 				.build()
 		);
@@ -197,7 +198,6 @@ public class ModDna {
 		registry.register(CAMEL, DnaBuilder
 				.create(EntityType.CAMEL.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.setSpecial()
 				.addSourceMob(EntityType.CAMEL)
 				.build()
 		);
@@ -229,7 +229,6 @@ public class ModDna {
 		registry.register(MOOSHROOM, DnaBuilder
 				.create(EntityType.MOOSHROOM.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.setSpecial()
 				.addSourceMob(EntityType.MOOSHROOM)
 				.build()
 		);
@@ -253,7 +252,6 @@ public class ModDna {
 		registry.register(PUFFERFISH, DnaBuilder
 				.create(EntityType.PUFFERFISH.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.setSpecial()
 				.addSourceMob(EntityType.PUFFERFISH)
 				.build()
 		);
@@ -275,7 +273,6 @@ public class ModDna {
 		registry.register(STRIDER, DnaBuilder
 				.create(EntityType.STRIDER.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.setSpecial()
 				.addSourceMob(EntityType.STRIDER)
 				.build()
 		);
@@ -309,14 +306,12 @@ public class ModDna {
 		registry.register(CAVE_SPIDER, DnaBuilder
 				.create(EntityType.CAVE_SPIDER.getTranslationKey())
 				.setRarity(Rarity.EPIC)
-				.setSpecial()
 				.addSourceMob(EntityType.CAVE_SPIDER)
 				.build()
 		);
 		registry.register(DOLPHIN, DnaBuilder
 				.create(EntityType.DOLPHIN.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.setSpecial()
 				.addSourceMob(EntityType.DOLPHIN)
 				.build()
 		);
@@ -339,13 +334,11 @@ public class ModDna {
 		registry.register(GOAT, DnaBuilder
 				.create(EntityType.GOAT.getTranslationKey())
 				.setRarity(Rarity.UNCOMMON)
-				.setSpecial()
 				.addSourceMob(EntityType.GOAT)
 				.build()
 		);
 		registry.register(IRON_GOLEM, DnaBuilder
 				.create(EntityType.IRON_GOLEM.getTranslationKey())
-				.setSpecial()
 				.addSourceMob(EntityType.IRON_GOLEM)
 				.build()
 		);
@@ -357,7 +350,6 @@ public class ModDna {
 		);
 		registry.register(PANDA, DnaBuilder
 				.create(EntityType.PANDA.getTranslationKey())
-				.setSpecial()
 				.addSourceMob(EntityType.PANDA)
 				.build()
 		);
@@ -369,7 +361,6 @@ public class ModDna {
 		registry.register(WOLF, DnaBuilder
 				.create(EntityType.WOLF.getTranslationKey())
 				.setRarity(Rarity.UNCOMMON)
-				.setSpecial()
 				.addSourceMob(EntityType.WOLF)
 				.build()
 		);
@@ -381,42 +372,36 @@ public class ModDna {
 		registry.register(BLAZE, DnaBuilder
 				.create(EntityType.BLAZE.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.setSpecial()
 				.addSourceMob(EntityType.BLAZE)
 				.build()
 		);
 		registry.register(BREEZE, DnaBuilder
 				.create(EntityType.BREEZE.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.setSpecial()
 				.addSourceMob(EntityType.BREEZE)
 				.build()
 		);
 		registry.register(ELDER_GUARDIAN, DnaBuilder
 				.create(EntityType.ELDER_GUARDIAN.getTranslationKey())
 				.setRarity(Rarity.EPIC)
-				.setSpecial()
 				.addSourceMob(EntityType.ELDER_GUARDIAN)
 				.build()
 		);
 		registry.register(ENDERMITE, DnaBuilder
 				.create(EntityType.ENDERMITE.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.setSpecial()
 				.addSourceMob(EntityType.ENDERMITE)
 				.build()
 		);
 		registry.register(EVOKER, DnaBuilder
 				.create(EntityType.EVOKER.getTranslationKey())
 				.setRarity(Rarity.EPIC)
-				.setSpecial()
 				.addSourceMob(EntityType.EVOKER)
 				.build()
 		);
 		registry.register(GHAST, DnaBuilder
 				.create(EntityType.GHAST.getTranslationKey())
 				.setRarity(Rarity.EPIC)
-				.setSpecial()
 				.addSourceMob(EntityType.GHAST)
 				.build()
 		);
@@ -445,14 +430,12 @@ public class ModDna {
 		registry.register(PHANTOM, DnaBuilder
 				.create(EntityType.PHANTOM.getTranslationKey())
 				.setRarity(Rarity.UNCOMMON)
-				.setSpecial()
 				.addSourceMob(EntityType.PHANTOM)
 				.build()
 		);
 		registry.register(PIGLIN_BRUTE, DnaBuilder
 				.create(EntityType.PIGLIN_BRUTE.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.setSpecial()
 				.addSourceMob(EntityType.PIGLIN_BRUTE)
 				.build()
 		);
@@ -464,14 +447,12 @@ public class ModDna {
 		registry.register(RAVAGER, DnaBuilder
 				.create(EntityType.RAVAGER.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.setSpecial()
 				.addSourceMob(EntityType.RAVAGER)
 				.build()
 		);
 		registry.register(SHULKER, DnaBuilder
 				.create(EntityType.SHULKER.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.setSpecial()
 				.addSourceMob(EntityType.SHULKER)
 				.build()
 		);
@@ -489,14 +470,12 @@ public class ModDna {
 		registry.register(STRAY, DnaBuilder
 				.create(EntityType.STRAY.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.setSpecial()
 				.addSourceMob(EntityType.STRAY)
 				.build()
 		);
 		registry.register(VEX, DnaBuilder
 				.create(EntityType.VEX.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.setSpecial()
 				.addSourceMob(EntityType.VEX)
 				.build()
 		);
@@ -509,21 +488,18 @@ public class ModDna {
 		registry.register(WARDEN, DnaBuilder
 				.create(EntityType.WARDEN.getTranslationKey())
 				.setRarity(Rarity.EPIC)
-				.setSpecial()
 				.addSourceMob(EntityType.WANDERING_TRADER)
 				.build()
 		);
 		registry.register(WITCH, DnaBuilder
 				.create(EntityType.WITCH.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.setSpecial()
 				.addSourceMob(EntityType.WITCH)
 				.build()
 		);
 		registry.register(WITHER_SKELETON, DnaBuilder
 				.create(EntityType.WITHER_SKELETON.getTranslationKey())
 				.setRarity(Rarity.EPIC)
-				.setSpecial()
 				.addSourceMob(EntityType.WITHER_SKELETON)
 				.build()
 		);

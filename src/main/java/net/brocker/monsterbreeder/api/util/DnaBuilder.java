@@ -9,7 +9,6 @@ import java.util.List;
 
 public class DnaBuilder {
 	protected String name;
-	protected boolean special = false;
 	protected Rarity rarity = Rarity.COMMON;
 	protected Dna.Color color = Dna.Color.create("#ffffff", "#ffffff", "#ffffff", "#ffffff");
 	protected List<EntityType<?>> sourceMobs = new ArrayList<>();
@@ -24,15 +23,6 @@ public class DnaBuilder {
 
 	public static DnaBuilder create(String name) {
 		return new DnaBuilder(name);
-	}
-
-	/**
-	 * Makes the DNA special (look enchanted)
-	 * @return The current DNA builder
-	 */
-	public DnaBuilder setSpecial() {
-		this.special = true;
-		return this;
 	}
 
 	/**
@@ -64,6 +54,6 @@ public class DnaBuilder {
 	}
 
 	public Dna build() {
-		return new Dna(name, special, rarity, color, sourceMobs);
+		return new Dna(name, rarity, color, sourceMobs);
 	}
 }
