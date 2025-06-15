@@ -19,6 +19,8 @@ public class DnaRegistry {
 	private DnaRegistry() {}
 
 	public void register(@NotNull Identifier identifier, @NotNull Dna registryObject) {
+		if (registries.containsKey(identifier)) throw new RuntimeException(String.format("Duplicate DNA type of %s!", identifier));
+
 		MonsterBreeder.LOGGER.info("Registering DNA type of {}", identifier);
 		registries.put(Objects.requireNonNull(identifier), Objects.requireNonNull(registryObject));
 	}

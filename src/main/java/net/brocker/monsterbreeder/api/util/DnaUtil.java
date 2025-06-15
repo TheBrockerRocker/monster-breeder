@@ -32,7 +32,7 @@ public class DnaUtil {
 		return DnaRegistry.INSTANCE
 				.getKeySet()
 				.stream()
-				.filter(identifier -> DnaRegistry.INSTANCE.getValue(identifier).getSourceMob() == type)
+				.filter(identifier -> DnaRegistry.INSTANCE.getValue(identifier).getSourceMobs().contains(type))
 				.findFirst()
 				.orElse(null);
 	}

@@ -75,7 +75,7 @@ public class SyringeItem extends Item {
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         if (stack.isOf(ModItems.USED_SYRINGE)) {
             tooltip.add(Text.translatable("monsterbreeder.purity", DnaUtil.getPurity(stack)).formatted(Formatting.GRAY));
-            tooltip.add(Text.translatable("monsterbreeder.blood", DnaUtil.getDna(stack).getSourceMob().getName()).formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("monsterbreeder.blood", DnaUtil.getDna(stack).getSourceMobs().get(0).getName()).formatted(Formatting.GRAY));
         } else {
             tooltip.add(Text.translatable("monsterbreeder.click_to_extract").formatted(Formatting.GRAY));
         }

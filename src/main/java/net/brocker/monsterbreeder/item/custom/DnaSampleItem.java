@@ -1,9 +1,12 @@
 package net.brocker.monsterbreeder.item.custom;
 
 import net.brocker.monsterbreeder.api.Dna;
+import net.brocker.monsterbreeder.api.registry.DnaRegistry;
 import net.brocker.monsterbreeder.api.util.DnaUtil;
 import net.brocker.monsterbreeder.components.ModComponents;
 import net.brocker.monsterbreeder.item.ModItems;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
@@ -36,10 +39,10 @@ public class DnaSampleItem extends Item {
     public static ItemStack createItemStack(Identifier identifier, int count) {
         ItemStack stack = new ItemStack(ModItems.DNA_SAMPLE, count);
         stack.set(ModComponents.DNA_COMPONENT, identifier);
+        stack.set(DataComponentTypes.RARITY, DnaRegistry.INSTANCE.getValue(identifier).getRarity());
         return stack;
     }
 
-    /* Dynamic display name */
     @Override
     public Text getName(ItemStack stack) {
         return Text.translatable("item.monsterbreeder.dna_sample", DnaUtil.getDna(stack).getName());
@@ -53,6 +56,9 @@ public class DnaSampleItem extends Item {
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         Dna dna = DnaUtil.getDna(stack);
-        if (dna.getSourceMob() != null) tooltip.add(Text.translatable("monsterbreeder.dna_source", dna.getSourceMob().getName()).formatted(Formatting.GRAY));
+
+        for (EntityType<?> entityType : dna.getSourceMobs()) {
+            tooltip.add(Text.translatable("monsterbreeder.dna_source", entityType.getName()).formatted(Formatting.GRAY));
+        }
     }
 }
