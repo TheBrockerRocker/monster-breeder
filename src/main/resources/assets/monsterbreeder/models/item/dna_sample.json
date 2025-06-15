@@ -1,0 +1,9 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "monsterbreeder:item/dna_0",
+    "layer1": "monsterbreeder:item/dna_1",
+    "layer2": "monsterbreeder:item/dna_2",
+    "layer3": "monsterbreeder:item/dna_3"
+  }
+}
