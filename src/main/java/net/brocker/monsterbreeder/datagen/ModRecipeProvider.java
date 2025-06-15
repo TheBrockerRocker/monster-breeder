@@ -1,6 +1,9 @@
 package net.brocker.monsterbreeder.datagen;
 
 import net.brocker.monsterbreeder.MonsterBreeder;
+import net.brocker.monsterbreeder.api.datagen.BioReactionRecipeJsonBuilder;
+import net.brocker.monsterbreeder.block.ModBlocks;
+import net.brocker.monsterbreeder.dna.ModDna;
 import net.brocker.monsterbreeder.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -29,5 +32,9 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 				.input('N', Items.IRON_NUGGET)
 				.criterion(hasItem(Items.GLASS), conditionsFromItem(Items.GLASS))
 				.offerTo(exporter, Identifier.of(MonsterBreeder.MOD_ID, "syringe"));
+
+		BioReactionRecipeJsonBuilder.create(ModDna.SKELETON_HORSE, ModDna.HORSE, ModDna.SKELETON)
+				.criterion(hasItem(ModBlocks.BIO_REACTION_CHAMBER), conditionsFromItem(ModBlocks.BIO_REACTION_CHAMBER))
+				.offerTo(exporter, Identifier.of(MonsterBreeder.MOD_ID, "skeleton_horse_dna"));
 	}
 }

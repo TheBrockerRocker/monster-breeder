@@ -1,4 +1,4 @@
-package net.brocker.monsterbreeder.block.entity;
+package net.brocker.monsterbreeder.blockentity;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;

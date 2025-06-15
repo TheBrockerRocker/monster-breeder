@@ -2,7 +2,6 @@ package net.brocker.monsterbreeder.screen.custom;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.brocker.monsterbreeder.MonsterBreeder;
-import net.brocker.monsterbreeder.block.entity.custom.BioReactionChamberBlockEntity;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;

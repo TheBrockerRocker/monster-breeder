@@ -4,7 +4,6 @@ import net.brocker.monsterbreeder.MonsterBreeder;
 import net.brocker.monsterbreeder.api.Dna;
 import net.brocker.monsterbreeder.api.registry.DnaRegistry;
 import net.brocker.monsterbreeder.api.util.DnaBuilder;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
@@ -25,6 +24,7 @@ public class ModDna {
 	public static Identifier SNOW_GOLEM = Identifier.of(MonsterBreeder.MOD_ID, "snow_golem");
 	public static Identifier OCELOT = Identifier.of(MonsterBreeder.MOD_ID, "ocelot");
 	public static Identifier SNIFFER = Identifier.of(MonsterBreeder.MOD_ID, "sniffer");
+	public static Identifier HORSE = Identifier.of(MonsterBreeder.MOD_ID, "horse");
 	public static Identifier SKELETON_HORSE = Identifier.of(MonsterBreeder.MOD_ID, "skeleton_horse");
 	public static Identifier ARMADILLO = Identifier.of(MonsterBreeder.MOD_ID, "armadillo");
 	public static Identifier VILLAGER = Identifier.of(MonsterBreeder.MOD_ID, "villager");
@@ -169,6 +169,12 @@ public class ModDna {
 				.create(EntityType.SNIFFER.getTranslationKey())
 				.setRarity(Rarity.RARE)
 				.addSourceMob(EntityType.SNIFFER)
+				.build()
+		);
+		registry.register(HORSE, DnaBuilder
+				.create(EntityType.HORSE.getTranslationKey())
+				.setRarity(Rarity.UNCOMMON)
+				.addSourceMob(EntityType.HORSE)
 				.build()
 		);
 		registry.register(SKELETON_HORSE, DnaBuilder
