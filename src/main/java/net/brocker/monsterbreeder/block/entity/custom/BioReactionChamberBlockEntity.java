@@ -2,13 +2,11 @@ package net.brocker.monsterbreeder.block.entity.custom;
 
 import net.brocker.monsterbreeder.block.entity.ImplementedInventory;
 import net.brocker.monsterbreeder.block.entity.ModBlockEntities;
-import net.brocker.monsterbreeder.dna.ModDna;
 import net.brocker.monsterbreeder.item.ModItems;
 import net.brocker.monsterbreeder.screen.custom.BioReactorChamberScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
@@ -23,7 +21,6 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -116,9 +113,6 @@ public class BioReactionChamberBlockEntity extends BlockEntity implements Extend
         } else {
             resetProgress();
         }
-
-
-
     }
 
     private void resetProgress() {
@@ -132,7 +126,6 @@ public class BioReactionChamberBlockEntity extends BlockEntity implements Extend
         this.removeStack(INPUT_SLOT_1,1);
         this.removeStack(INPUT_SLOT_2,1);
         this.setStack(OUTPUT_SLOT, new ItemStack(output.getItem(), this.getStack(OUTPUT_SLOT).getCount() + output.getCount()));
-
     }
 
     private boolean hasCraftingFinished() {

@@ -14,7 +14,7 @@ public class MonsterBreederClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         HandledScreens.register(ModScreenHandlers.DNA_ALTAR_SCREEN_HANDLER, DnaAltarScreen::new);
-        HandledScreens.register(ModScreenHandlers.BIO_REACTOR_Chamber_SCREEN_HANDLER, BioReactorChamberScreen::new);
+        HandledScreens.register(ModScreenHandlers.BIO_REACTOR_CHAMBER_SCREEN_HANDLER, BioReactorChamberScreen::new);
 
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
             if (tintIndex > 3) return -1;

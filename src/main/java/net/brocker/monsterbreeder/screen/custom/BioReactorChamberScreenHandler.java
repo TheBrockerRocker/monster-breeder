@@ -24,7 +24,7 @@ public class BioReactorChamberScreenHandler extends ScreenHandler {
 
     public BioReactorChamberScreenHandler(int syncId, PlayerInventory playerInventory,
                                       BlockEntity blockEntity, PropertyDelegate arrayPropertyDelegate) {
-        super(ModScreenHandlers.BIO_REACTOR_Chamber_SCREEN_HANDLER, syncId);
+        super(ModScreenHandlers.BIO_REACTOR_CHAMBER_SCREEN_HANDLER, syncId);
         this.inventory = ((Inventory) blockEntity);
         this.blockEntity = ((BioReactionChamberBlockEntity) blockEntity);
         this.propertyDelegate = arrayPropertyDelegate;
