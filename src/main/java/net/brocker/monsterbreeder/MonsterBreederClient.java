@@ -4,6 +4,7 @@ import net.brocker.monsterbreeder.api.Dna;
 import net.brocker.monsterbreeder.api.util.DnaUtil;
 import net.brocker.monsterbreeder.item.ModItems;
 import net.brocker.monsterbreeder.screen.ModScreenHandlers;
+import net.brocker.monsterbreeder.screen.custom.BioReactorChamberScreen;
 import net.brocker.monsterbreeder.screen.custom.DnaAltarScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
@@ -13,6 +14,7 @@ public class MonsterBreederClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         HandledScreens.register(ModScreenHandlers.DNA_ALTAR_SCREEN_HANDLER, DnaAltarScreen::new);
+        HandledScreens.register(ModScreenHandlers.BIO_REACTOR_Chamber_SCREEN_HANDLER, BioReactorChamberScreen::new);
 
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
             if (tintIndex > 3) return -1;

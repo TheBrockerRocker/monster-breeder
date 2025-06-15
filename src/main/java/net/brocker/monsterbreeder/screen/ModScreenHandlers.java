@@ -1,6 +1,7 @@
 package net.brocker.monsterbreeder.screen;
 
 import net.brocker.monsterbreeder.MonsterBreeder;
+import net.brocker.monsterbreeder.screen.custom.BioReactorChamberScreenHandler;
 import net.brocker.monsterbreeder.screen.custom.DnaAltarScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 import net.minecraft.registry.Registries;
@@ -15,6 +16,10 @@ public class ModScreenHandlers {
     public static final ScreenHandlerType<DnaAltarScreenHandler> DNA_ALTAR_SCREEN_HANDLER =
             Registry.register(Registries.SCREEN_HANDLER, Identifier.of(MonsterBreeder.MOD_ID, "dna_altar_screen_handeler"),
                     new ExtendedScreenHandlerType<>(DnaAltarScreenHandler::new, BlockPos.PACKET_CODEC));
+
+    public static final ScreenHandlerType<BioReactorChamberScreenHandler> BIO_REACTOR_Chamber_SCREEN_HANDLER =
+            Registry.register(Registries.SCREEN_HANDLER, Identifier.of(MonsterBreeder.MOD_ID, "bio_reactor_screen_handeler"),
+                    new ExtendedScreenHandlerType<>(BioReactorChamberScreenHandler::new, BlockPos.PACKET_CODEC));
 
     public static void registerScreenHandelers(){}
 }

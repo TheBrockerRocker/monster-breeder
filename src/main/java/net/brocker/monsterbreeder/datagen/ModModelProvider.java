@@ -1,5 +1,6 @@
 package net.brocker.monsterbreeder.datagen;
 
+import net.brocker.monsterbreeder.block.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.BlockStateModelGenerator;
@@ -13,6 +14,8 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
         // blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.DNA_ALTAR);
+        //blockStateModelGenerator.registerItemModel(ModBlocks.DNA_ALTAR);
+        //blockStateModelGenerator.registerItemModel(ModBlocks.BIO_REACTION_CHAMBER);
     }
 
     @Override

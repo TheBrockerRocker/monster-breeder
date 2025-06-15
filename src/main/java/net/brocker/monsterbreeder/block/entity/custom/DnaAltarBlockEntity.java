@@ -54,7 +54,7 @@ public class DnaAltarBlockEntity extends BlockEntity implements ImplementedInven
 
     @Override
     public Text getDisplayName() {
-        return Text.literal("dna_altar");
+        return Text.translatable("block.monsterbreeder.dna_altar");
     }
 
     @Override
