@@ -4,6 +4,7 @@ import net.brocker.monsterbreeder.block.ModBlocks;
 import net.brocker.monsterbreeder.block.entity.ModBlockEntities;
 import net.brocker.monsterbreeder.components.ModComponents;
 import net.brocker.monsterbreeder.dna.ModDna;
+import net.brocker.monsterbreeder.integrations.jei.JeiIntegration;
 import net.brocker.monsterbreeder.item.ModItems;
 import net.brocker.monsterbreeder.screen.ModScreenHandlers;
 import net.fabricmc.api.ModInitializer;
@@ -22,5 +23,7 @@ public class MonsterBreeder implements ModInitializer{
         ModScreenHandlers.registerScreenHandelers();
         ModComponents.registerModComponets();
         ModDna.registerModDna();
+
+        if (JeiIntegration.isEnabled()) JeiIntegration.initialize();
     }
 }
