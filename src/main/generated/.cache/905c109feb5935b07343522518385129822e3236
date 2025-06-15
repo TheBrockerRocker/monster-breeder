@@ -1,2 +1,5 @@
-// 1.21.1	2025-06-14T20:01:15.4362508	monster breeder/Advancements
-c78170ac7dd8c71e1516d4bf8d0f26403befae0a data\monsterbreeder\advancement\extract_blood.json
+// 1.21.1	2025-06-15T14:33:17.565181	monster breeder/Advancements
+3c5fbad797def3a56618a1c3b473d942f6aef39b data\monsterbreeder\advancement\extract_pure_blood.json
+e9fee03caf98f662e62bf829e28c02946d3872a2 data\monsterbreeder\advancement\core.json
+463cd17a0cfd072c97b0dbf0bc51c14bb962434e data\monsterbreeder\advancement\extract_blood_from_zoglin.json
+5986025a1e94f5d3825f8d72bc13fb790fc01b72 data\monsterbreeder\advancement\extract_blood.json

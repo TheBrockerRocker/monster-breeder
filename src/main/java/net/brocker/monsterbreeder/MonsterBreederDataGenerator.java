@@ -2,6 +2,7 @@ package net.brocker.monsterbreeder;
 
 import net.brocker.monsterbreeder.datagen.ModAdvancementProvider;
 import net.brocker.monsterbreeder.datagen.ModModelProvider;
+import net.brocker.monsterbreeder.datagen.ModRecipeProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
@@ -12,5 +13,6 @@ public class MonsterBreederDataGenerator implements DataGeneratorEntrypoint {
 
 		pack.addProvider(ModModelProvider::new);
 		pack.addProvider(ModAdvancementProvider::new);
+		pack.addProvider(ModRecipeProvider::new);
 	}
 }

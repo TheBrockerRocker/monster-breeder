@@ -1,9 +1,13 @@
 package net.brocker.monsterbreeder.item.custom;
 
+import net.brocker.monsterbreeder.MonsterBreeder;
+import net.brocker.monsterbreeder.api.registry.DnaRegistry;
 import net.brocker.monsterbreeder.api.util.DnaUtil;
 import net.brocker.monsterbreeder.components.ModComponents;
 import net.brocker.monsterbreeder.dna.ModDna;
 import net.brocker.monsterbreeder.item.ModItems;
+import net.brocker.monsterbreeder.util.AdvancementUtil;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.MobEntity;
@@ -11,6 +15,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
@@ -25,6 +30,27 @@ public class SyringeItem extends Item {
         super(new Settings()
                 .maxCount(1)
         );
+    }
+
+    /**
+     * Creates an item stack with a certain dna and count of 1.
+     * @param identifier The identifier of the dna type, should be registered.
+     */
+    public static ItemStack createItemStack(Identifier identifier, int purity) {
+        return createItemStack(identifier, purity, 1);
+    }
+
+    /**
+     * Creates an item stack with a certain dna and count.
+     * @param identifier The identifier of the dna type, should be registered.
+     * @param count The amount of samples in the item stack.
+     */
+    public static ItemStack createItemStack(Identifier identifier, int purity, int count) {
+        ItemStack stack = new ItemStack(ModItems.USED_SYRINGE, count);
+        stack.set(ModComponents.DNA_COMPONENT, identifier);
+        DnaUtil.setPurity(stack, purity);
+        stack.set(DataComponentTypes.RARITY, DnaRegistry.INSTANCE.getValue(identifier).getRarity());
+        return stack;
     }
 
     @Override
@@ -56,7 +82,7 @@ public class SyringeItem extends Item {
             DnaUtil.setDna(stack, dnaIdentifier);
 
             int purity = DnaUtil.getPurity(stack);
-            if (purity == 100) {
+            if (purity >= 100) {
                 player.sendMessage(Text.translatable("monsterbreeder.max_purity").formatted(Formatting.RED), false);
                 return ActionResult.FAIL;
             }
@@ -64,6 +90,16 @@ public class SyringeItem extends Item {
 
             player.setStackInHand(hand, stack.withItem(ModItems.USED_SYRINGE));
             player.sendMessage(Text.translatable("monsterbreeder.extracted_from", mobName), false);
+
+            if (player instanceof ServerPlayerEntity serverPlayer) {
+                if (mobType == EntityType.ZOGLIN) {
+                    AdvancementUtil.grant(serverPlayer, AdvancementUtil.get(serverPlayer.server, Identifier.of(MonsterBreeder.MOD_ID, "extract_blood_from_zoglin")));
+                }
+                if (purity + 10 >= 100) {
+                    AdvancementUtil.grant(serverPlayer, AdvancementUtil.get(serverPlayer.server, Identifier.of(MonsterBreeder.MOD_ID, "extract_pure_blood")));
+                }
+            }
+
             return ActionResult.SUCCESS;
         } else {
             player.sendMessage(Text.translatable("monsterbreeder.mobs_only").formatted(Formatting.RED), false);

@@ -16,6 +16,7 @@ public class ModDna {
 	public static Identifier ZOMBIE = Identifier.of(MonsterBreeder.MOD_ID, "zombie");
 	public static Identifier SKELETON = Identifier.of(MonsterBreeder.MOD_ID, "skeleton");
 	public static Identifier CREEPER = Identifier.of(MonsterBreeder.MOD_ID, "creeper");
+	public static Identifier SPIDER = Identifier.of(MonsterBreeder.MOD_ID, "spider");
 	public static Identifier BOGGED = Identifier.of(MonsterBreeder.MOD_ID, "bogged");
 	public static Identifier BAT = Identifier.of(MonsterBreeder.MOD_ID, "bat");
 	public static Identifier FROG = Identifier.of(MonsterBreeder.MOD_ID, "frog");
@@ -112,11 +113,18 @@ public class ModDna {
 		);
 		registry.register(CREEPER, DnaBuilder
 				.create(EntityType.CREEPER.getTranslationKey())
+				.setColor("#43da1b", "#43da1b", "#439f2b", "#439f2b")
 				.addSourceMob(EntityType.CREEPER)
+				.build()
+		);
+		registry.register(SPIDER, DnaBuilder
+				.create(EntityType.SPIDER.getTranslationKey())
+				.addSourceMob(EntityType.SPIDER)
 				.build()
 		);
 		registry.register(BAT, DnaBuilder
 				.create(EntityType.BAT.getTranslationKey())
+				.setColor("#a37402", "#a37402", "#6d500a", "#6d500a")
 				.addSourceMob(EntityType.BAT)
 				.build()
 		);
