@@ -5,6 +5,7 @@ import net.brocker.monsterbreeder.block.entity.ModBlockEntities;
 import net.brocker.monsterbreeder.components.ModComponents;
 import net.brocker.monsterbreeder.dna.ModDna;
 import net.brocker.monsterbreeder.item.ModItems;
+import net.brocker.monsterbreeder.recipe.ModRecipes;
 import net.brocker.monsterbreeder.screen.ModScreenHandlers;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -21,6 +22,7 @@ public class MonsterBreeder implements ModInitializer{
         ModBlockEntities.registerBlockEntities();
         ModScreenHandlers.registerScreenHandelers();
         ModComponents.registerModComponets();
+        ModRecipes.registerRecipes();
         ModDna.registerModDna();
     }
 }
