@@ -26,6 +26,9 @@
     ],
     "fabric-datagen": [
       "net.brocker.monsterbreeder.MonsterBreederDataGenerator"
+    ],
+    "jei_mod_plugin": [
+      "net.brocker.monsterbreeder.integrations.jei.JeiPlugin"
     ]
   },
   "mixins": [

@@ -6,6 +6,7 @@ import net.brocker.monsterbreeder.command.FusionTestCommand;
 import net.brocker.monsterbreeder.command.argument.DnaIdentifierArgumentType;
 import net.brocker.monsterbreeder.components.ModComponents;
 import net.brocker.monsterbreeder.dna.ModDna;
+import net.brocker.monsterbreeder.integrations.jei.JeiIntegration;
 import net.brocker.monsterbreeder.item.ModItems;
 import net.brocker.monsterbreeder.recipe.ModRecipes;
 import net.brocker.monsterbreeder.screen.ModScreenHandlers;
@@ -37,5 +38,7 @@ public class MonsterBreeder implements ModInitializer{
                 ConstantArgumentSerializer.of(DnaIdentifierArgumentType::new)
         );
         CommandRegistrationCallback.EVENT.register(FusionTestCommand::register);
+
+        if (JeiIntegration.isEnabled()) JeiIntegration.initialize();
     }
 }
