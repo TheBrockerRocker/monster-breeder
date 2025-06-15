@@ -92,9 +92,16 @@ public class ModDna {
 		MonsterBreeder.LOGGER.info("Registering ModDna for " + MonsterBreeder.MOD_ID);
 
 		DnaRegistry registry = DnaRegistry.INSTANCE;
-		registry.register(UNKNOWN, new Dna("dna.monsterbreeder.unknown", false, Rarity.COMMON, new ArrayList<>()));
+		registry.register(UNKNOWN, new Dna(
+				"dna.monsterbreeder.unknown",
+				false,
+				Rarity.COMMON,
+				Dna.Color.create("#ffffff", "#ffffff", "#ffffff", "#ffffff"),
+				new ArrayList<>()
+		));
 		registry.register(ZOMBIE, DnaBuilder
 				.create(EntityType.ZOMBIE.getTranslationKey())
+				.setColor("#06891b", "#06891b", "#2493bc", "#2493bc")
 				.addSourceMob(EntityType.ZOMBIE)
 				.build()
 		);
