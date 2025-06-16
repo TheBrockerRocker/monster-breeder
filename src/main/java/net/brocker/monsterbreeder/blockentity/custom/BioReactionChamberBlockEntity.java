@@ -45,7 +45,7 @@ public class BioReactionChamberBlockEntity extends BlockEntity implements Extend
     private int maxProgress = 100;
 
     public BioReactionChamberBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.BIO_REACTION_CHAMBER_BE, pos, state);
+        super(ModBlockEntities.BIO_REACTION_CHAMBER, pos, state);
 
         this.propertyDelegate = new PropertyDelegate() {
             @Override
@@ -172,11 +172,6 @@ public class BioReactionChamberBlockEntity extends BlockEntity implements Extend
         int currentCount = this.getStack(OUTPUT_SLOT).getCount();
 
         return maxCount >= currentCount + count;
-    }
-
-    @Override
-    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction side) {
-        return ImplementedInventory.super.canInsert(slot, stack, side) && stack.isOf(ModItems.DNA_SAMPLE) && slot != OUTPUT_SLOT;
     }
 
     @Nullable

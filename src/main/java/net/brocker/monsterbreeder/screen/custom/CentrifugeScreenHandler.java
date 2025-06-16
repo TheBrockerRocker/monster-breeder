@@ -9,20 +9,18 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.math.BlockPos;
-import org.jetbrains.annotations.Nullable;
 
-public class DnaAltarScreenHandler extends ScreenHandler {
+public class CentrifugeScreenHandler extends ScreenHandler {
     private final Inventory inventory;
 
-    public DnaAltarScreenHandler(int syncId, PlayerInventory playerInventory, BlockPos pos) {
+    public CentrifugeScreenHandler(int syncId, PlayerInventory playerInventory, BlockPos pos) {
         this(syncId, playerInventory, playerInventory.player.getWorld().getBlockEntity(pos));
     }
 
-    public DnaAltarScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity) {
-        super(ModScreenHandlers.DNA_ALTAR_SCREEN_HANDLER, syncId);
+    public CentrifugeScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity) {
+        super(ModScreenHandlers.CENTRIFUGE_SCREEN_HANDLER, syncId);
         this.inventory =((Inventory) blockEntity);
 
         this.addSlot(new FilteredSlot(inventory, 0, 80 ,36, this::canInsertIntoSlot));
@@ -77,6 +75,6 @@ public class DnaAltarScreenHandler extends ScreenHandler {
 
     @Override
     public boolean canInsertIntoSlot(ItemStack stack, Slot slot) {
-        return stack.isOf(ModItems.DNA_SAMPLE);
+        return stack.isOf(ModItems.USED_SYRINGE);
     }
 }
