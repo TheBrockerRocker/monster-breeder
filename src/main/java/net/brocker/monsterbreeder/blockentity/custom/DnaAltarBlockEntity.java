@@ -1,12 +1,11 @@
-package net.brocker.monsterbreeder.block.entity.custom;
+package net.brocker.monsterbreeder.blockentity.custom;
 
-import net.brocker.monsterbreeder.block.entity.ImplementedInventory;
-import net.brocker.monsterbreeder.block.entity.ModBlockEntities;
+import net.brocker.monsterbreeder.blockentity.ImplementedInventory;
+import net.brocker.monsterbreeder.blockentity.ModBlockEntities;
 import net.brocker.monsterbreeder.screen.custom.DnaAltarScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.component.type.NbtComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;

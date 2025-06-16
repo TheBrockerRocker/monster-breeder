@@ -49,11 +49,6 @@ public class DnaSampleItem extends Item {
     }
 
     @Override
-    public boolean hasGlint(ItemStack stack) {
-        return DnaUtil.getDna(stack).isSpecial();
-    }
-
-    @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         Dna dna = DnaUtil.getDna(stack);
 

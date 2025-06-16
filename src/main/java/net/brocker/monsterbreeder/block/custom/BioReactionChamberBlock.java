@@ -1,8 +1,8 @@
 package net.brocker.monsterbreeder.block.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.brocker.monsterbreeder.block.entity.ModBlockEntities;
-import net.brocker.monsterbreeder.block.entity.custom.BioReactionChamberBlockEntity;
+import net.brocker.monsterbreeder.blockentity.ModBlockEntities;
+import net.brocker.monsterbreeder.blockentity.custom.BioReactionChamberBlockEntity;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
@@ -24,7 +24,6 @@ import org.jetbrains.annotations.Nullable;
 public class BioReactionChamberBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final MapCodec<BioReactionChamberBlock> CODEC = BioReactionChamberBlock.createCodec(BioReactionChamberBlock::new);
 
-
     public BioReactionChamberBlock(Settings settings) {
         super(settings);
     }
@@ -43,8 +42,6 @@ public class BioReactionChamberBlock extends BlockWithEntity implements BlockEnt
     protected BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
     }
-
-
 
     @Override
     protected void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
@@ -73,13 +70,7 @@ public class BioReactionChamberBlock extends BlockWithEntity implements BlockEnt
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        if(world.isClient()) {
-            return null;
-        }
-
-        return validateTicker(type, ModBlockEntities.BIO_REACTION_CHAMBER_BE,
+        return world.isClient() ? null : validateTicker(type, ModBlockEntities.BIO_REACTION_CHAMBER_BE,
                 (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
-
-
 }

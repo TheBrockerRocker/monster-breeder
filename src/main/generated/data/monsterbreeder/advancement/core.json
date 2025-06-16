@@ -1,0 +1,27 @@
+{
+  "criteria": {
+    "play_the_game": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "description": "Start breeding monsters!",
+    "hidden": true,
+    "icon": {
+      "count": 1,
+      "id": "monsterbreeder:dna_altar"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "itemGroup.monsterbreeder"
+    }
+  },
+  "requirements": [
+    [
+      "play_the_game"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

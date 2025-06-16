@@ -1,7 +1,7 @@
 package net.brocker.monsterbreeder.block.custom;
 
 import com.mojang.serialization.MapCodec;
-import net.brocker.monsterbreeder.block.entity.custom.DnaAltarBlockEntity;
+import net.brocker.monsterbreeder.blockentity.custom.DnaAltarBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;

@@ -1,6 +1,6 @@
 package net.brocker.monsterbreeder.screen.custom;
 
-import net.brocker.monsterbreeder.block.entity.custom.BioReactionChamberBlockEntity;
+import net.brocker.monsterbreeder.blockentity.custom.BioReactionChamberBlockEntity;
 import net.brocker.monsterbreeder.screen.ModScreenHandlers;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -24,7 +24,7 @@ public class BioReactorChamberScreenHandler extends ScreenHandler {
 
     public BioReactorChamberScreenHandler(int syncId, PlayerInventory playerInventory,
                                       BlockEntity blockEntity, PropertyDelegate arrayPropertyDelegate) {
-        super(ModScreenHandlers.BIO_REACTOR_Chamber_SCREEN_HANDLER, syncId);
+        super(ModScreenHandlers.BIO_REACTOR_CHAMBER_SCREEN_HANDLER, syncId);
         this.inventory = ((Inventory) blockEntity);
         this.blockEntity = ((BioReactionChamberBlockEntity) blockEntity);
         this.propertyDelegate = arrayPropertyDelegate;

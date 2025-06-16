@@ -9,7 +9,6 @@ import java.util.List;
 
 public class Dna {
 	protected final String name;
-	protected final boolean special;
 	protected final Rarity rarity;
 	protected final Color color;
 	protected final List<EntityType<?>> sourceMobs;
@@ -20,9 +19,8 @@ public class Dna {
 	 * @param special Should the item look enchanted?
 	 * @param sourceMob The mob that this DNA can be extracted from.
 	 */
-	public Dna(String name, boolean special, Rarity rarity, Color color, List<EntityType<?>> sourceMobs) {
+	public Dna(String name, Rarity rarity, Color color, List<EntityType<?>> sourceMobs) {
 		this.name = name;
-		this.special = special;
 		this.rarity = rarity;
 		this.color = color;
 		this.sourceMobs = sourceMobs;
@@ -30,9 +28,6 @@ public class Dna {
 
 	public MutableText getName() {
 		return Text.translatable(name);
-	}
-	public boolean isSpecial() {
-		return special;
 	}
 	public Rarity getRarity() {
 		return rarity;

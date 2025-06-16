@@ -1,33 +1,37 @@
-package net.brocker.monsterbreeder.block.entity.custom;
+package net.brocker.monsterbreeder.blockentity.custom;
 
-import net.brocker.monsterbreeder.block.entity.ImplementedInventory;
-import net.brocker.monsterbreeder.block.entity.ModBlockEntities;
-import net.brocker.monsterbreeder.dna.ModDna;
+import net.brocker.monsterbreeder.blockentity.ImplementedInventory;
+import net.brocker.monsterbreeder.blockentity.ModBlockEntities;
 import net.brocker.monsterbreeder.item.ModItems;
+import net.brocker.monsterbreeder.item.custom.DnaSampleItem;
+import net.brocker.monsterbreeder.recipe.BioReactionRecipe;
+import net.brocker.monsterbreeder.recipe.BioReactionRecipeInput;
+import net.brocker.monsterbreeder.recipe.ModRecipes;
 import net.brocker.monsterbreeder.screen.custom.BioReactorChamberScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class BioReactionChamberBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory<BlockPos>, ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
@@ -116,9 +120,6 @@ public class BioReactionChamberBlockEntity extends BlockEntity implements Extend
         } else {
             resetProgress();
         }
-
-
-
     }
 
     private void resetProgress() {
@@ -127,12 +128,14 @@ public class BioReactionChamberBlockEntity extends BlockEntity implements Extend
     }
 
     private void craftItem() {
-        ItemStack output = new ItemStack(ModItems.SYRINGE, 1);
+        Optional<RecipeEntry<BioReactionRecipe>> recipe = getCurrentRecipe();
+        ItemStack output = DnaSampleItem.createItemStack(recipe.get().value().output());
 
         this.removeStack(INPUT_SLOT_1,1);
         this.removeStack(INPUT_SLOT_2,1);
-        this.setStack(OUTPUT_SLOT, new ItemStack(output.getItem(), this.getStack(OUTPUT_SLOT).getCount() + output.getCount()));
 
+        if (this.getStack(OUTPUT_SLOT).isEmpty()) this.setStack(OUTPUT_SLOT, output);
+            else this.getStack(OUTPUT_SLOT).setCount(this.getStack(OUTPUT_SLOT).getCount() + 1);
     }
 
     private boolean hasCraftingFinished() {
@@ -143,13 +146,21 @@ public class BioReactionChamberBlockEntity extends BlockEntity implements Extend
         this.progress++;
     }
 
-    private boolean hasRecipe() { // will make it a recipe type later
-        Item input1 = ModItems.DNA_SAMPLE;
-        Item input2 = ModItems.DNA_SAMPLE;
-        ItemStack output = new ItemStack(ModItems.SYRINGE, 1);
+    private boolean hasRecipe() {
+        Optional<RecipeEntry<BioReactionRecipe>> recipe = getCurrentRecipe();
+        if (recipe.isEmpty()) return false;
 
-        return this.getStack(INPUT_SLOT_1).isOf(input1) && this.getStack(INPUT_SLOT_2).isOf(input2)
-                && canInsertItemIntoOutputSlot(output) && canInsertAmountIntoOutputSlot(output.getCount());
+        ItemStack output = DnaSampleItem.createItemStack(recipe.get().value().output());
+        return canInsertItemIntoOutputSlot(output) && canInsertAmountIntoOutputSlot(output.getCount());
+    }
+
+    private Optional<RecipeEntry<BioReactionRecipe>> getCurrentRecipe() {
+        return this.getWorld().getRecipeManager().getFirstMatch(
+                ModRecipes.BIO_REACTION_TYPE,
+                new BioReactionRecipeInput(
+                        this.getStack(INPUT_SLOT_1), this.getStack(INPUT_SLOT_2)
+                ),
+                this.getWorld());
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {
@@ -157,10 +168,15 @@ public class BioReactionChamberBlockEntity extends BlockEntity implements Extend
     }
 
     private boolean canInsertAmountIntoOutputSlot(int count) {
-        int maxCount = this.getStack(OUTPUT_SLOT).isEmpty() ? 64 : this.getStack(OUTPUT_SLOT).getMaxCount();
+        int maxCount = ModItems.DNA_SAMPLE.getMaxCount();
         int currentCount = this.getStack(OUTPUT_SLOT).getCount();
 
         return maxCount >= currentCount + count;
+    }
+
+    @Override
+    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction side) {
+        return ImplementedInventory.super.canInsert(slot, stack, side) && stack.isOf(ModItems.DNA_SAMPLE) && slot != OUTPUT_SLOT;
     }
 
     @Nullable
