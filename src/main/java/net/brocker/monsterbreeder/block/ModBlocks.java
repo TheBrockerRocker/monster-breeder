@@ -19,7 +19,7 @@ public class ModBlocks {
             new DnaAltarBlock(AbstractBlock.Settings.create().nonOpaque()));
 
     public static final Block BIO_REACTION_CHAMBER = registerBlock("bio_reaction_chamber",
-            new BioReactionChamberBlock(AbstractBlock.Settings.create()));
+            new BioReactionChamberBlock(AbstractBlock.Settings.create().nonOpaque()));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
