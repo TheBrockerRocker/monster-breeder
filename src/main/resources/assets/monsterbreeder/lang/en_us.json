@@ -10,6 +10,8 @@
 
     "dna.monsterbreeder.unknown": "Unknown",
 
+    "monsterbreeder.jei.bio_reaction": "Bio-Reaction",
+
     "monsterbreeder.blood": "%s Blood",
     "monsterbreeder.dna": "%s DNA",
     "monsterbreeder.dna_source": "Can be obtained from %s",

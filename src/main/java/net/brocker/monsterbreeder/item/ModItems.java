@@ -3,6 +3,7 @@ package net.brocker.monsterbreeder.item;
 import net.brocker.monsterbreeder.MonsterBreeder;
 import net.brocker.monsterbreeder.api.registry.DnaRegistry;
 import net.brocker.monsterbreeder.block.ModBlocks;
+import net.brocker.monsterbreeder.dna.ModDna;
 import net.brocker.monsterbreeder.item.custom.DnaSampleItem;
 import net.brocker.monsterbreeder.item.custom.SyringeItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
@@ -30,7 +31,7 @@ public class ModItems {
                 entries.add(new ItemStack(ModBlocks.DNA_ALTAR));
                 entries.add(new ItemStack(ModBlocks.BIO_REACTION_CHAMBER));
                 entries.add(new ItemStack(SYRINGE));
-                DnaRegistry.INSTANCE.getKeySet().forEach(identifier -> entries.add(DnaSampleItem.createItemStack(identifier)));
+                DnaRegistry.INSTANCE.getKeySet().stream().filter(identifier -> !identifier.equals(ModDna.UNKNOWN)).forEach(identifier -> entries.add(DnaSampleItem.createItemStack(identifier)));
             })
             .build();
 
