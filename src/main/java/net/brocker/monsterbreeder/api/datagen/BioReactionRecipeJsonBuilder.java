@@ -17,11 +17,7 @@ public class BioReactionRecipeJsonBuilder {
 	private final Identifier output;
 	private final Identifier input1;
 	private final Identifier input2;
-
-	private final Map<String, AdvancementCriterion<?>> criteria = new LinkedHashMap();
-	@Nullable
-	private String group;
-	private boolean showNotification = true;
+	private final Map<String, AdvancementCriterion<?>> criteria = new LinkedHashMap<>();
 
 	private BioReactionRecipeJsonBuilder(Identifier output, Identifier input1, Identifier input2) {
 		this.output = output;
@@ -38,16 +34,6 @@ public class BioReactionRecipeJsonBuilder {
 		return this;
 	}
 
-	public BioReactionRecipeJsonBuilder group(@Nullable String string) {
-		this.group = string;
-		return this;
-	}
-
-	public BioReactionRecipeJsonBuilder showNotification(boolean showNotification) {
-		this.showNotification = showNotification;
-		return this;
-	}
-
 	public void offerTo(RecipeExporter exporter, Identifier recipeId) {
 		this.validate(recipeId);
 		Advancement.Builder builder = exporter.getAdvancementBuilder()
@@ -55,7 +41,7 @@ public class BioReactionRecipeJsonBuilder {
 				.rewards(AdvancementRewards.Builder.recipe(recipeId))
 				.criteriaMerger(AdvancementRequirements.CriterionMerger.OR);
 		this.criteria.forEach(builder::criterion);
-		BioReactionRecipe recipe = new BioReactionRecipe(input1, input2, output, showNotification, group);
+		BioReactionRecipe recipe = new BioReactionRecipe(input1, input2, output);
 		exporter.accept(recipeId, recipe, builder.build(recipeId.withPrefixedPath("recipes/dna/")));
 	}
 

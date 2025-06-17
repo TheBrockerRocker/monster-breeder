@@ -1,6 +1,5 @@
 package net.brocker.monsterbreeder.recipe;
 
-import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.brocker.monsterbreeder.api.util.DnaUtil;
@@ -8,7 +7,6 @@ import net.brocker.monsterbreeder.item.custom.DnaSampleItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.RegistryByteBuf;
 import net.minecraft.network.codec.PacketCodec;
-import net.minecraft.network.codec.PacketCodecs;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
@@ -18,9 +16,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
-import java.util.Objects;
-
-public record BioReactionRecipe(Identifier inputItem1, Identifier inputItem2, Identifier output, boolean showNotification, String group) implements Recipe<BioReactionRecipeInput> {
+public record BioReactionRecipe(Identifier inputItem1, Identifier inputItem2, Identifier output) implements Recipe<BioReactionRecipeInput> {
 	@Override
 	public DefaultedList<Ingredient> getIngredients() {
 		return DefaultedList.of();
@@ -63,21 +59,19 @@ public record BioReactionRecipe(Identifier inputItem1, Identifier inputItem2, Id
 
 	@Override
 	public boolean showNotification() {
-		return showNotification;
+		return true;
 	}
 
 	@Override
 	public String getGroup() {
-		return Objects.requireNonNullElse(group, "");
+		return "";
 	}
 
 	public static class Serializer implements RecipeSerializer<BioReactionRecipe> {
 		public static final MapCodec<BioReactionRecipe> CODEC = RecordCodecBuilder.mapCodec(inst -> inst.group(
 				Identifier.CODEC.fieldOf("ingredient1").forGetter(BioReactionRecipe::inputItem1),
 				Identifier.CODEC.fieldOf("ingredient2").forGetter(BioReactionRecipe::inputItem2),
-				Identifier.CODEC.fieldOf("result").forGetter(BioReactionRecipe::output),
-				Codec.BOOL.fieldOf("showNotification").forGetter(BioReactionRecipe::showNotification),
-				Codec.STRING.fieldOf("group").forGetter(BioReactionRecipe::getGroup)
+				Identifier.CODEC.fieldOf("result").forGetter(BioReactionRecipe::output)
 		).apply(inst, BioReactionRecipe::new));
 
 		public static final PacketCodec<RegistryByteBuf, BioReactionRecipe> STREAM_CODEC =
@@ -85,8 +79,6 @@ public record BioReactionRecipe(Identifier inputItem1, Identifier inputItem2, Id
 						Identifier.PACKET_CODEC, BioReactionRecipe::inputItem1,
 						Identifier.PACKET_CODEC, BioReactionRecipe::inputItem2,
 						Identifier.PACKET_CODEC, BioReactionRecipe::output,
-						PacketCodecs.BOOL, BioReactionRecipe::showNotification,
-						PacketCodecs.STRING, BioReactionRecipe::getGroup,
 						BioReactionRecipe::new);
 
 		@Override

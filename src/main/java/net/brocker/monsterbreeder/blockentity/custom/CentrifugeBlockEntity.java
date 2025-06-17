@@ -2,6 +2,7 @@ package net.brocker.monsterbreeder.blockentity.custom;
 
 import net.brocker.monsterbreeder.blockentity.ImplementedInventory;
 import net.brocker.monsterbreeder.blockentity.ModBlockEntities;
+import net.brocker.monsterbreeder.screen.custom.CentrifugeScreenHandler;
 import net.brocker.monsterbreeder.screen.custom.DnaAltarScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
@@ -22,11 +23,11 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.Nullable;
 
-public class DnaAltarBlockEntity extends BlockEntity implements ImplementedInventory, ExtendedScreenHandlerFactory<BlockPos> {
+public class CentrifugeBlockEntity extends BlockEntity implements ImplementedInventory, ExtendedScreenHandlerFactory<BlockPos> {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
 
-    public DnaAltarBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.DNA_ALTAR, pos, state);
+    public CentrifugeBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.CENTRIFUGE, pos, state);
     }
 
     @Override
@@ -53,12 +54,12 @@ public class DnaAltarBlockEntity extends BlockEntity implements ImplementedInven
 
     @Override
     public Text getDisplayName() {
-        return Text.translatable("block.monsterbreeder.dna_altar");
+        return Text.translatable("block.monsterbreeder.centrifuge");
     }
 
     @Override
     public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        return new DnaAltarScreenHandler(syncId, playerInventory, this.pos);
+        return new CentrifugeScreenHandler(syncId, playerInventory, this.pos);
     }
 
     @Nullable

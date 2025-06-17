@@ -70,7 +70,7 @@ public class BioReactionChamberBlock extends BlockWithEntity implements BlockEnt
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return world.isClient() ? null : validateTicker(type, ModBlockEntities.BIO_REACTION_CHAMBER_BE,
+        return world.isClient() ? null : validateTicker(type, ModBlockEntities.BIO_REACTION_CHAMBER,
                 (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 }

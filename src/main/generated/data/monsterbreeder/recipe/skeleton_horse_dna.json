@@ -1,8 +1,6 @@
 {
   "type": "monsterbreeder:bio_reaction",
-  "group": "",
   "ingredient1": "monsterbreeder:horse",
   "ingredient2": "monsterbreeder:skeleton",
-  "result": "monsterbreeder:skeleton_horse",
-  "showNotification": true
+  "result": "monsterbreeder:skeleton_horse"
 }
