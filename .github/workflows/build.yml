@@ -40,6 +40,7 @@ jobs:
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - name: Upload Mod Files to Release
         uses: svenstaro/upload-release-action@v2
+        if: github.ref == 'refs/heads/master'
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: build/libs/*
