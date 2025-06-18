@@ -33,7 +33,7 @@ public class BioReactorChamberScreenHandler extends ScreenHandler {
 
         this.addSlot(new FilteredSlot(inventory, 0, 15, 16, this::canInsertIntoSlot));
         this.addSlot(new FilteredSlot(inventory, 1, 15, 52, this::canInsertIntoSlot));
-        this.addSlot(new FilteredSlot(inventory, 2, 146, 39, this::canInsertIntoSlot));
+        this.addSlot(new FilteredSlot(inventory, 2, 146, 34, this::canInsertIntoSlot));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);

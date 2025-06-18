@@ -7,9 +7,11 @@
 
     "block.monsterbreeder.dna_altar": "DNA Altar",
     "block.monsterbreeder.centrifuge": "Centrifuge",
-    "block.monsterbreeder.bio_reaction_chamber": "Bio Reaction Chamber",
+    "block.monsterbreeder.bio_reaction_chamber": "Bio-Reaction Chamber",
 
     "dna.monsterbreeder.unknown": "Unknown",
+
+    "monsterbreeder.jei.bio_reaction": "Bio-Reaction",
 
     "monsterbreeder.blood": "%s Blood",
     "monsterbreeder.dna": "%s DNA",
