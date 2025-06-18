@@ -20,10 +20,17 @@ public class BioReactionRecipeCategory implements IRecipeCategory<BioReactionRec
 			BioReactionRecipe.class
 	);
 
+	public static final Identifier TEXTURE = Identifier.of(MonsterBreeder.MOD_ID,
+			"textures/gui/bio_reaction_chamber/jei.png");
+
 	private final IDrawable ICON;
+	private final IDrawable BACKGROUND;
 
 	public BioReactionRecipeCategory(IGuiHelper guiHelper) {
 		ICON = guiHelper.createDrawableItemLike(ModBlocks.BIO_REACTION_CHAMBER);
+		BACKGROUND = guiHelper.drawableBuilder(TEXTURE, 0, 0, 176, 83)
+				.setTextureSize(176, 83)
+				.build();
 	}
 
 	/**
@@ -61,13 +68,18 @@ public class BioReactionRecipeCategory implements IRecipeCategory<BioReactionRec
 	}
 
 	@Override
+	public @Nullable IDrawable getBackground() {
+		return BACKGROUND;
+	}
+
+	@Override
 	public int getWidth() {
-		return 160;
+		return 176;
 	}
 
 	@Override
 	public int getHeight() {
-		return 80;
+		return 83;
 	}
 
 	/**
@@ -81,8 +93,8 @@ public class BioReactionRecipeCategory implements IRecipeCategory<BioReactionRec
 	 */
 	@Override
 	public void setRecipe(IRecipeLayoutBuilder builder, BioReactionRecipe recipe, IFocusGroup focuses) {
-		builder.addInputSlot(40, 20).addItemStack(DnaSampleItem.createItemStack(recipe.inputItem1()));
-		builder.addInputSlot(40, 60).addItemStack(DnaSampleItem.createItemStack(recipe.inputItem2()));
-		builder.addOutputSlot(120, 40).addItemStack(DnaSampleItem.createItemStack(recipe.output()));
+		builder.addInputSlot(15, 16).addItemStack(DnaSampleItem.createItemStack(recipe.inputItem1()));
+		builder.addInputSlot(15, 52).addItemStack(DnaSampleItem.createItemStack(recipe.inputItem2()));
+		builder.addOutputSlot(146, 34).addItemStack(DnaSampleItem.createItemStack(recipe.output()));
 	}
 }

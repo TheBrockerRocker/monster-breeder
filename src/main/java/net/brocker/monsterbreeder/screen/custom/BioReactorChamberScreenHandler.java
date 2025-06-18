@@ -31,7 +31,7 @@ public class BioReactorChamberScreenHandler extends ScreenHandler {
 
         this.addSlot(new Slot(inventory, 0, 15, 16));
         this.addSlot(new Slot(inventory, 1, 15, 52));
-        this.addSlot(new Slot(inventory, 2, 146, 39));
+        this.addSlot(new Slot(inventory, 2, 146, 34));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
