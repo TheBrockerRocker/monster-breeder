@@ -1,7 +1,9 @@
 package net.brocker.monsterbreeder.screen.custom;
 
 import net.brocker.monsterbreeder.blockentity.custom.BioReactionChamberBlockEntity;
+import net.brocker.monsterbreeder.item.ModItems;
 import net.brocker.monsterbreeder.screen.ModScreenHandlers;
+import net.brocker.monsterbreeder.util.FilteredSlot;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -29,9 +31,9 @@ public class BioReactorChamberScreenHandler extends ScreenHandler {
         this.blockEntity = ((BioReactionChamberBlockEntity) blockEntity);
         this.propertyDelegate = arrayPropertyDelegate;
 
-        this.addSlot(new Slot(inventory, 0, 15, 16));
-        this.addSlot(new Slot(inventory, 1, 15, 52));
-        this.addSlot(new Slot(inventory, 2, 146, 34));
+        this.addSlot(new FilteredSlot(inventory, 0, 15, 16, this::canInsertIntoSlot));
+        this.addSlot(new FilteredSlot(inventory, 1, 15, 52, this::canInsertIntoSlot));
+        this.addSlot(new FilteredSlot(inventory, 2, 146, 34, this::canInsertIntoSlot));
 
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
@@ -92,5 +94,10 @@ public class BioReactorChamberScreenHandler extends ScreenHandler {
         for (int i = 0; i < 9; ++i) {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 143));
         }
+    }
+
+    @Override
+    public boolean canInsertIntoSlot(ItemStack stack, Slot slot) {
+        return stack.isOf(ModItems.DNA_SAMPLE) && slot.id != 2;
     }
 }

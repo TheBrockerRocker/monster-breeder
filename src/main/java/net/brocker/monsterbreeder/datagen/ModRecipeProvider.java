@@ -33,6 +33,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 				.criterion(hasItem(Items.GLASS), conditionsFromItem(Items.GLASS))
 				.offerTo(exporter, Identifier.of(MonsterBreeder.MOD_ID, "syringe"));
 
+		BioReactionRecipeJsonBuilder.create(ModDna.MULE, ModDna.HORSE, ModDna.DONKEY)
+				.criterion(hasItem(ModBlocks.BIO_REACTION_CHAMBER), conditionsFromItem(ModBlocks.BIO_REACTION_CHAMBER))
+				.offerTo(exporter, Identifier.of(MonsterBreeder.MOD_ID, "mule_dna"));
+
 		BioReactionRecipeJsonBuilder.create(ModDna.SKELETON_HORSE, ModDna.HORSE, ModDna.SKELETON)
 				.criterion(hasItem(ModBlocks.BIO_REACTION_CHAMBER), conditionsFromItem(ModBlocks.BIO_REACTION_CHAMBER))
 				.offerTo(exporter, Identifier.of(MonsterBreeder.MOD_ID, "skeleton_horse_dna"));

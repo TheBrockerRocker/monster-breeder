@@ -29,6 +29,7 @@ public class ModItems {
             .displayName(Text.translatable("itemGroup.monsterbreeder"))
             .entries((displayContext, entries) -> {
                 entries.add(new ItemStack(ModBlocks.DNA_ALTAR));
+                entries.add(new ItemStack(ModBlocks.CENTRIFUGE));
                 entries.add(new ItemStack(ModBlocks.BIO_REACTION_CHAMBER));
                 entries.add(new ItemStack(SYRINGE));
                 DnaRegistry.INSTANCE.getKeySet().stream().filter(identifier -> !identifier.equals(ModDna.UNKNOWN)).forEach(identifier -> entries.add(DnaSampleItem.createItemStack(identifier)));

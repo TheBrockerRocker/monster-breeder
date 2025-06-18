@@ -36,7 +36,7 @@ public class BioReactorChamberScreen extends HandledScreen<BioReactorChamberScre
 
     private void renderProgressArrow(DrawContext context, int x, int y) {
         if(handler.isCrafting()) {
-            context.drawTexture(ARROW_TEXTURE, x + 16, y + 35, 0, 0,
+            context.drawTexture(ARROW_TEXTURE, x + 16, y + 34, 0, 0,
                     handler.getScaledArrowProgress(), 16, 44, 16);
         }
     }
