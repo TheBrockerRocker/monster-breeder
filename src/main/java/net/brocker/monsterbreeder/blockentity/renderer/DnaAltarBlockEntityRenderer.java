@@ -28,10 +28,9 @@ public class DnaAltarBlockEntityRenderer implements BlockEntityRenderer<DnaAltar
 			return;
 		}
 		if (!MinecraftClient.getInstance().isPaused()) tick += tickDelta;
-
-		// FIXME: entity.progress isn't being synced to the client, along with other variables
-		float progress = (float) entity.progress / entity.maxProgress;
-		float speed = 1 + (progress * 3);
+		
+		float progress = (float) entity.progress / DnaAltarBlockEntity.maxProgress;
+		float speed = 1 + (progress * 8);
 
 		matrices.push();
 		matrices.translate(0.5, 1.3, 0.5);

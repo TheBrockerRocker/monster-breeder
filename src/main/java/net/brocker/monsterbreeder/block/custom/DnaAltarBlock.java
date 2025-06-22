@@ -112,7 +112,7 @@ public class DnaAltarBlock extends BlockWithEntity implements BlockEntityProvide
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return world.isClient() ? null : validateTicker(type, ModBlockEntities.DNA_ALTAR,
+        return validateTicker(type, ModBlockEntities.DNA_ALTAR,
                 (world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1));
     }
 }

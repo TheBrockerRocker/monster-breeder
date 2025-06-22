@@ -33,11 +33,11 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class DnaAltarBlockEntity extends BlockEntity implements ImplementedInventory, ExtendedScreenHandlerFactory<BlockPos> {
+    public static final int maxProgress = 500;
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
     private @Nullable Dna dna = null;
     private boolean summoning = false;
     public int progress = 0;
-    public int maxProgress = 100;
 
     public DnaAltarBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.DNA_ALTAR, pos, state);
@@ -60,11 +60,14 @@ public class DnaAltarBlockEntity extends BlockEntity implements ImplementedInven
         dna = DnaUtil.getDna(stack);
         progress++;
 
-        markDirty(world, pos, state);
         if(progress >= maxProgress) {
-            summonEntity();
+            if (!world.isClient) {
+                summonEntity();
+            }
+            stack.decrement(1);
             stopSummon();
         }
+        markDirty(world, pos, state);
     }
 
     private void summonEntity() {
