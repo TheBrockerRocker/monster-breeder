@@ -1,4 +1,4 @@
-# Monster Breeder – Core Mod (Fabric 1.21.1)
+a# Monster Breeder – Core Mod (Fabric 1.21.1)
 
 ## 🎯 Objective
 Combine two DNA items in a GUI to create a hybrid mob with fixed properties.
@@ -87,6 +87,13 @@ Combine two DNA items in a GUI to create a hybrid mob with fixed properties.
 - On "Fuse" click:
   - Read the two DNA items
   - Lookup combination in a `Map<Pair<Item, Item>, HybridDefinition>`
+
+  #### additionele feature
+-one of the two not both
+  - a pre-render of mob
+  - some stats of the mob
+      -hp, (stamina), purity, sability
+
 
 **Helper Methods:**
 ```java
