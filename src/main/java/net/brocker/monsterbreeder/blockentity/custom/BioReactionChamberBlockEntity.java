@@ -1,6 +1,6 @@
 package net.brocker.monsterbreeder.blockentity.custom;
 
-import net.brocker.monsterbreeder.blockentity.ImplementedInventory;
+import net.brocker.monsterbreeder.util.ImplementedInventory;
 import net.brocker.monsterbreeder.blockentity.ModBlockEntities;
 import net.brocker.monsterbreeder.item.ModItems;
 import net.brocker.monsterbreeder.item.custom.DnaSampleItem;
@@ -27,7 +27,6 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 

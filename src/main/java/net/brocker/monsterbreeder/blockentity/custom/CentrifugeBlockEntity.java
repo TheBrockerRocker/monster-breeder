@@ -1,9 +1,8 @@
 package net.brocker.monsterbreeder.blockentity.custom;
 
-import net.brocker.monsterbreeder.blockentity.ImplementedInventory;
+import net.brocker.monsterbreeder.util.ImplementedInventory;
 import net.brocker.monsterbreeder.blockentity.ModBlockEntities;
 import net.brocker.monsterbreeder.screen.custom.CentrifugeScreenHandler;
-import net.brocker.monsterbreeder.screen.custom.DnaAltarScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
