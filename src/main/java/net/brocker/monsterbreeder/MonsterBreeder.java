@@ -6,6 +6,8 @@ import net.brocker.monsterbreeder.command.FusionTestCommand;
 import net.brocker.monsterbreeder.command.argument.DnaIdentifierArgumentType;
 import net.brocker.monsterbreeder.components.ModComponents;
 import net.brocker.monsterbreeder.dna.ModDna;
+import net.brocker.monsterbreeder.dna.VanillaDna;
+import net.brocker.monsterbreeder.entity.ModEntities;
 import net.brocker.monsterbreeder.integrations.jei.JeiIntegration;
 import net.brocker.monsterbreeder.item.ModItems;
 import net.brocker.monsterbreeder.recipe.ModRecipes;
@@ -13,7 +15,9 @@ import net.brocker.monsterbreeder.screen.ModScreenHandlers;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.ArgumentTypeRegistry;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.command.argument.serialize.ConstantArgumentSerializer;
+import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +35,10 @@ public class MonsterBreeder implements ModInitializer{
         ModComponents.registerModComponets();
         ModRecipes.registerRecipes();
         ModDna.registerModDna();
+
+        VanillaDna.registerVanillaDna();
+
+        FabricDefaultAttributeRegistry.register(ModEntities.ENDER_CREEPER, CreeperEntity.createCreeperAttributes());
 
         ArgumentTypeRegistry.registerArgumentType(
                 Identifier.of(MOD_ID, "dna_identifier"),

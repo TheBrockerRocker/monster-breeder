@@ -3,6 +3,7 @@ package net.brocker.monsterbreeder.datagen;
 import net.brocker.monsterbreeder.MonsterBreeder;
 import net.brocker.monsterbreeder.block.ModBlocks;
 import net.brocker.monsterbreeder.dna.ModDna;
+import net.brocker.monsterbreeder.dna.VanillaDna;
 import net.brocker.monsterbreeder.item.ModItems;
 import net.brocker.monsterbreeder.item.custom.DnaSampleItem;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -59,7 +60,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
 		AdvancementEntry extractPureBlood = Advancement.Builder.create()
 				.parent(extractBlood)
 				.display(
-						DnaSampleItem.createItemStack(ModDna.UNKNOWN),
+						DnaSampleItem.createItemStack(VanillaDna.UNKNOWN),
 						Text.literal("Pure Blood"),
 						Text.literal("Use a syringe to extract 100% pure blood from any mob"),
 						Identifier.ofVanilla("textures/gui/advancements/backgrounds/adventure.png"),
@@ -73,7 +74,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
 		AdvancementEntry extractBloodFromZoglin = Advancement.Builder.create()
 				.parent(extractBlood)
 				.display(
-						DnaSampleItem.createItemStack(ModDna.ZOGLIN),
+						DnaSampleItem.createItemStack(VanillaDna.ZOGLIN),
 						Text.literal("Zoglin Blood"),
 						Text.literal("Use a syringe to extract blood from a Zoglin"),
 						Identifier.ofVanilla("textures/gui/advancements/backgrounds/adventure.png"),

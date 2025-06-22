@@ -9,8 +9,8 @@ import net.brocker.monsterbreeder.api.registry.DnaRegistry;
 import net.brocker.monsterbreeder.api.util.DnaUtil;
 import net.brocker.monsterbreeder.block.ModBlocks;
 import net.brocker.monsterbreeder.dna.ModDna;
+import net.brocker.monsterbreeder.dna.VanillaDna;
 import net.brocker.monsterbreeder.item.ModItems;
-import net.brocker.monsterbreeder.item.custom.DnaSampleItem;
 import net.brocker.monsterbreeder.item.custom.SyringeItem;
 import net.brocker.monsterbreeder.recipe.BioReactionRecipe;
 import net.brocker.monsterbreeder.recipe.ModRecipes;
@@ -24,7 +24,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class JeiPlugin implements IModPlugin {
 	@Override
@@ -65,7 +64,7 @@ public class JeiPlugin implements IModPlugin {
 		IModPlugin.super.registerExtraIngredients(registration);
 
 		Collection<ItemStack> usedSyringes = new HashSet<>();
-		DnaRegistry.INSTANCE.getKeySet().stream().filter(identifier -> !identifier.equals(ModDna.UNKNOWN)).forEach(identifier -> usedSyringes.add(SyringeItem.createItemStack(identifier, 100)));
+		DnaRegistry.INSTANCE.getKeySet().stream().filter(identifier -> !identifier.equals(VanillaDna.UNKNOWN)).forEach(identifier -> usedSyringes.add(SyringeItem.createItemStack(identifier, 100)));
 		registration.addExtraItemStacks(usedSyringes);
 	}
 

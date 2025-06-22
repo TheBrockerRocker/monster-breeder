@@ -11,7 +11,7 @@
     "frame": "goal",
     "icon": {
       "components": {
-        "monsterbreeder:dna": "monsterbreeder:unknown"
+        "monsterbreeder:dna": "minecraft:unknown"
       },
       "count": 1,
       "id": "monsterbreeder:dna_sample"

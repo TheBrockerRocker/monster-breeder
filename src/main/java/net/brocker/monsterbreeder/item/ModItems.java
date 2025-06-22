@@ -4,12 +4,17 @@ import net.brocker.monsterbreeder.MonsterBreeder;
 import net.brocker.monsterbreeder.api.registry.DnaRegistry;
 import net.brocker.monsterbreeder.block.ModBlocks;
 import net.brocker.monsterbreeder.dna.ModDna;
+import net.brocker.monsterbreeder.dna.VanillaDna;
+import net.brocker.monsterbreeder.entity.ModEntities;
+import net.brocker.monsterbreeder.item.custom.DnaExtractorItem;
 import net.brocker.monsterbreeder.item.custom.DnaSampleItem;
 import net.brocker.monsterbreeder.item.custom.SyringeItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -18,10 +23,13 @@ import net.minecraft.util.Identifier;
 
 public class ModItems {
     public static Item DNA_SAMPLE = registerItem("dna_sample", new DnaSampleItem());
+    public static Item DNA_EXTRACTOR = registerItem("dna_extractor", new DnaExtractorItem());
     public static final Item SYRINGE = registerItem("syringe",
             new SyringeItem());
     public static final Item USED_SYRINGE = registerItem("used_syringe",
             new SyringeItem());
+    public static final Item ENDER_CREEPER_SPAWN_EGG = registerItem("ender_creeper_spawn_egg",
+            new SpawnEggItem(ModEntities.ENDER_CREEPER, hexCode("a521bc"), hexCode("290063"), new Item.Settings()));
 
     public static final RegistryKey<ItemGroup> ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(MonsterBreeder.MOD_ID, "item_group"));
     public static final ItemGroup ITEM_GROUP = FabricItemGroup.builder()
@@ -31,8 +39,10 @@ public class ModItems {
                 entries.add(new ItemStack(ModBlocks.DNA_ALTAR));
                 entries.add(new ItemStack(ModBlocks.CENTRIFUGE));
                 entries.add(new ItemStack(ModBlocks.BIO_REACTION_CHAMBER));
+                entries.add(new ItemStack(DNA_EXTRACTOR));
                 entries.add(new ItemStack(SYRINGE));
-                DnaRegistry.INSTANCE.getKeySet().stream().filter(identifier -> !identifier.equals(ModDna.UNKNOWN)).forEach(identifier -> entries.add(DnaSampleItem.createItemStack(identifier)));
+                entries.add(new ItemStack(ENDER_CREEPER_SPAWN_EGG));
+                DnaRegistry.INSTANCE.getKeySet().stream().filter(identifier -> !identifier.equals(VanillaDna.UNKNOWN)).forEach(identifier -> entries.add(DnaSampleItem.createItemStack(identifier)));
             })
             .build();
 
@@ -44,5 +54,15 @@ public class ModItems {
         MonsterBreeder.LOGGER.info("Registering ModItems for " + MonsterBreeder.MOD_ID);
 
         Registry.register(Registries.ITEM_GROUP, ITEM_GROUP_KEY, ITEM_GROUP);
+    }
+
+    private static int hexCode(String hexColor) {
+        int color = Integer.parseInt(hexColor.substring(1), 16);
+
+        if (hexColor.length() == 7) {
+            color |= 0xFF000000;
+        }
+
+        return color;
     }
 }

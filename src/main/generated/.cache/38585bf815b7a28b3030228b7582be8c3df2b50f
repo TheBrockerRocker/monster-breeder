@@ -1,7 +1,9 @@
-// 1.21.1	2025-06-16T17:13:36.057539	Monster Breeder/Recipes
-5cf8db3aec7188359470d1481999c24ad1501d95 data\monsterbreeder\advancement\recipes\dna\mule_dna.json
+// 1.21.1	2025-06-22T20:31:57.9346069	Monster Breeder/Recipes
+9d3870d09895db3f714456bdd7dbf662fa31da51 data\monsterbreeder\advancement\recipes\dna\mule_dna.json
 b1f997a3a15dfffb829dcdbd1ee0d513e7658b9c data\monsterbreeder\advancement\recipes\tools\syringe.json
 d46c30fa0d9ce51f3fe8bf4c0599f660602f2226 data\monsterbreeder\recipe\syringe.json
-94e5e8c8f6100838fc2fff901760ee11566e7ddb data\monsterbreeder\recipe\mule_dna.json
-2ae96f7a78765f0c0f72ad6debe658fa148e5d26 data\monsterbreeder\advancement\recipes\dna\skeleton_horse_dna.json
-62a431bbc3f5fb78c1e09e58d02b9ac292e9c73b data\monsterbreeder\recipe\skeleton_horse_dna.json
+c2e6ffa6de92ee69fafa5a4f08d4bb004878a9c2 data\monsterbreeder\recipe\ender_creeper_dna.json
+a73ed673bd304f78804b5f8e338c782a2a5bb291 data\monsterbreeder\recipe\mule_dna.json
+bcd530f4b8affea5ea621c20b98d3f5b221d547e data\monsterbreeder\advancement\recipes\dna\ender_creeper_dna.json
+c0709f9a10d280d89ac74259cd3669577a8b3d88 data\monsterbreeder\advancement\recipes\dna\skeleton_horse_dna.json
+f41f03c0fb3e4c6a62caf610c8262e0525759bcc data\monsterbreeder\recipe\skeleton_horse_dna.json

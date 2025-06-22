@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:skeleton_horse_dna"
+        "recipe": "monsterbreeder:ender_creeper_dna"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "minecraft:skeleton_horse_dna"
+      "monsterbreeder:ender_creeper_dna"
     ]
   }
 }

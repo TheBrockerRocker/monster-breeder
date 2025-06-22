@@ -11,7 +11,7 @@
     "frame": "challenge",
     "icon": {
       "components": {
-        "monsterbreeder:dna": "monsterbreeder:zoglin"
+        "monsterbreeder:dna": "minecraft:zoglin"
       },
       "count": 1,
       "id": "monsterbreeder:dna_sample"

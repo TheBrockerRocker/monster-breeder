@@ -4,12 +4,15 @@ import net.brocker.monsterbreeder.api.Dna;
 import net.brocker.monsterbreeder.api.util.DnaUtil;
 import net.brocker.monsterbreeder.blockentity.ModBlockEntities;
 import net.brocker.monsterbreeder.blockentity.renderer.DnaAltarBlockEntityRenderer;
+import net.brocker.monsterbreeder.entity.ModEntities;
+import net.brocker.monsterbreeder.entity.client.EnderCreeperEntityRenderer;
 import net.brocker.monsterbreeder.item.ModItems;
 import net.brocker.monsterbreeder.screen.ModScreenHandlers;
 import net.brocker.monsterbreeder.screen.custom.BioReactorChamberScreen;
 import net.brocker.monsterbreeder.screen.custom.DnaAltarScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 
@@ -20,6 +23,8 @@ public class MonsterBreederClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlers.BIO_REACTOR_CHAMBER_SCREEN_HANDLER, BioReactorChamberScreen::new);
 
         BlockEntityRendererFactories.register(ModBlockEntities.DNA_ALTAR, DnaAltarBlockEntityRenderer::new);
+
+        EntityRendererRegistry.register(ModEntities.ENDER_CREEPER, EnderCreeperEntityRenderer::new);
 
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
             if (tintIndex > 3) return -1;

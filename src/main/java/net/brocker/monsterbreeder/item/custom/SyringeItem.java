@@ -5,6 +5,7 @@ import net.brocker.monsterbreeder.api.registry.DnaRegistry;
 import net.brocker.monsterbreeder.api.util.DnaUtil;
 import net.brocker.monsterbreeder.components.ModComponents;
 import net.brocker.monsterbreeder.dna.ModDna;
+import net.brocker.monsterbreeder.dna.VanillaDna;
 import net.brocker.monsterbreeder.item.ModItems;
 import net.brocker.monsterbreeder.util.AdvancementUtil;
 import net.minecraft.component.DataComponentTypes;
@@ -65,7 +66,7 @@ public class SyringeItem extends Item {
             if (dnaIdentifier == null) {
                 player.sendMessage(Text.translatable("monsterbreeder.unsupported_mob").formatted(Formatting.RED), false);
                 return ActionResult.FAIL;
-            } else if (!DnaUtil.getDnaIdentifier(stack).equals(ModDna.UNKNOWN) && !DnaUtil.getDnaIdentifier(stack).equals(dnaIdentifier)) {
+            } else if (!DnaUtil.getDnaIdentifier(stack).equals(VanillaDna.UNKNOWN) && !DnaUtil.getDnaIdentifier(stack).equals(dnaIdentifier)) {
                 player.sendMessage(Text.translatable("monsterbreeder.cross_contamination").formatted(Formatting.RED), false);
                 return ActionResult.FAIL;
             }

@@ -4,6 +4,7 @@ import net.brocker.monsterbreeder.api.Dna;
 import net.brocker.monsterbreeder.api.registry.DnaRegistry;
 import net.brocker.monsterbreeder.components.ModComponents;
 import net.brocker.monsterbreeder.dna.ModDna;
+import net.brocker.monsterbreeder.dna.VanillaDna;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -22,7 +23,7 @@ public class DnaUtil {
 	}
 
 	public static Identifier getDnaIdentifier(ItemStack stack) {
-		return stack.getOrDefault(ModComponents.DNA_COMPONENT, ModDna.UNKNOWN);
+		return stack.getOrDefault(ModComponents.DNA_COMPONENT, VanillaDna.UNKNOWN);
 	}
 	public static @Nullable Dna getDna(ItemStack stack) {
 		return DnaRegistry.INSTANCE.getValue(getDnaIdentifier(stack));

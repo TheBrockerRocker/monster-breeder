@@ -9,7 +9,9 @@
     "block.monsterbreeder.centrifuge": "Centrifuge",
     "block.monsterbreeder.bio_reaction_chamber": "Bio-Reaction Chamber",
 
-    "dna.monsterbreeder.unknown": "Unknown",
+    "entity.monsterbreeder.ender_creeper": "Ender Creeper",
+
+    "dna.minecraft.unknown": "Unknown",
 
     "monsterbreeder.jei.bio_reaction": "Bio-Reaction",
 
