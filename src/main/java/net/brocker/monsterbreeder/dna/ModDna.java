@@ -59,7 +59,6 @@ public class ModDna {
 	public static Identifier LLAMA = Identifier.of(MonsterBreeder.MOD_ID, "llama");
 	public static Identifier PANDA = Identifier.of(MonsterBreeder.MOD_ID, "panda");
 	public static Identifier POLAR_BEAR = Identifier.of(MonsterBreeder.MOD_ID, "polar_bear");
-	public static Identifier TRADER_LLAMA = Identifier.of(MonsterBreeder.MOD_ID, "trader_llama");
 	public static Identifier WOLF = Identifier.of(MonsterBreeder.MOD_ID, "wolf");
 	public static Identifier ZOMBIFIED_PIGLIN = Identifier.of(MonsterBreeder.MOD_ID, "zombified_piglin");
 	public static Identifier BLAZE = Identifier.of(MonsterBreeder.MOD_ID, "blaze");
@@ -97,427 +96,428 @@ public class ModDna {
 				"dna.monsterbreeder.unknown",
 				Rarity.COMMON,
 				Dna.Color.create("#ffffff", "#ffffff", "#ffffff", "#ffffff"),
-				new ArrayList<>()
+				new ArrayList<>(),
+				null
 		));
 		registry.register(ZOMBIE, DnaBuilder
 				.create(EntityType.ZOMBIE.getTranslationKey())
 				.setColor("#06891b", "#06891b", "#2493bc", "#2493bc")
-				.addSourceMob(EntityType.ZOMBIE)
+				.addSourceMobAsSummonResult(EntityType.ZOMBIE)
 				.build()
 		);
 		registry.register(SKELETON, DnaBuilder
 				.create(EntityType.SKELETON.getTranslationKey())
-				.addSourceMob(EntityType.SKELETON)
+				.addSourceMobAsSummonResult(EntityType.SKELETON)
 				.build()
 		);
 		registry.register(CREEPER, DnaBuilder
 				.create(EntityType.CREEPER.getTranslationKey())
 				.setColor("#43da1b", "#43da1b", "#439f2b", "#439f2b")
-				.addSourceMob(EntityType.CREEPER)
+				.addSourceMobAsSummonResult(EntityType.CREEPER)
 				.build()
 		);
 		registry.register(SPIDER, DnaBuilder
 				.create(EntityType.SPIDER.getTranslationKey())
 				.setColor("#d20303", "#d20303", "#3d3636", "#3d3636")
-				.addSourceMob(EntityType.SPIDER)
+				.addSourceMobAsSummonResult(EntityType.SPIDER)
 				.build()
 		);
 		registry.register(BAT, DnaBuilder
 				.create(EntityType.BAT.getTranslationKey())
 				.setColor("#a37402", "#a37402", "#6d500a", "#6d500a")
-				.addSourceMob(EntityType.BAT)
+				.addSourceMobAsSummonResult(EntityType.BAT)
 				.build()
 		);
 		registry.register(FROG, DnaBuilder
 				.create(EntityType.FROG.getTranslationKey())
 				.setColor("#d79c51", "#d79c51", "#bc843b", "#bc843b")
-				.addSourceMob(EntityType.FROG)
+				.addSourceMobAsSummonResult(EntityType.FROG)
 				.build()
 		);
 		registry.register(SQUID, DnaBuilder
 				.create(EntityType.SQUID.getTranslationKey())
 				.setColor("#6c8ca4", "#6c8ca4", "#496071", "#496071")
-				.addSourceMob(EntityType.SQUID)
+				.addSourceMobAsSummonResult(EntityType.SQUID)
 				.build()
 		);
 		registry.register(GLOW_SQUID, DnaBuilder
 				.create(EntityType.GLOW_SQUID.getTranslationKey())
 				.setColor("#6c8ca4", "#fffff2", "#7efcbe", "#496071")
-				.addSourceMob(EntityType.GLOW_SQUID)
+				.addSourceMobAsSummonResult(EntityType.GLOW_SQUID)
 				.build()
 		);
 		registry.register(BOGGED, DnaBuilder
 				.create(EntityType.BOGGED.getTranslationKey())
 				.setColor("#dadada", "#1ac644", "#129e34", "#dadada")
 				.setRarity(Rarity.RARE)
-				.addSourceMob(EntityType.BOGGED)
+				.addSourceMobAsSummonResult(EntityType.BOGGED)
 				.build()
 		);
 		registry.register(SNOW_GOLEM, DnaBuilder
 				.create(EntityType.SNOW_GOLEM.getTranslationKey())
 				.setRarity(Rarity.UNCOMMON)
-				.addSourceMob(EntityType.SNOW_GOLEM)
+				.addSourceMobAsSummonResult(EntityType.SNOW_GOLEM)
 				.build()
 		);
 		registry.register(OCELOT, DnaBuilder
 				.create(EntityType.OCELOT.getTranslationKey())
 				.setRarity(Rarity.UNCOMMON)
-				.addSourceMob(EntityType.OCELOT)
+				.addSourceMobAsSummonResult(EntityType.OCELOT)
 				.build()
 		);
 		registry.register(SNIFFER, DnaBuilder
 				.create(EntityType.SNIFFER.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.addSourceMob(EntityType.SNIFFER)
+				.addSourceMobAsSummonResult(EntityType.SNIFFER)
 				.build()
 		);
 		registry.register(HORSE, DnaBuilder
 				.create(EntityType.HORSE.getTranslationKey())
 				.setRarity(Rarity.UNCOMMON)
-				.addSourceMob(EntityType.HORSE)
+				.addSourceMobAsSummonResult(EntityType.HORSE)
 				.build()
 		);
 		registry.register(SKELETON_HORSE, DnaBuilder
 				.create(EntityType.SKELETON_HORSE.getTranslationKey())
 				.setRarity(Rarity.EPIC)
-				.addSourceMob(EntityType.SKELETON_HORSE)
+				.addSourceMobAsSummonResult(EntityType.SKELETON_HORSE)
 				.build()
 		);
 		registry.register(ARMADILLO, DnaBuilder
 				.create(EntityType.ARMADILLO.getTranslationKey())
 				.setRarity(Rarity.UNCOMMON)
-				.addSourceMob(EntityType.ARMADILLO)
+				.addSourceMobAsSummonResult(EntityType.ARMADILLO)
 				.build()
 		);
 		registry.register(VILLAGER, DnaBuilder
 				.create(EntityType.VILLAGER.getTranslationKey())
 				.setRarity(Rarity.UNCOMMON)
-				.addSourceMob(EntityType.VILLAGER)
+				.addSourceMobAsSummonResult(EntityType.VILLAGER)
 				.build()
 		);
 		registry.register(AXOLOTL, DnaBuilder
 				.create(EntityType.AXOLOTL.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.addSourceMob(EntityType.AXOLOTL)
+				.addSourceMobAsSummonResult(EntityType.AXOLOTL)
 				.build()
 		);
 		registry.register(CAMEL, DnaBuilder
 				.create(EntityType.CAMEL.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.addSourceMob(EntityType.CAMEL)
+				.addSourceMobAsSummonResult(EntityType.CAMEL)
 				.build()
 		);
 		registry.register(CAT, DnaBuilder
 				.create(EntityType.CAT.getTranslationKey())
-				.addSourceMob(EntityType.CAT)
+				.addSourceMobAsSummonResult(EntityType.CAT)
 				.build()
 		);
 		registry.register(CHICKEN, DnaBuilder
 				.create(EntityType.CHICKEN.getTranslationKey())
-				.addSourceMob(EntityType.CHICKEN)
+				.addSourceMobAsSummonResult(EntityType.CHICKEN)
 				.build()
 		);
 		registry.register(COD, DnaBuilder
 				.create(EntityType.COD.getTranslationKey())
-				.addSourceMob(EntityType.COD)
+				.addSourceMobAsSummonResult(EntityType.COD)
 				.build()
 		);
 		registry.register(COW, DnaBuilder
 				.create(EntityType.COW.getTranslationKey())
-				.addSourceMob(EntityType.COW)
+				.addSourceMobAsSummonResult(EntityType.COW)
 				.build()
 		);
 		registry.register(DONKEY, DnaBuilder
 				.create(EntityType.DONKEY.getTranslationKey())
-				.addSourceMob(EntityType.DONKEY)
+				.addSourceMobAsSummonResult(EntityType.DONKEY)
 				.build()
 		);
 		registry.register(MOOSHROOM, DnaBuilder
 				.create(EntityType.MOOSHROOM.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.addSourceMob(EntityType.MOOSHROOM)
+				.addSourceMobAsSummonResult(EntityType.MOOSHROOM)
 				.build()
 		);
 		registry.register(MULE, DnaBuilder
 				.create(EntityType.MULE.getTranslationKey())
 				.setRarity(Rarity.UNCOMMON)
-				.addSourceMob(EntityType.MULE)
+				.addSourceMobAsSummonResult(EntityType.MULE)
 				.build()
 		);
 		registry.register(PARROT, DnaBuilder
 				.create(EntityType.PARROT.getTranslationKey())
 				.setRarity(Rarity.UNCOMMON)
-				.addSourceMob(EntityType.PARROT)
+				.addSourceMobAsSummonResult(EntityType.PARROT)
 				.build()
 		);
 		registry.register(PIG, DnaBuilder
 				.create(EntityType.PIG.getTranslationKey())
-				.addSourceMob(EntityType.PIG)
+				.addSourceMobAsSummonResult(EntityType.PIG)
 				.build()
 		);
 		registry.register(PUFFERFISH, DnaBuilder
 				.create(EntityType.PUFFERFISH.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.addSourceMob(EntityType.PUFFERFISH)
+				.addSourceMobAsSummonResult(EntityType.PUFFERFISH)
 				.build()
 		);
 		registry.register(RABBIT, DnaBuilder
 				.create(EntityType.RABBIT.getTranslationKey())
-				.addSourceMob(EntityType.RABBIT)
+				.addSourceMobAsSummonResult(EntityType.RABBIT)
 				.build()
 		);
 		registry.register(SALMON, DnaBuilder
 				.create(EntityType.SALMON.getTranslationKey())
-				.addSourceMob(EntityType.SALMON)
+				.addSourceMobAsSummonResult(EntityType.SALMON)
 				.build()
 		);
 		registry.register(SHEEP, DnaBuilder
 				.create(EntityType.SHEEP.getTranslationKey())
-				.addSourceMob(EntityType.SHEEP)
+				.addSourceMobAsSummonResult(EntityType.SHEEP)
 				.build()
 		);
 		registry.register(STRIDER, DnaBuilder
 				.create(EntityType.STRIDER.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.addSourceMob(EntityType.STRIDER)
+				.addSourceMobAsSummonResult(EntityType.STRIDER)
 				.build()
 		);
 		registry.register(TADPOLE, DnaBuilder
 				.create(EntityType.TADPOLE.getTranslationKey())
-				.addSourceMob(EntityType.TADPOLE)
+				.addSourceMobAsSummonResult(EntityType.TADPOLE)
 				.build()
 		);
 		registry.register(TROPICAL_FISH, DnaBuilder
 				.create(EntityType.TROPICAL_FISH.getTranslationKey())
-				.addSourceMob(EntityType.TROPICAL_FISH)
+				.addSourceMobAsSummonResult(EntityType.TROPICAL_FISH)
 				.build()
 		);
 		registry.register(TURTLE, DnaBuilder
 				.create(EntityType.TURTLE.getTranslationKey())
 				.setRarity(Rarity.UNCOMMON)
-				.addSourceMob(EntityType.TURTLE)
+				.addSourceMobAsSummonResult(EntityType.TURTLE)
 				.build()
 		);
 		// FIXME: Can't extract blood from wandering trader, opens trading GUI instead
 		registry.register(WANDERING_TRADER, DnaBuilder
 				.create(EntityType.WANDERING_TRADER.getTranslationKey())
-				.addSourceMob(EntityType.WANDERING_TRADER)
+				.addSourceMobAsSummonResult(EntityType.WANDERING_TRADER)
 				.build()
 		);
 		registry.register(BEE, DnaBuilder
 				.create(EntityType.BEE.getTranslationKey())
-				.addSourceMob(EntityType.BEE)
+				.addSourceMobAsSummonResult(EntityType.BEE)
 				.build()
 		);
 		registry.register(CAVE_SPIDER, DnaBuilder
 				.create(EntityType.CAVE_SPIDER.getTranslationKey())
 				.setRarity(Rarity.EPIC)
-				.addSourceMob(EntityType.CAVE_SPIDER)
+				.addSourceMobAsSummonResult(EntityType.CAVE_SPIDER)
 				.build()
 		);
 		registry.register(DOLPHIN, DnaBuilder
 				.create(EntityType.DOLPHIN.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.addSourceMob(EntityType.DOLPHIN)
+				.addSourceMobAsSummonResult(EntityType.DOLPHIN)
 				.build()
 		);
 		registry.register(DROWNED, DnaBuilder
 				.create(EntityType.DROWNED.getTranslationKey())
-				.addSourceMob(EntityType.DROWNED)
+				.addSourceMobAsSummonResult(EntityType.DROWNED)
 				.build()
 		);
 		registry.register(ENDERMAN, DnaBuilder
 				.create(EntityType.ENDERMAN.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.addSourceMob(EntityType.ENDERMAN)
+				.addSourceMobAsSummonResult(EntityType.ENDERMAN)
 				.build()
 		);
 		registry.register(FOX, DnaBuilder
 				.create(EntityType.FOX.getTranslationKey())
-				.addSourceMob(EntityType.FOX)
+				.addSourceMobAsSummonResult(EntityType.FOX)
 				.build()
 		);
 		registry.register(GOAT, DnaBuilder
 				.create(EntityType.GOAT.getTranslationKey())
 				.setRarity(Rarity.UNCOMMON)
-				.addSourceMob(EntityType.GOAT)
+				.addSourceMobAsSummonResult(EntityType.GOAT)
 				.build()
 		);
 		registry.register(IRON_GOLEM, DnaBuilder
 				.create(EntityType.IRON_GOLEM.getTranslationKey())
-				.addSourceMob(EntityType.IRON_GOLEM)
+				.addSourceMobAsSummonResult(EntityType.IRON_GOLEM)
 				.build()
 		);
 		registry.register(LLAMA, DnaBuilder
 				.create(EntityType.LLAMA.getTranslationKey())
-				.addSourceMob(EntityType.LLAMA)
+				.addSourceMobAsSummonResult(EntityType.LLAMA)
 				.addSourceMob(EntityType.TRADER_LLAMA)
 				.build()
 		);
 		registry.register(PANDA, DnaBuilder
 				.create(EntityType.PANDA.getTranslationKey())
-				.addSourceMob(EntityType.PANDA)
+				.addSourceMobAsSummonResult(EntityType.PANDA)
 				.build()
 		);
 		registry.register(POLAR_BEAR, DnaBuilder
 				.create(EntityType.POLAR_BEAR.getTranslationKey())
-				.addSourceMob(EntityType.POLAR_BEAR)
+				.addSourceMobAsSummonResult(EntityType.POLAR_BEAR)
 				.build()
 		);
 		registry.register(WOLF, DnaBuilder
 				.create(EntityType.WOLF.getTranslationKey())
 				.setRarity(Rarity.UNCOMMON)
-				.addSourceMob(EntityType.WOLF)
+				.addSourceMobAsSummonResult(EntityType.WOLF)
 				.build()
 		);
 		registry.register(ZOMBIFIED_PIGLIN, DnaBuilder
 				.create(EntityType.ZOMBIFIED_PIGLIN.getTranslationKey())
-				.addSourceMob(EntityType.ZOMBIFIED_PIGLIN)
+				.addSourceMobAsSummonResult(EntityType.ZOMBIFIED_PIGLIN)
 				.build()
 		);
 		registry.register(BLAZE, DnaBuilder
 				.create(EntityType.BLAZE.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.addSourceMob(EntityType.BLAZE)
+				.addSourceMobAsSummonResult(EntityType.BLAZE)
 				.build()
 		);
 		registry.register(BREEZE, DnaBuilder
 				.create(EntityType.BREEZE.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.addSourceMob(EntityType.BREEZE)
+				.addSourceMobAsSummonResult(EntityType.BREEZE)
 				.build()
 		);
 		registry.register(ELDER_GUARDIAN, DnaBuilder
 				.create(EntityType.ELDER_GUARDIAN.getTranslationKey())
 				.setRarity(Rarity.EPIC)
-				.addSourceMob(EntityType.ELDER_GUARDIAN)
+				.addSourceMobAsSummonResult(EntityType.ELDER_GUARDIAN)
 				.build()
 		);
 		registry.register(ENDERMITE, DnaBuilder
 				.create(EntityType.ENDERMITE.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.addSourceMob(EntityType.ENDERMITE)
+				.addSourceMobAsSummonResult(EntityType.ENDERMITE)
 				.build()
 		);
 		registry.register(EVOKER, DnaBuilder
 				.create(EntityType.EVOKER.getTranslationKey())
 				.setRarity(Rarity.EPIC)
-				.addSourceMob(EntityType.EVOKER)
+				.addSourceMobAsSummonResult(EntityType.EVOKER)
 				.build()
 		);
 		registry.register(GHAST, DnaBuilder
 				.create(EntityType.GHAST.getTranslationKey())
 				.setRarity(Rarity.EPIC)
-				.addSourceMob(EntityType.GHAST)
+				.addSourceMobAsSummonResult(EntityType.GHAST)
 				.build()
 		);
 		registry.register(GUARDIAN, DnaBuilder
 				.create(EntityType.GUARDIAN.getTranslationKey())
 				.setRarity(Rarity.UNCOMMON)
-				.addSourceMob(EntityType.GUARDIAN)
+				.addSourceMobAsSummonResult(EntityType.GUARDIAN)
 				.build()
 		);
 		registry.register(HOGLIN, DnaBuilder
 				.create(EntityType.HOGLIN.getTranslationKey())
-				.addSourceMob(EntityType.HOGLIN)
+				.addSourceMobAsSummonResult(EntityType.HOGLIN)
 				.build()
 		);
 		registry.register(HUSK, DnaBuilder
 				.create(EntityType.HUSK.getTranslationKey())
 				.setRarity(Rarity.UNCOMMON)
-				.addSourceMob(EntityType.HUSK)
+				.addSourceMobAsSummonResult(EntityType.HUSK)
 				.build()
 		);
 		registry.register(MAGMA_CUBE, DnaBuilder
 				.create(EntityType.MAGMA_CUBE.getTranslationKey())
-				.addSourceMob(EntityType.MAGMA_CUBE)
+				.addSourceMobAsSummonResult(EntityType.MAGMA_CUBE)
 				.build()
 		);
 		registry.register(PHANTOM, DnaBuilder
 				.create(EntityType.PHANTOM.getTranslationKey())
 				.setRarity(Rarity.UNCOMMON)
-				.addSourceMob(EntityType.PHANTOM)
+				.addSourceMobAsSummonResult(EntityType.PHANTOM)
 				.build()
 		);
 		registry.register(PIGLIN_BRUTE, DnaBuilder
 				.create(EntityType.PIGLIN_BRUTE.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.addSourceMob(EntityType.PIGLIN_BRUTE)
+				.addSourceMobAsSummonResult(EntityType.PIGLIN_BRUTE)
 				.build()
 		);
 		registry.register(PILLAGER, DnaBuilder
 				.create(EntityType.PILLAGER.getTranslationKey())
-				.addSourceMob(EntityType.PILLAGER)
+				.addSourceMobAsSummonResult(EntityType.PILLAGER)
 				.build()
 		);
 		registry.register(RAVAGER, DnaBuilder
 				.create(EntityType.RAVAGER.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.addSourceMob(EntityType.RAVAGER)
+				.addSourceMobAsSummonResult(EntityType.RAVAGER)
 				.build()
 		);
 		registry.register(SHULKER, DnaBuilder
 				.create(EntityType.SHULKER.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.addSourceMob(EntityType.SHULKER)
+				.addSourceMobAsSummonResult(EntityType.SHULKER)
 				.build()
 		);
 		registry.register(SILVERFISH, DnaBuilder
 				.create(EntityType.SILVERFISH.getTranslationKey())
 				.setRarity(Rarity.UNCOMMON)
-				.addSourceMob(EntityType.SILVERFISH)
+				.addSourceMobAsSummonResult(EntityType.SILVERFISH)
 				.build()
 		);
 		registry.register(SLIME, DnaBuilder
 				.create(EntityType.SLIME.getTranslationKey())
-				.addSourceMob(EntityType.SLIME)
+				.addSourceMobAsSummonResult(EntityType.SLIME)
 				.build()
 		);
 		registry.register(STRAY, DnaBuilder
 				.create(EntityType.STRAY.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.addSourceMob(EntityType.STRAY)
+				.addSourceMobAsSummonResult(EntityType.STRAY)
 				.build()
 		);
 		registry.register(VEX, DnaBuilder
 				.create(EntityType.VEX.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.addSourceMob(EntityType.VEX)
+				.addSourceMobAsSummonResult(EntityType.VEX)
 				.build()
 		);
 		registry.register(VINDICATOR, DnaBuilder
 				.create(EntityType.VINDICATOR.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.addSourceMob(EntityType.VINDICATOR)
+				.addSourceMobAsSummonResult(EntityType.VINDICATOR)
 				.build()
 		);
 		registry.register(WARDEN, DnaBuilder
 				.create(EntityType.WARDEN.getTranslationKey())
 				.setRarity(Rarity.EPIC)
-				.addSourceMob(EntityType.WANDERING_TRADER)
+				.addSourceMobAsSummonResult(EntityType.WANDERING_TRADER)
 				.build()
 		);
 		registry.register(WITCH, DnaBuilder
 				.create(EntityType.WITCH.getTranslationKey())
 				.setRarity(Rarity.RARE)
-				.addSourceMob(EntityType.WITCH)
+				.addSourceMobAsSummonResult(EntityType.WITCH)
 				.build()
 		);
 		registry.register(WITHER_SKELETON, DnaBuilder
 				.create(EntityType.WITHER_SKELETON.getTranslationKey())
 				.setRarity(Rarity.EPIC)
-				.addSourceMob(EntityType.WITHER_SKELETON)
+				.addSourceMobAsSummonResult(EntityType.WITHER_SKELETON)
 				.build()
 		);
 		registry.register(ZOGLIN, DnaBuilder
 				.create(EntityType.ZOGLIN.getTranslationKey())
-				.addSourceMob(EntityType.ZOGLIN)
+				.addSourceMobAsSummonResult(EntityType.ZOGLIN)
 				.build()
 		);
 		registry.register(ZOMBIE_VILLAGER, DnaBuilder
 				.create(EntityType.ZOMBIE_VILLAGER.getTranslationKey())
 				.setRarity(Rarity.UNCOMMON)
-				.addSourceMob(EntityType.ZOMBIE_VILLAGER)
+				.addSourceMobAsSummonResult(EntityType.ZOMBIE_VILLAGER)
 				.build()
 		);
 	}

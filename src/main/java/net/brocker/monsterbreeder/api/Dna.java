@@ -4,6 +4,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Rarity;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ public class Dna {
 	protected final Rarity rarity;
 	protected final Color color;
 	protected final List<EntityType<?>> sourceMobs;
+	protected final @Nullable EntityType<?> summonResult;
 
 	/**
 	 * Creates a new DNA type.
@@ -19,11 +21,12 @@ public class Dna {
 	 * @param special Should the item look enchanted?
 	 * @param sourceMob The mob that this DNA can be extracted from.
 	 */
-	public Dna(String name, Rarity rarity, Color color, List<EntityType<?>> sourceMobs) {
+	public Dna(String name, Rarity rarity, Color color, List<EntityType<?>> sourceMobs, @Nullable EntityType<?> summonResult) {
 		this.name = name;
 		this.rarity = rarity;
 		this.color = color;
 		this.sourceMobs = sourceMobs;
+		this.summonResult = summonResult;
 	}
 
 	public MutableText getName() {
@@ -37,6 +40,9 @@ public class Dna {
 	}
 	public List<EntityType<?>> getSourceMobs() {
 		return sourceMobs;
+	}
+	public @Nullable EntityType<?> getSummonResult() {
+		return summonResult;
 	}
 
 	public record Color(int color1, int color2, int color3, int color4) {

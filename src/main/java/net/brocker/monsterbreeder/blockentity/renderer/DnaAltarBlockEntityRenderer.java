@@ -23,11 +23,19 @@ public class DnaAltarBlockEntityRenderer implements BlockEntityRenderer<DnaAltar
 
 	@Override
 	public void render(DnaAltarBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+		if (entity.getStack(0).isEmpty()) {
+			tick = 0;
+			return;
+		}
 		if (!MinecraftClient.getInstance().isPaused()) tick += tickDelta;
+
+		// FIXME: entity.progress isn't being synced to the client, along with other variables
+		float progress = (float) entity.progress / entity.maxProgress;
+		float speed = 1 + (progress * 3);
 
 		matrices.push();
 		matrices.translate(0.5, 1.3, 0.5);
-		matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(AnimationUtil.getAnimationFrame(tick, 10) * 360));
+		matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(AnimationUtil.getAnimationFrame(tick, 10 / speed) * 360));
 		matrices.scale(0.6f, 0.6f, 0.6f);
 
 		renderItem(entity.getStack(0), matrices, vertexConsumers, light, overlay);

@@ -45,14 +45,11 @@ public class BioReactionChamberBlock extends BlockWithEntity implements BlockEnt
 
     @Override
     protected void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-        if(state.getBlock() != newState.getBlock()) {
-            BlockEntity blockEntity = world.getBlockEntity(pos);
-            if(blockEntity instanceof BioReactionChamberBlockEntity) {
-                ItemScatterer.spawn(world, pos, ((BioReactionChamberBlockEntity) blockEntity));
-                world.updateComparators(pos, this);
-            }
-            super.onStateReplaced(state, world, pos, newState, moved);
+        if(state.getBlock() != newState.getBlock() && world.getBlockEntity(pos) instanceof BioReactionChamberBlockEntity blockEntity) {
+            ItemScatterer.spawn(world, pos, blockEntity);
+            world.updateComparators(pos, this);
         }
+        super.onStateReplaced(state, world, pos, newState, moved);
     }
 
     @Override
