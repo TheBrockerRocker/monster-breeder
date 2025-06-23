@@ -2,8 +2,10 @@
     "itemGroup.monsterbreeder": "Monster Breeder",
 
     "item.monsterbreeder.dna_sample": "%s DNA Sample",
+    "item.monsterbreeder.dna_extractor": "DNA Extractor",
     "item.monsterbreeder.syringe": "Empty Syringe",
     "item.monsterbreeder.used_syringe": "Used Syringe",
+    "item.monsterbreeder.ender_creeper_spawn_egg": "Ender Creeper Spawn Egg",
 
     "block.monsterbreeder.dna_altar": "DNA Altar",
     "block.monsterbreeder.centrifuge": "Centrifuge",
@@ -13,8 +15,7 @@
 
     "dna.minecraft.unknown": "Unknown",
 
-    "monsterbreeder.jei.bio_reaction": "Bio-Reaction",
-
+    "monsterbreeder.bio_reaction": "Bio-Reaction",
     "monsterbreeder.blood": "%s Blood",
     "monsterbreeder.dna": "%s DNA",
     "monsterbreeder.dna_source": "Can be obtained from %s",

@@ -33,35 +33,16 @@ public class BioReactionRecipeCategory implements IRecipeCategory<BioReactionRec
 				.build();
 	}
 
-	/**
-	 * @return the type of recipe that this category handles.
-	 * @since 9.5.0
-	 */
 	@Override
 	public RecipeType<BioReactionRecipe> getRecipeType() {
 		return RECIPE_TYPE;
 	}
 
-	/**
-	 * Returns a text component representing the name of this recipe type.
-	 * Drawn at the top of the recipe GUI pages for this category.
-	 *
-	 * @since 7.6.4
-	 */
 	@Override
 	public Text getTitle() {
-		return Text.translatable("monsterbreeder.jei.bio_reaction");
+		return Text.translatable("monsterbreeder.bio_reaction");
 	}
 
-	/**
-	 * Icon for the category tab.
-	 * You can use {@link IGuiHelper#createDrawableIngredient(IIngredientType, Object)}
-	 * to create a drawable from an ingredient.
-	 * <p>
-	 * If null is returned here, JEI will try to use the first recipe catalyst as the icon.
-	 *
-	 * @return icon to draw on the category tab, max size is 16x16 pixels.
-	 */
 	@Override
 	public @Nullable IDrawable getIcon() {
 		return ICON;
@@ -82,15 +63,6 @@ public class BioReactionRecipeCategory implements IRecipeCategory<BioReactionRec
 		return 83;
 	}
 
-	/**
-	 * Sets all the recipe's ingredients by filling out an instance of {@link IRecipeLayoutBuilder}.
-	 * This is used by JEI for lookups, to figure out what ingredients are inputs and outputs for a recipe.
-	 *
-	 * @param builder
-	 * @param recipe
-	 * @param focuses
-	 * @since 9.4.0
-	 */
 	@Override
 	public void setRecipe(IRecipeLayoutBuilder builder, BioReactionRecipe recipe, IFocusGroup focuses) {
 		builder.addInputSlot(15, 16).addItemStack(DnaSampleItem.createItemStack(recipe.inputItem1()));
