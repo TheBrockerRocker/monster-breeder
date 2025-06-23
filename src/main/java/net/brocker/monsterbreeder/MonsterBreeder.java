@@ -12,10 +12,13 @@ import net.brocker.monsterbreeder.item.ModItems;
 import net.brocker.monsterbreeder.recipe.ModRecipes;
 import net.brocker.monsterbreeder.screen.ModScreenHandlers;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.command.v2.ArgumentTypeRegistry;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.command.argument.serialize.ConstantArgumentSerializer;
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
@@ -36,6 +39,8 @@ public class MonsterBreeder implements ModInitializer{
         ModDna.registerModDna();
 
         VanillaDna.registerVanillaDna();
+
+        BiomeModifications.addSpawn(BiomeSelectors.foundInTheEnd(), SpawnGroup.MONSTER, ModEntities.ENDER_CREEPER, 4, 1, 2);
 
         FabricDefaultAttributeRegistry.register(ModEntities.ENDER_CREEPER, CreeperEntity.createCreeperAttributes());
 
