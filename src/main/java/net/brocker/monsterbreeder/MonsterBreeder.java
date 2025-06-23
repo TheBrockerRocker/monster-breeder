@@ -40,7 +40,7 @@ public class MonsterBreeder implements ModInitializer{
 
         VanillaDna.registerVanillaDna();
 
-        BiomeModifications.addSpawn(BiomeSelectors.foundInTheEnd(), SpawnGroup.MONSTER, ModEntities.ENDER_CREEPER, 4, 1, 2);
+        BiomeModifications.addSpawn(BiomeSelectors.foundInTheEnd(), SpawnGroup.MONSTER, ModEntities.ENDER_CREEPER, 3, 1, 2);
 
         FabricDefaultAttributeRegistry.register(ModEntities.ENDER_CREEPER, CreeperEntity.createCreeperAttributes());
 
