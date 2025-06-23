@@ -3,14 +3,12 @@ package net.brocker.monsterbreeder.item;
 import net.brocker.monsterbreeder.MonsterBreeder;
 import net.brocker.monsterbreeder.api.registry.DnaRegistry;
 import net.brocker.monsterbreeder.block.ModBlocks;
-import net.brocker.monsterbreeder.dna.ModDna;
 import net.brocker.monsterbreeder.dna.VanillaDna;
 import net.brocker.monsterbreeder.entity.ModEntities;
 import net.brocker.monsterbreeder.item.custom.DnaExtractorItem;
 import net.brocker.monsterbreeder.item.custom.DnaSampleItem;
 import net.brocker.monsterbreeder.item.custom.SyringeItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -31,19 +29,33 @@ public class ModItems {
     public static final Item ENDER_CREEPER_SPAWN_EGG = registerItem("ender_creeper_spawn_egg",
             new SpawnEggItem(ModEntities.ENDER_CREEPER, hexCode("a521bc"), hexCode("290063"), new Item.Settings()));
 
-    public static final RegistryKey<ItemGroup> ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(MonsterBreeder.MOD_ID, "item_group"));
-    public static final ItemGroup ITEM_GROUP = FabricItemGroup.builder()
+    public static final RegistryKey<ItemGroup> GROUP_ITEMS_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(MonsterBreeder.MOD_ID, "items"));
+    public static final ItemGroup GROUP_ITEMS = FabricItemGroup.builder()
             .icon(() -> new ItemStack(ModBlocks.DNA_ALTAR))
-            .displayName(Text.translatable("itemGroup.monsterbreeder"))
+            .displayName(Text.translatable("itemGroup.monsterbreeder.items"))
             .entries((displayContext, entries) -> {
                 entries.add(new ItemStack(ModBlocks.DNA_ALTAR));
                 entries.add(new ItemStack(ModBlocks.CENTRIFUGE));
                 entries.add(new ItemStack(ModBlocks.BIO_REACTION_CHAMBER));
                 entries.add(new ItemStack(DNA_EXTRACTOR));
                 entries.add(new ItemStack(SYRINGE));
-                entries.add(new ItemStack(ENDER_CREEPER_SPAWN_EGG));
-                DnaRegistry.INSTANCE.getKeySet().stream().filter(identifier -> !identifier.equals(VanillaDna.UNKNOWN)).forEach(identifier -> entries.add(DnaSampleItem.createItemStack(identifier)));
             })
+            .build();
+
+    public static final RegistryKey<ItemGroup> GROUP_EGGS_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(MonsterBreeder.MOD_ID, "eggs"));
+    public static final ItemGroup GROUP_EGGS = FabricItemGroup.builder()
+            .icon(() -> new ItemStack(ModItems.ENDER_CREEPER_SPAWN_EGG))
+            .displayName(Text.translatable("itemGroup.monsterbreeder.eggs"))
+            .entries((displayContext, entries) -> {
+                entries.add(new ItemStack(ENDER_CREEPER_SPAWN_EGG));
+            })
+            .build();
+
+    public static final RegistryKey<ItemGroup> GROUP_DNA_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(MonsterBreeder.MOD_ID, "dna"));
+    public static final ItemGroup GROUP_DNA = FabricItemGroup.builder()
+            .icon(() -> DnaSampleItem.createItemStack(VanillaDna.UNKNOWN))
+            .displayName(Text.translatable("itemGroup.monsterbreeder.dna"))
+            .entries((displayContext, entries) -> DnaRegistry.INSTANCE.getKeySet().stream().filter(identifier -> !identifier.equals(VanillaDna.UNKNOWN)).forEach(identifier -> entries.add(DnaSampleItem.createItemStack(identifier))))
             .build();
 
     private static Item registerItem(String name, Item item) {
@@ -53,7 +65,9 @@ public class ModItems {
     public static void registerModItems() {
         MonsterBreeder.LOGGER.info("Registering ModItems for " + MonsterBreeder.MOD_ID);
 
-        Registry.register(Registries.ITEM_GROUP, ITEM_GROUP_KEY, ITEM_GROUP);
+        Registry.register(Registries.ITEM_GROUP, GROUP_ITEMS_KEY, GROUP_ITEMS);
+        Registry.register(Registries.ITEM_GROUP, GROUP_EGGS_KEY, GROUP_EGGS);
+        Registry.register(Registries.ITEM_GROUP, GROUP_DNA_KEY, GROUP_DNA);
     }
 
     private static int hexCode(String hexColor) {

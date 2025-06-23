@@ -1,5 +1,7 @@
 {
-    "itemGroup.monsterbreeder": "Monster Breeder",
+    "itemGroup.monsterbreeder.items": "Monster Breeder - Items",
+    "itemGroup.monsterbreeder.eggs": "Monster Breeder - Spawn Eggs",
+    "itemGroup.monsterbreeder.dna": "Monster Breeder - DNA",
 
     "item.monsterbreeder.dna_sample": "%s DNA Sample",
     "item.monsterbreeder.dna_extractor": "DNA Extractor",
