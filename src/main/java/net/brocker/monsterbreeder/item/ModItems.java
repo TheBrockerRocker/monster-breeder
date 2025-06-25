@@ -1,9 +1,9 @@
 package net.brocker.monsterbreeder.item;
 
 import net.brocker.monsterbreeder.MonsterBreeder;
-import net.brocker.monsterbreeder.api.registry.DnaRegistry;
+import net.brocker.monsterbreeder.api.util.DnaUtil;
 import net.brocker.monsterbreeder.block.ModBlocks;
-import net.brocker.monsterbreeder.dna.VanillaDna;
+import net.brocker.monsterbreeder.dna.ModDna;
 import net.brocker.monsterbreeder.entity.ModEntities;
 import net.brocker.monsterbreeder.item.custom.DnaExtractorItem;
 import net.brocker.monsterbreeder.item.custom.DnaSampleItem;
@@ -53,9 +53,9 @@ public class ModItems {
 
     public static final RegistryKey<ItemGroup> GROUP_DNA_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(MonsterBreeder.MOD_ID, "dna"));
     public static final ItemGroup GROUP_DNA = FabricItemGroup.builder()
-            .icon(() -> DnaSampleItem.createItemStack(VanillaDna.UNKNOWN))
+            .icon(() -> DnaSampleItem.createItemStack(ModDna.UNKNOWN))
             .displayName(Text.translatable("itemGroup.monsterbreeder.dna"))
-            .entries((displayContext, entries) -> DnaRegistry.INSTANCE.getKeySet().stream().filter(identifier -> !identifier.equals(VanillaDna.UNKNOWN)).forEach(identifier -> entries.add(DnaSampleItem.createItemStack(identifier))))
+            .entries((displayContext, entries) -> DnaUtil.getRegistry().getKeys().stream().map(RegistryKey::getValue).filter(identifier -> !identifier.equals(ModDna.UNKNOWN)).forEach(identifier -> entries.add(DnaSampleItem.createItemStack(identifier))))
             .build();
 
     private static Item registerItem(String name, Item item) {
@@ -63,8 +63,6 @@ public class ModItems {
     }
 
     public static void registerModItems() {
-        MonsterBreeder.LOGGER.info("Registering ModItems for " + MonsterBreeder.MOD_ID);
-
         Registry.register(Registries.ITEM_GROUP, GROUP_ITEMS_KEY, GROUP_ITEMS);
         Registry.register(Registries.ITEM_GROUP, GROUP_EGGS_KEY, GROUP_EGGS);
         Registry.register(Registries.ITEM_GROUP, GROUP_DNA_KEY, GROUP_DNA);

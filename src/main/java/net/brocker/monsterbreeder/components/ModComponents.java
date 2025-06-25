@@ -28,7 +28,5 @@ public class ModComponents {
 			ComponentType.<List<String>>builder().codec(Codec.STRING.listOf()).build()
 	);
 
-	public static void registerModComponets() {
-		MonsterBreeder.LOGGER.info("Registering ModComponents for " + MonsterBreeder.MOD_ID);
-	}
+	public static void registerModComponets() {}
 }

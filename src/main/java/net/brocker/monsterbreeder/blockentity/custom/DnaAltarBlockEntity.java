@@ -1,7 +1,6 @@
 package net.brocker.monsterbreeder.blockentity.custom;
 
 import net.brocker.monsterbreeder.api.Dna;
-import net.brocker.monsterbreeder.api.registry.DnaRegistry;
 import net.brocker.monsterbreeder.api.util.DnaUtil;
 import net.brocker.monsterbreeder.blockentity.ModBlockEntities;
 import net.brocker.monsterbreeder.item.ModItems;
@@ -20,6 +19,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -123,7 +123,7 @@ public class DnaAltarBlockEntity extends BlockEntity implements ImplementedInven
         Inventories.writeNbt(nbt, inventory, registryLookup);
         nbt.putInt("progress", progress);
         nbt.putBoolean("summoning", summoning);
-        if (dna != null) nbt.putString("dna", DnaRegistry.INSTANCE.getKey(dna).toString());
+        if (dna != null) nbt.putString("dna", DnaUtil.getRegistry().getKey(dna).get().getValue().toString());
     }
 
     @Override
@@ -132,7 +132,7 @@ public class DnaAltarBlockEntity extends BlockEntity implements ImplementedInven
         Inventories.readNbt(nbt, inventory, registryLookup);
         progress = nbt.getInt("progress");
         summoning = nbt.getBoolean("summoning");
-        dna = nbt.contains("dna") ? DnaRegistry.INSTANCE.getValue(Identifier.of(nbt.getString("dna"))) : null;
+        dna = nbt.contains("dna") ? DnaUtil.getRegistry().get(Identifier.of(nbt.getString("dna"))) : null;
     }
 
     @Override

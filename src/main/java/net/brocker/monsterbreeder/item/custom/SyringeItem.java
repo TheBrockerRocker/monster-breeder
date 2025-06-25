@@ -1,11 +1,9 @@
 package net.brocker.monsterbreeder.item.custom;
 
 import net.brocker.monsterbreeder.MonsterBreeder;
-import net.brocker.monsterbreeder.api.registry.DnaRegistry;
 import net.brocker.monsterbreeder.api.util.DnaUtil;
 import net.brocker.monsterbreeder.components.ModComponents;
 import net.brocker.monsterbreeder.dna.ModDna;
-import net.brocker.monsterbreeder.dna.VanillaDna;
 import net.brocker.monsterbreeder.item.ModItems;
 import net.brocker.monsterbreeder.util.AdvancementUtil;
 import net.minecraft.component.DataComponentTypes;
@@ -50,7 +48,7 @@ public class SyringeItem extends Item {
         ItemStack stack = new ItemStack(ModItems.USED_SYRINGE, count);
         stack.set(ModComponents.DNA_COMPONENT, identifier);
         DnaUtil.setPurity(stack, purity);
-        stack.set(DataComponentTypes.RARITY, DnaRegistry.INSTANCE.getValue(identifier).getRarity());
+        stack.set(DataComponentTypes.RARITY, DnaUtil.getRegistry().get(identifier).getRarity());
         return stack;
     }
 
@@ -66,7 +64,7 @@ public class SyringeItem extends Item {
             if (dnaIdentifier == null) {
                 player.sendMessage(Text.translatable("monsterbreeder.unsupported_mob").formatted(Formatting.RED), false);
                 return ActionResult.FAIL;
-            } else if (!DnaUtil.getDnaIdentifier(stack).equals(VanillaDna.UNKNOWN) && !DnaUtil.getDnaIdentifier(stack).equals(dnaIdentifier)) {
+            } else if (!DnaUtil.getDnaIdentifier(stack).equals(ModDna.UNKNOWN) && !DnaUtil.getDnaIdentifier(stack).equals(dnaIdentifier)) {
                 player.sendMessage(Text.translatable("monsterbreeder.cross_contamination").formatted(Formatting.RED), false);
                 return ActionResult.FAIL;
             }

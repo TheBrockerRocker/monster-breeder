@@ -24,5 +24,5 @@ public class ModScreenHandlers {
             Registry.register(Registries.SCREEN_HANDLER, Identifier.of(MonsterBreeder.MOD_ID, "bio_reactor_screen_handeler"),
                     new ExtendedScreenHandlerType<>(BioReactorChamberScreenHandler::new, BlockPos.PACKET_CODEC));
 
-    public static void registerScreenHandelers(){}
+    public static void registerScreenHandelers() {}
 }

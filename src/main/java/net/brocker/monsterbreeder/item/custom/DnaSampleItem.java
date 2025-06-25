@@ -1,7 +1,6 @@
 package net.brocker.monsterbreeder.item.custom;
 
 import net.brocker.monsterbreeder.api.Dna;
-import net.brocker.monsterbreeder.api.registry.DnaRegistry;
 import net.brocker.monsterbreeder.api.util.DnaUtil;
 import net.brocker.monsterbreeder.components.ModComponents;
 import net.brocker.monsterbreeder.item.ModItems;
@@ -39,7 +38,7 @@ public class DnaSampleItem extends Item {
     public static ItemStack createItemStack(Identifier identifier, int count) {
         ItemStack stack = new ItemStack(ModItems.DNA_SAMPLE, count);
         stack.set(ModComponents.DNA_COMPONENT, identifier);
-        stack.set(DataComponentTypes.RARITY, DnaRegistry.INSTANCE.getValue(identifier).getRarity());
+        stack.set(DataComponentTypes.RARITY, DnaUtil.getRegistry().get(identifier).getRarity());
         return stack;
     }
 

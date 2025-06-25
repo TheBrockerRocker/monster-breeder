@@ -18,8 +18,10 @@ public class Dna {
 	/**
 	 * Creates a new DNA type.
 	 * @param name A translatable string
-	 * @param special Should the item look enchanted?
-	 * @param sourceMob The mob that this DNA can be extracted from.
+	 * @param rarity How rare is this DNA
+	 * @param color What color is the DNA item?
+	 * @param sourceMobs The mobs that this DNA can be extracted from.
+	 * @param summonResult What should the DNA altar summon
 	 */
 	public Dna(String name, Rarity rarity, Color color, List<EntityType<?>> sourceMobs, @Nullable EntityType<?> summonResult) {
 		this.name = name;

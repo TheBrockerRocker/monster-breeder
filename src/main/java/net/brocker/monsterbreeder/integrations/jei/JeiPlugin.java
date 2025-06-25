@@ -5,11 +5,9 @@ import mezz.jei.api.ingredients.subtypes.ISubtypeInterpreter;
 import mezz.jei.api.ingredients.subtypes.UidContext;
 import mezz.jei.api.registration.*;
 import net.brocker.monsterbreeder.MonsterBreeder;
-import net.brocker.monsterbreeder.api.registry.DnaRegistry;
 import net.brocker.monsterbreeder.api.util.DnaUtil;
 import net.brocker.monsterbreeder.block.ModBlocks;
 import net.brocker.monsterbreeder.dna.ModDna;
-import net.brocker.monsterbreeder.dna.VanillaDna;
 import net.brocker.monsterbreeder.item.ModItems;
 import net.brocker.monsterbreeder.item.custom.SyringeItem;
 import net.brocker.monsterbreeder.recipe.BioReactionRecipe;
@@ -18,6 +16,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.recipe.RecipeManager;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
@@ -64,7 +63,7 @@ public class JeiPlugin implements IModPlugin {
 		IModPlugin.super.registerExtraIngredients(registration);
 
 		Collection<ItemStack> usedSyringes = new HashSet<>();
-		DnaRegistry.INSTANCE.getKeySet().stream().filter(identifier -> !identifier.equals(VanillaDna.UNKNOWN)).forEach(identifier -> usedSyringes.add(SyringeItem.createItemStack(identifier, 100)));
+		DnaUtil.getRegistry().getKeys().stream().map(RegistryKey::getValue).filter(identifier -> !identifier.equals(ModDna.UNKNOWN)).forEach(identifier -> usedSyringes.add(SyringeItem.createItemStack(identifier, 100)));
 		registration.addExtraItemStacks(usedSyringes);
 	}
 

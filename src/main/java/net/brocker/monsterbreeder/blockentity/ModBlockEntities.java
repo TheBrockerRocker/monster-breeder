@@ -23,7 +23,5 @@ public class ModBlockEntities {
             Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(MonsterBreeder.MOD_ID, "bio_reaction_chamber"),
                     BlockEntityType.Builder.create(BioReactionChamberBlockEntity::new, ModBlocks.BIO_REACTION_CHAMBER).build(null));
 
-    public static void registerBlockEntities() {
-
-    }
+    public static void registerBlockEntities() {}
 }

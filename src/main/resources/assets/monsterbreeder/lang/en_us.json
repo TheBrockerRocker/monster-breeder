@@ -15,8 +15,7 @@
 
     "entity.monsterbreeder.ender_creeper": "Ender Creeper",
 
-    "dna.minecraft.unknown": "Unknown",
-
+    "monsterbreeder.unknown": "Unknown",
     "monsterbreeder.bio_reaction": "Bio-Reaction",
     "monsterbreeder.blood": "%s Blood",
     "monsterbreeder.dna": "%s DNA",

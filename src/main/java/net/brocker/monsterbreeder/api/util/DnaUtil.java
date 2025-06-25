@@ -1,16 +1,26 @@
 package net.brocker.monsterbreeder.api.util;
 
+import net.brocker.monsterbreeder.MonsterBreeder;
 import net.brocker.monsterbreeder.api.Dna;
-import net.brocker.monsterbreeder.api.registry.DnaRegistry;
+import net.brocker.monsterbreeder.api.registry.MonsterBreederRegistries;
 import net.brocker.monsterbreeder.components.ModComponents;
 import net.brocker.monsterbreeder.dna.ModDna;
-import net.brocker.monsterbreeder.dna.VanillaDna;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
 public class DnaUtil {
+	public static Registry<Dna> getRegistry() {
+		return getRegistry(MonsterBreeder.server);
+	}
+	public static Registry<Dna> getRegistry(MinecraftServer server) {
+		return server.getRegistryManager().get(MonsterBreederRegistries.DNA_REGISTRY_KEY);
+	}
+
 	public static void setPurity(ItemStack stack, int purity) {
 		stack.set(ModComponents.PURITY_COMPONENT, Math.clamp(purity, 0, 100));
 	}
@@ -23,21 +33,23 @@ public class DnaUtil {
 	}
 
 	public static Identifier getDnaIdentifier(ItemStack stack) {
-		return stack.getOrDefault(ModComponents.DNA_COMPONENT, VanillaDna.UNKNOWN);
+		return stack.getOrDefault(ModComponents.DNA_COMPONENT, ModDna.UNKNOWN);
 	}
 	public static @Nullable Dna getDna(ItemStack stack) {
-		return DnaRegistry.INSTANCE.getValue(getDnaIdentifier(stack));
+		return getRegistry().get(getDnaIdentifier(stack));
 	}
 
 	public static @Nullable Identifier getDnaIdentifier(EntityType<?> type) {
-		return DnaRegistry.INSTANCE
-				.getKeySet()
+		Registry<Dna> dnaRegistry = getRegistry();
+		return dnaRegistry
+				.getKeys()
 				.stream()
-				.filter(identifier -> DnaRegistry.INSTANCE.getValue(identifier).getSourceMobs().contains(type))
+				.filter(identifier -> dnaRegistry.get(identifier).getSourceMobs().contains(type))
 				.findFirst()
+				.map(RegistryKey::getValue)
 				.orElse(null);
 	}
 	public static @Nullable Dna getDna(EntityType<?> type) {
-		return DnaRegistry.INSTANCE.getValue(getDnaIdentifier(type));
+		return getRegistry().get(getDnaIdentifier(type));
 	}
 }

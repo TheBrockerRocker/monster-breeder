@@ -60,7 +60,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
 		AdvancementEntry extractPureBlood = Advancement.Builder.create()
 				.parent(extractBlood)
 				.display(
-						DnaSampleItem.createItemStack(VanillaDna.UNKNOWN),
+						DnaSampleItem.createItemStack(ModDna.UNKNOWN),
 						Text.literal("Pure Blood"),
 						Text.literal("Use a syringe to extract 100% pure blood from any mob"),
 						Identifier.ofVanilla("textures/gui/advancements/backgrounds/adventure.png"),

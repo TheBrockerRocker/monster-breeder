@@ -1,7 +1,10 @@
 package net.brocker.monsterbreeder.api.util;
 
 import net.brocker.monsterbreeder.api.Dna;
+import net.brocker.monsterbreeder.api.registry.MonsterBreederRegistries;
 import net.minecraft.entity.EntityType;
+import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import org.jetbrains.annotations.Nullable;
 
@@ -83,5 +86,8 @@ public class DnaBuilder {
 
 	public Dna build() {
 		return new Dna(name, rarity, color, sourceMobs, summonResult);
+	}
+	public void buildAndRegister(Identifier identifier) {
+		Registry.register(MonsterBreederRegistries.DNA, identifier, build());
 	}
 }
