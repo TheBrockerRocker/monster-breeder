@@ -129,16 +129,19 @@ public class VanillaDna {
 				.buildAndRegister(BOGGED);
 		DnaBuilder
 				.create(EntityType.SNOW_GOLEM.getTranslationKey())
+				.setColor("#ff8114","#ffffff","#ffffff","#ff8114")
 				.setRarity(Rarity.UNCOMMON)
 				.addSourceMobAsSummonResult(EntityType.SNOW_GOLEM)
 				.buildAndRegister(SNOW_GOLEM);
 		DnaBuilder
 				.create(EntityType.OCELOT.getTranslationKey())
+				.setColor("#ffdd00","#000000","#ffdd00","#000000")
 				.setRarity(Rarity.UNCOMMON)
 				.addSourceMobAsSummonResult(EntityType.OCELOT)
 				.buildAndRegister(OCELOT);
 		DnaBuilder
 				.create(EntityType.SNIFFER.getTranslationKey())
+				.setColor("#266800","#266800","#a51c25","#a51c25")
 				.setRarity(Rarity.RARE)
 				.addSourceMobAsSummonResult(EntityType.SNIFFER)
 				.buildAndRegister(SNIFFER);
@@ -159,6 +162,7 @@ public class VanillaDna {
 				.buildAndRegister(ARMADILLO);
 		DnaBuilder
 				.create(EntityType.VILLAGER.getTranslationKey())
+				.setColor("#b75c38","#1d960d","#702a02","#703310")
 				.setRarity(Rarity.UNCOMMON)
 				.addSourceMobAsSummonResult(EntityType.VILLAGER)
 				.buildAndRegister(VILLAGER);
@@ -178,6 +182,7 @@ public class VanillaDna {
 				.buildAndRegister(CAT);
 		DnaBuilder
 				.create(EntityType.CHICKEN.getTranslationKey())
+				.setColor("#ff001d","#f0f0f0","#ffffff","#dfdfdf")
 				.addSourceMobAsSummonResult(EntityType.CHICKEN)
 				.buildAndRegister(CHICKEN);
 		DnaBuilder
