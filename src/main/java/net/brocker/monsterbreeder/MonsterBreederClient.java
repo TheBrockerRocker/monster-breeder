@@ -14,6 +14,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 
 public class MonsterBreederClient implements ClientModInitializer {
@@ -23,6 +24,7 @@ public class MonsterBreederClient implements ClientModInitializer {
         addBlockEntityRenderers();
         addEntityRenderers();
         addColorProviders();
+        addModelPredicates();
     }
 
     private void addScreenHandlers() {
@@ -61,5 +63,12 @@ public class MonsterBreederClient implements ClientModInitializer {
                 }
             }
         }, ModItems.DNA_SAMPLE);
+    }
+
+    private void addModelPredicates() {
+        ModelPredicateProviderRegistry.register(ModItems.USED_SYRINGE, MonsterBreeder.identifier("blood_level"), (stack, world, entity, seed) -> {
+                    float purity = DnaUtil.getPurity(stack);
+                    return (float) Math.ceil(purity / 12.5f) / 8f;
+                });
     }
 }

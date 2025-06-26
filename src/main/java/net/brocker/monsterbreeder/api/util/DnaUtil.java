@@ -7,8 +7,7 @@ import net.brocker.monsterbreeder.components.ModComponents;
 import net.brocker.monsterbreeder.dna.ModDna;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
@@ -22,11 +21,25 @@ public class DnaUtil {
 				: MonsterBreederRegistries.DNA;
 	}
 
+	private static Registry<EntityType<?>> getEntityRegistry() {
+		return MonsterBreeder.server != null ? MonsterBreeder.server.getRegistryManager().get(RegistryKeys.ENTITY_TYPE)
+				: Registries.ENTITY_TYPE;
+	}
+
 	public static void setPurity(ItemStack stack, int purity) {
 		stack.set(ModComponents.PURITY_COMPONENT, Math.clamp(purity, 0, 100));
 	}
+
 	public static int getPurity(ItemStack stack) {
 		return stack.getOrDefault(ModComponents.PURITY_COMPONENT, 0);
+	}
+
+	public static void setBloodType(ItemStack stack, EntityType<?> entityType) {
+		stack.set(ModComponents.BLOOD_COMPONENT, getEntityRegistry().getId(entityType));
+	}
+	public static @Nullable EntityType<?> getBloodType(ItemStack stack) {
+		Identifier identifier = stack.get(ModComponents.BLOOD_COMPONENT);
+		return identifier != null ? getEntityRegistry().get(identifier) : null;
 	}
 
 	public static void setDna(ItemStack stack, Identifier identifier) {
@@ -36,6 +49,7 @@ public class DnaUtil {
 	public static Identifier getDnaIdentifier(ItemStack stack) {
 		return stack.getOrDefault(ModComponents.DNA_COMPONENT, ModDna.UNKNOWN);
 	}
+
 	public static @Nullable Dna getDna(ItemStack stack) {
 		return getRegistry().get(getDnaIdentifier(stack));
 	}
@@ -50,6 +64,7 @@ public class DnaUtil {
 				.map(RegistryKey::getValue)
 				.orElse(null);
 	}
+
 	public static @Nullable Dna getDna(EntityType<?> type) {
 		return getRegistry().get(getDnaIdentifier(type));
 	}

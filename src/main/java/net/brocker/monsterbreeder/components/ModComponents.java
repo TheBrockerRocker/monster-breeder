@@ -16,6 +16,12 @@ public class ModComponents {
 			ComponentType.<Identifier>builder().codec(Identifier.CODEC).build()
 	);
 
+	public static final ComponentType<Identifier> BLOOD_COMPONENT = Registry.register(
+			Registries.DATA_COMPONENT_TYPE,
+			Identifier.of(MonsterBreeder.MOD_ID, "blood"),
+			ComponentType.<Identifier>builder().codec(Identifier.CODEC).build()
+	);
+
 	public static final ComponentType<Integer> PURITY_COMPONENT = Registry.register(
 			Registries.DATA_COMPONENT_TYPE,
 			Identifier.of(MonsterBreeder.MOD_ID, "purity"),

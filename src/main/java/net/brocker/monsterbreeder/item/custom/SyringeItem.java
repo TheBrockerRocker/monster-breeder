@@ -32,39 +32,40 @@ public class SyringeItem extends Item {
     }
 
     /**
-     * Creates an item stack with a certain dna and count of 1.
-     * @param identifier The identifier of the dna type, should be registered.
+     * Creates an item stack with the specified blood type and purity with a count of 1.
+     * @param identifier The identifier of the entity type, should be registered.
+     * @param purity The purity of this blood sample.
      */
     public static ItemStack createItemStack(Identifier identifier, int purity) {
         return createItemStack(identifier, purity, 1);
     }
 
     /**
-     * Creates an item stack with a certain dna and count.
-     * @param identifier The identifier of the dna type, should be registered.
+     * Creates an item stack with the specified blood type, purity, and count.
+     * @param identifier The identifier of the entity type, should be registered.
+     * @param purity The purity of this blood sample.
      * @param count The amount of samples in the item stack.
      */
     public static ItemStack createItemStack(Identifier identifier, int purity, int count) {
         ItemStack stack = new ItemStack(ModItems.USED_SYRINGE, count);
-        stack.set(ModComponents.DNA_COMPONENT, identifier);
+        stack.set(ModComponents.BLOOD_COMPONENT, identifier);
         DnaUtil.setPurity(stack, purity);
-        stack.set(DataComponentTypes.RARITY, DnaUtil.getRegistry().get(identifier).getRarity());
         return stack;
     }
 
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity player, LivingEntity livingEntity, Hand hand) {
         if (player.getWorld().isClient || hand != Hand.MAIN_HAND) return ActionResult.PASS;
+        boolean isUsed = stack.isOf(ModItems.USED_SYRINGE);
 
         if (livingEntity instanceof MobEntity mobEntity) {
             EntityType<?> mobType = mobEntity.getType();
             String mobName = mobType.getName().getString();
-            Identifier dnaIdentifier = DnaUtil.getDnaIdentifier(mobType);
 
-            if (dnaIdentifier == null) {
+            if (DnaUtil.getDnaIdentifier(mobType) == null) {
                 player.sendMessage(Text.translatable("monsterbreeder.unsupported_mob").formatted(Formatting.RED), false);
                 return ActionResult.FAIL;
-            } else if (!DnaUtil.getDnaIdentifier(stack).equals(ModDna.UNKNOWN) && !DnaUtil.getDnaIdentifier(stack).equals(dnaIdentifier)) {
+            } else if (isUsed && DnaUtil.getBloodType(stack) != mobType) {
                 player.sendMessage(Text.translatable("monsterbreeder.cross_contamination").formatted(Formatting.RED), false);
                 return ActionResult.FAIL;
             }
@@ -78,7 +79,7 @@ public class SyringeItem extends Item {
             extractedFrom.add(mobId);
             stack.set(ModComponents.BLOOD_EXTRACTED_FROM_COMPONENT, extractedFrom);
 
-            DnaUtil.setDna(stack, dnaIdentifier);
+            DnaUtil.setBloodType(stack, mobType);
 
             int purity = DnaUtil.getPurity(stack);
             if (purity >= 100) {
@@ -110,7 +111,7 @@ public class SyringeItem extends Item {
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         if (stack.isOf(ModItems.USED_SYRINGE)) {
             tooltip.add(Text.translatable("monsterbreeder.purity", DnaUtil.getPurity(stack)).formatted(Formatting.GRAY));
-            tooltip.add(Text.translatable("monsterbreeder.blood", DnaUtil.getDna(stack).getSourceMobs().get(0).getName()).formatted(Formatting.GRAY));
+            tooltip.add(Text.translatable("monsterbreeder.blood", DnaUtil.getBloodType(stack).getName()).formatted(Formatting.GRAY));
         } else {
             tooltip.add(Text.translatable("monsterbreeder.click_to_extract").formatted(Formatting.GRAY));
         }
