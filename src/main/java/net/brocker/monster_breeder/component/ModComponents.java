@@ -1,4 +1,4 @@
-package net.brocker.monster_breeder.components;
+package net.brocker.monster_breeder.component;
 
 import com.mojang.serialization.Codec;
 import net.brocker.monster_breeder.MonsterBreeder;

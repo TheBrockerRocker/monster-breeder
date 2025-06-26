@@ -5,7 +5,7 @@ import net.brocker.monster_breeder.block.ModBlocks;
 import net.brocker.monster_breeder.blockentity.ModBlockEntities;
 import net.brocker.monster_breeder.command.FusionTestCommand;
 import net.brocker.monster_breeder.command.argument.DnaIdentifierArgumentType;
-import net.brocker.monster_breeder.components.ModComponents;
+import net.brocker.monster_breeder.component.ModComponents;
 import net.brocker.monster_breeder.dna.ModDna;
 import net.brocker.monster_breeder.dna.VanillaDna;
 import net.brocker.monster_breeder.entity.ModEntities;

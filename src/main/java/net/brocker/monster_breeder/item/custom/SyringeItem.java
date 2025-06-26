@@ -2,7 +2,7 @@ package net.brocker.monster_breeder.item.custom;
 
 import net.brocker.monster_breeder.MonsterBreeder;
 import net.brocker.monster_breeder.api.util.DnaUtil;
-import net.brocker.monster_breeder.components.ModComponents;
+import net.brocker.monster_breeder.component.ModComponents;
 import net.brocker.monster_breeder.item.ModItems;
 import net.brocker.monster_breeder.util.AdvancementUtil;
 import net.minecraft.entity.EntityType;

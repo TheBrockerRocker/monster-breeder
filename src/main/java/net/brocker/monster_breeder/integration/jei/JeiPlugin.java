@@ -1,4 +1,4 @@
-package net.brocker.monster_breeder.integrations.jei;
+package net.brocker.monster_breeder.integration.jei;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.ingredients.subtypes.ISubtypeInterpreter;
