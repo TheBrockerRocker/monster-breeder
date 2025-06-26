@@ -8,14 +8,14 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class DnaBuilder {
 	protected final String name;
 	protected Rarity rarity = Rarity.COMMON;
 	protected Dna.Color color = Dna.Color.create("#ffffff", "#ffffff", "#ffffff", "#ffffff");
-	protected final List<EntityType<?>> sourceMobs = new ArrayList<>();
+	protected final Set<EntityType<?>> sourceMobs = new HashSet<>();
 	protected @Nullable EntityType<?> summonResult = null;
 
 	/**

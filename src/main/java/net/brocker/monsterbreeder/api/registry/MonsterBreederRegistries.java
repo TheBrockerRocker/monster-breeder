@@ -12,6 +12,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class MonsterBreederRegistries {
 	public static final RegistryKey<Registry<Dna>> DNA_REGISTRY_KEY = RegistryKey.ofRegistry(Identifier.of(MonsterBreeder.MOD_ID, "dna"));
@@ -25,7 +26,7 @@ public class MonsterBreederRegistries {
 				"monsterbreeder.unknown",
 				Rarity.COMMON,
 				Dna.Color.create("#ffffff", "#ffffff", "#ffffff", "#ffffff"),
-				new ArrayList<>(),
+				new HashSet<>(),
 				null
 		));
 	}

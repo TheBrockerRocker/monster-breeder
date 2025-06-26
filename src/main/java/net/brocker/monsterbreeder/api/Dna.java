@@ -6,13 +6,14 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Rarity;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
+import java.util.Collections;
+import java.util.Set;
 
 public class Dna {
 	protected final String name;
 	protected final Rarity rarity;
 	protected final Color color;
-	protected final List<EntityType<?>> sourceMobs;
+	protected final Set<EntityType<?>> sourceMobs;
 	protected final @Nullable EntityType<?> summonResult;
 
 	/**
@@ -23,11 +24,11 @@ public class Dna {
 	 * @param sourceMobs The mobs that this DNA can be extracted from.
 	 * @param summonResult What should the DNA altar summon
 	 */
-	public Dna(String name, Rarity rarity, Color color, List<EntityType<?>> sourceMobs, @Nullable EntityType<?> summonResult) {
+	public Dna(String name, Rarity rarity, Color color, Set<EntityType<?>> sourceMobs, @Nullable EntityType<?> summonResult) {
 		this.name = name;
 		this.rarity = rarity;
 		this.color = color;
-		this.sourceMobs = sourceMobs;
+		this.sourceMobs = Collections.unmodifiableSet(sourceMobs);
 		this.summonResult = summonResult;
 	}
 
@@ -40,7 +41,7 @@ public class Dna {
 	public Color getColor() {
 		return color;
 	}
-	public List<EntityType<?>> getSourceMobs() {
+	public Set<EntityType<?>> getSourceMobs() {
 		return sourceMobs;
 	}
 	public @Nullable EntityType<?> getSummonResult() {
