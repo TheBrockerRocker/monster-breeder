@@ -19,13 +19,26 @@ import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 public class MonsterBreederClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        addScreenHandlers();
+        addBlockEntityRenderers();
+        addEntityRenderers();
+        addColorProviders();
+    }
+
+    private void addScreenHandlers() {
         HandledScreens.register(ModScreenHandlers.DNA_ALTAR_SCREEN_HANDLER, DnaAltarScreen::new);
         HandledScreens.register(ModScreenHandlers.BIO_REACTOR_CHAMBER_SCREEN_HANDLER, BioReactorChamberScreen::new);
+    }
 
+    private void addBlockEntityRenderers() {
         BlockEntityRendererFactories.register(ModBlockEntities.DNA_ALTAR, DnaAltarBlockEntityRenderer::new);
+    }
 
+    private void addEntityRenderers() {
         EntityRendererRegistry.register(ModEntities.ENDER_CREEPER, EnderCreeperEntityRenderer::new);
+    }
 
+    private void addColorProviders() {
         ColorProviderRegistry.ITEM.register((stack, tintIndex) -> {
             if (tintIndex > 3) return -1;
 

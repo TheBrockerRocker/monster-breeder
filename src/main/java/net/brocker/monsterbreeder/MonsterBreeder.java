@@ -47,8 +47,19 @@ public class MonsterBreeder implements ModInitializer{
         ModEntities.registerModEntities();
         ModRecipes.registerRecipes();
         ModDna.registerModDna();
+
         VanillaDna.registerVanillaDna();
 
+        addItemsToItemGroups();
+        addMobSpawns();
+        addDefaultAttributes();
+        addCommandArgumentTypes();
+        addCommands();
+
+        listenToServerLifecycleEvents();
+    }
+
+    private void addItemsToItemGroups() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(entries -> {
             entries.add(ModBlocks.DNA_ALTAR);
             entries.add(ModBlocks.CENTRIFUGE);
@@ -66,26 +77,36 @@ public class MonsterBreeder implements ModInitializer{
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.OPERATOR).register(entries -> {
             entries.add(ModItems.DNA_EXTRACTOR);
         });
+    }
 
+    private void addMobSpawns() {
         BiomeModifications.addSpawn(BiomeSelectors.foundInTheEnd(), SpawnGroup.MONSTER, ModEntities.ENDER_CREEPER, 3, 1, 2);
+    }
 
+    private void addDefaultAttributes() {
         FabricDefaultAttributeRegistry.register(ModEntities.ENDER_CREEPER, CreeperEntity.createCreeperAttributes());
+    }
 
+    private void addCommandArgumentTypes() {
         ArgumentTypeRegistry.registerArgumentType(
                 identifier("dna_identifier"),
                 DnaIdentifierArgumentType.class,
                 ConstantArgumentSerializer.of(DnaIdentifierArgumentType::new)
         );
-        CommandRegistrationCallback.EVENT.register(FusionTestCommand::register);
+    }
 
+    private void addCommands() {
+        CommandRegistrationCallback.EVENT.register(FusionTestCommand::register);
+    }
+
+    private void listenToServerLifecycleEvents() {
         ServerLifecycleEvents.SERVER_STARTED.register(server -> {
             MonsterBreeder.server = server;
 
-            server
-                .getRegistryManager()
-                .get(MonsterBreederRegistries.DNA_REGISTRY_KEY)
-                .getKeys()
-                .forEach(key -> LOGGER.info("DNA of type {} registered!", key.getValue()));
+            server.getRegistryManager()
+                    .get(MonsterBreederRegistries.DNA_REGISTRY_KEY)
+                    .getKeys()
+                    .forEach(key -> LOGGER.info("DNA of type {} registered!", key.getValue()));
         });
 
         ServerLifecycleEvents.SERVER_STOPPED.register(server -> MonsterBreeder.server = null);
