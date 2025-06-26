@@ -1,0 +1,6 @@
+{
+  "type": "monster_breeder:bio_reaction",
+  "ingredient1": "minecraft:creeper",
+  "ingredient2": "minecraft:enderman",
+  "result": "monster_breeder:ender_creeper"
+}

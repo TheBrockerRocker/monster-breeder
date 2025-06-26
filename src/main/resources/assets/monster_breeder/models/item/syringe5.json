@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "monster_breeder:item/syringe5"
+  }
+}

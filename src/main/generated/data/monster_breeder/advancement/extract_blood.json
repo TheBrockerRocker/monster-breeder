@@ -1,0 +1,30 @@
+{
+  "parent": "monster_breeder:core",
+  "criteria": {
+    "got_used_syringe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monster_breeder:used_syringe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "description": "Use a syringe to extract blood from any mob",
+    "icon": {
+      "count": 1,
+      "id": "monster_breeder:used_syringe"
+    },
+    "title": "Extract Blood"
+  },
+  "requirements": [
+    [
+      "got_used_syringe"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

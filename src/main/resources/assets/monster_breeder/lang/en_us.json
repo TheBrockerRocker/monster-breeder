@@ -1,0 +1,32 @@
+{
+    "itemGroup.monster_breeder.items": "Monster Breeder - Items",
+    "itemGroup.monster_breeder.eggs": "Monster Breeder - Spawn Eggs",
+    "itemGroup.monster_breeder.dna": "Monster Breeder - DNA",
+
+    "item.monster_breeder.dna_sample": "%s DNA Sample",
+    "item.monster_breeder.dna_extractor": "DNA Extractor",
+    "item.monster_breeder.syringe": "Empty Syringe",
+    "item.monster_breeder.used_syringe": "Used Syringe",
+    "item.monster_breeder.ender_creeper_spawn_egg": "Ender Creeper Spawn Egg",
+
+    "block.monster_breeder.dna_altar": "DNA Altar",
+    "block.monster_breeder.centrifuge": "Centrifuge",
+    "block.monster_breeder.bio_reaction_chamber": "Bio-Reaction Chamber",
+
+    "entity.monster_breeder.ender_creeper": "Ender Creeper",
+
+    "monster_breeder.mod_name": "Monster Breeder",
+    "monster_breeder.unknown": "Unknown",
+    "monster_breeder.bio_reaction": "Bio-Reaction",
+    "monster_breeder.blood": "%s Blood",
+    "monster_breeder.dna": "%s DNA",
+    "monster_breeder.dna_source": "Can be obtained from %s",
+    "monster_breeder.mobs_only": "This only works on mobs!",
+    "monster_breeder.unsupported_mob": "This mob is unsupported!",
+    "monster_breeder.cross_contamination": "You can't mix blood from different mob types!",
+    "monster_breeder.max_purity": "Max purity reached, you need a new syringe!",
+    "monster_breeder.already_extracted": "You already extracted blood from this mob, try locating another one!",
+    "monster_breeder.extracted_from": "Blood extracted from %s!",
+    "monster_breeder.click_to_extract": "Interact with a mob to extract blood",
+    "monster_breeder.purity": "%s%% purity"
+}

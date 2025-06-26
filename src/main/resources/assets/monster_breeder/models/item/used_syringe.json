@@ -1,0 +1,53 @@
+{
+  "parent": "monster_breeder:item/syringe0",
+  "overrides": [
+    {
+      "predicate": {
+        "monster_breeder:blood_level": 0.125
+      },
+      "model": "monster_breeder:item/syringe1"
+    },
+    {
+      "predicate": {
+        "monster_breeder:blood_level": 0.25
+      },
+      "model": "monster_breeder:item/syringe2"
+    },
+    {
+      "predicate": {
+        "monster_breeder:blood_level": 0.375
+      },
+      "model": "monster_breeder:item/syringe3"
+    },
+    {
+      "predicate": {
+        "monster_breeder:blood_level": 0.5
+      },
+      "model": "monster_breeder:item/syringe4"
+    },
+    {
+      "predicate": {
+        "monster_breeder:blood_level": 6.25
+      },
+      "model": "monster_breeder:item/syringe5"
+    },
+    {
+      "predicate": {
+        "monster_breeder:blood_level": 0.75
+      },
+      "model": "monster_breeder:item/syringe6"
+    },
+    {
+      "predicate": {
+        "monster_breeder:blood_level": 0.875
+      },
+      "model": "monster_breeder:item/syringe7"
+    },
+    {
+      "predicate": {
+        "monster_breeder:blood_level": 1
+      },
+      "model": "monster_breeder:item/syringe8"
+    }
+  ]
+}

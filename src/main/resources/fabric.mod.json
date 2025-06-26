@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "monsterbreeder",
+  "id": "monster_breeder",
   "version": "${version}",
   "name": "Monster Breeder",
   "description": "Mix different mobs to make weird yet cool monsters",
@@ -19,20 +19,20 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.brocker.monsterbreeder.MonsterBreeder"
+      "net.brocker.monster_breeder.MonsterBreeder"
     ],
     "client": [
-      "net.brocker.monsterbreeder.MonsterBreederClient"
+      "net.brocker.monster_breeder.MonsterBreederClient"
     ],
     "fabric-datagen": [
-      "net.brocker.monsterbreeder.MonsterBreederDataGenerator"
+      "net.brocker.monster_breeder.MonsterBreederDataGenerator"
     ],
     "jei_mod_plugin": [
-      "net.brocker.monsterbreeder.integrations.jei.JeiPlugin"
+      "net.brocker.monster_breeder.integrations.jei.JeiPlugin"
     ]
   },
   "mixins": [
-    "monsterbreeder.mixins.json"
+    "monster_breeder.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.16.14",

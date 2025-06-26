@@ -1,0 +1,6 @@
+{
+  "type": "monster_breeder:bio_reaction",
+  "ingredient1": "minecraft:horse",
+  "ingredient2": "minecraft:donkey",
+  "result": "minecraft:mule"
+}
