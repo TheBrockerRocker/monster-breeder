@@ -16,11 +16,7 @@ public class ModModelProvider extends FabricModelProvider {
     }
 
     @Override
-    public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        // blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.DNA_ALTAR);
-        // blockStateModelGenerator.registerItemModel(ModBlocks.DNA_ALTAR);
-        // blockStateModelGenerator.registerItemModel(ModBlocks.BIO_REACTION_CHAMBER);
-    }
+    public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {}
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {

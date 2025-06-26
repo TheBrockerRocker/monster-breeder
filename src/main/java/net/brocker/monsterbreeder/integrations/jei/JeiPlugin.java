@@ -18,6 +18,7 @@ import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.recipe.RecipeManager;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collection;
@@ -26,7 +27,7 @@ import java.util.List;
 
 public class JeiPlugin implements IModPlugin {
 	@Override
-	public Identifier getPluginUid() {
+	public @NotNull Identifier getPluginUid() {
 		return Identifier.of(MonsterBreeder.MOD_ID, "jei_integration");
 	}
 
@@ -82,7 +83,7 @@ public class JeiPlugin implements IModPlugin {
 		}
 
 		@Override
-		public String getLegacyStringSubtypeInfo(ItemStack ingredient, UidContext context) {
+		public @NotNull String getLegacyStringSubtypeInfo(ItemStack ingredient, UidContext context) {
 			return DnaUtil.getDnaIdentifier(ingredient).toString();
 		}
 	}

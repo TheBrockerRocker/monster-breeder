@@ -2,13 +2,10 @@ package net.brocker.monsterbreeder.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.brocker.monsterbreeder.blockentity.custom.CentrifugeBlockEntity;
-import net.brocker.monsterbreeder.blockentity.custom.DnaAltarBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.hit.BlockHitResult;
@@ -18,6 +15,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+// TODO: Make this functional
 public class CentrifugeBlock extends BlockWithEntity implements BlockEntityProvider {
     private static final VoxelShape SHAPE =
             Block.createCuboidShape(2, 0, 2, 14, 13, 14);

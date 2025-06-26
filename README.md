@@ -35,23 +35,23 @@ Combine two DNA items in a GUI to create a hybrid mob with fixed properties.
 
 **Recommended Mobs for DNA Items:**
 
-| Mob           | DNA Item ID     | Why It’s a Great Pick                           | Suggested Effect When Fused                    |
-|---------------|------------------|--------------------------------------------------|------------------------------------------------|
-| **Zombie**    | `zombie_dna`     | Common, base hostile mob                        | Slight regeneration or melee boost             |
-| **Skeleton**  | `skeleton_dna`   | Ranged attacker                                 | Adds projectile or accuracy trait              |
-| **Creeper**   | `creeper_dna`    | Iconic explosive mob                            | Chance to explode or deal AoE damage           |
-| **Spider**    | `spider_dna`     | Climber and fast mover                          | Grants climbing ability or speed               |
-| **Enderman**  | `enderman_dna`   | Teleporting, high attack                        | Blink/teleport short-range ability             |
-| **Slime**     | `slime_dna`      | Unique split behavior, bouncy                   | Resistance to fall damage, knockback effects   |
-| **Blaze**     | `blaze_dna`      | Fire/air-based enemy                            | Grants fireballs or fire immunity              |
-| **Witch**     | `witch_dna`      | Uses potions                                    | Applies random potion effects when hit         |
-| **Guardian**  | `guardian_dna`   | Water-based laser attacker                      | Adds thorns or ranged beam attack              |
-| **Phantom**   | `phantom_dna`    | Flying undead mob, night-based                  | Adds slow gliding/flying behavior              |
+| Mob          | DNA Item ID    | Why It’s a Great Pick          | Suggested Effect When Fused                  |
+|--------------|----------------|--------------------------------|----------------------------------------------|
+| **Zombie**   | `zombie_dna`   | Common, base hostile mob       | Slight regeneration or melee boost           |
+| **Skeleton** | `skeleton_dna` | Ranged attacker                | Adds projectile or accuracy trait            |
+| **Creeper**  | `creeper_dna`  | Iconic explosive mob           | Chance to explode or deal AoE damage         |
+| **Spider**   | `spider_dna`   | Climber and fast mover         | Grants climbing ability or speed             |
+| **Enderman** | `enderman_dna` | Teleporting, high attack       | Blink/teleport short-range ability           |
+| **Slime**    | `slime_dna`    | Unique split behavior, bouncy  | Resistance to fall damage, knockback effects |
+| **Blaze**    | `blaze_dna`    | Fire/air-based enemy           | Grants fireballs or fire immunity            |
+| **Witch**    | `witch_dna`    | Uses potions                   | Applies random potion effects when hit       |
+| **Guardian** | `guardian_dna` | Water-based laser attacker     | Adds thorns or ranged beam attack            |
+| **Phantom**  | `phantom_dna`  | Flying undead mob, night-based | Adds slow gliding/flying behavior            |
 
 **How to obtain Dna samples:** 
-- make a suringe
+- make a syringe
 - Use it to the mobs blood
-- put the blood in a sentrigue to turn it in to a Dna Sample
+- put the blood in a centrifuge to turn it in to a Dna Sample
 
 
 ---
@@ -76,7 +76,7 @@ Combine two DNA items in a GUI to create a hybrid mob with fixed properties.
 
 ---
 
-### 🧠 Step 4 – Sumoning Logic
+### 🧠 Step 4 – Summoning Logic
   - Spawn a hybrid mob near the altar
 
 **Goal:** Correct hybrid mob appears.
@@ -88,11 +88,11 @@ Combine two DNA items in a GUI to create a hybrid mob with fixed properties.
   - Read the two DNA items
   - Lookup combination in a `Map<Pair<Item, Item>, HybridDefinition>`
 
-  #### additionele feature
+  #### Additional Features
 -one of the two not both
   - a pre-render of mob
   - some stats of the mob
-      -hp, (stamina), purity, sability
+      -hp, (stamina), purity, stability
 
 
 **Helper Methods:**

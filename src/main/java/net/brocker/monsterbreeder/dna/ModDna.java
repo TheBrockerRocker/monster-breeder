@@ -6,8 +6,8 @@ import net.brocker.monsterbreeder.entity.ModEntities;
 import net.minecraft.util.Identifier;
 
 public class ModDna {
-	public static Identifier UNKNOWN = MonsterBreeder.identifier("unknown");
-	public static Identifier ENDER_CREEPER = MonsterBreeder.identifier("ender_creeper");
+	public static final Identifier UNKNOWN = MonsterBreeder.identifier("unknown");
+	public static final Identifier ENDER_CREEPER = MonsterBreeder.identifier("ender_creeper");
 
 	public static void registerModDna() {
 		DnaBuilder.create(ModEntities.ENDER_CREEPER.getTranslationKey())

@@ -37,7 +37,7 @@ import java.util.function.Predicate;
 public class EnderCreeperEntity extends CreeperEntity implements Angerable {
 	private static final Identifier ATTACKING_SPEED_MODIFIER_ID = Identifier.ofVanilla("attacking");
 	private static final EntityAttributeModifier ATTACKING_SPEED_BOOST = new EntityAttributeModifier(ATTACKING_SPEED_MODIFIER_ID, 0.10000000596046448, EntityAttributeModifier.Operation.ADD_VALUE);
-	private static final UniformIntProvider ANGER_TIME_RANGE = TimeHelper.betweenSeconds(20, 39);;
+	private static final UniformIntProvider ANGER_TIME_RANGE = TimeHelper.betweenSeconds(20, 39);
 	private int ageWhenTargetSet = 0;
 	private int angerTime = 0;
 	@Nullable

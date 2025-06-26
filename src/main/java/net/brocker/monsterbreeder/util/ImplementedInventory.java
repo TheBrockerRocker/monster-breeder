@@ -20,7 +20,7 @@ import java.util.List;
  * Use {@link Inventories#writeNbt(NbtCompound, DefaultedList, RegistryWrapper.WrapperLookup)} and
  * {@link Inventories#readNbt(NbtCompound, DefaultedList, RegistryWrapper.WrapperLookup)}
  * on {@linkplain #getItems() the item list}.
- *
+ * <p>
  * License: <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>
  * @author Juuz
  */
@@ -145,7 +145,7 @@ public interface ImplementedInventory extends SidedInventory {
     /**
      * Takes a stack of the size from the slot.
      *
-     * <p>(default implementation) If there are less items in the slot than what are requested,
+     * <p>(default implementation) If there are fewer items in the slot than what are requested,
      * takes all items in that slot.
      *
      * @param slot the slot

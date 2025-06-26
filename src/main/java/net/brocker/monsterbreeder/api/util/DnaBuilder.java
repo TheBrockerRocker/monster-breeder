@@ -12,10 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DnaBuilder {
-	protected String name;
+	protected final String name;
 	protected Rarity rarity = Rarity.COMMON;
 	protected Dna.Color color = Dna.Color.create("#ffffff", "#ffffff", "#ffffff", "#ffffff");
-	protected List<EntityType<?>> sourceMobs = new ArrayList<>();
+	protected final List<EntityType<?>> sourceMobs = new ArrayList<>();
 	protected @Nullable EntityType<?> summonResult = null;
 
 	/**

@@ -28,5 +28,5 @@ public class ModComponents {
 			ComponentType.<List<String>>builder().codec(Codec.STRING.listOf()).build()
 	);
 
-	public static void registerModComponets() {}
+	public static void registerModComponents() {}
 }

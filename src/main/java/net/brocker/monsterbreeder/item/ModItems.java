@@ -20,8 +20,8 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class ModItems {
-    public static Item DNA_SAMPLE = registerItem("dna_sample", new DnaSampleItem());
-    public static Item DNA_EXTRACTOR = registerItem("dna_extractor", new DnaExtractorItem());
+    public static final Item DNA_SAMPLE = registerItem("dna_sample", new DnaSampleItem());
+    public static final Item DNA_EXTRACTOR = registerItem("dna_extractor", new DnaExtractorItem());
     public static final Item SYRINGE = registerItem("syringe",
             new SyringeItem());
     public static final Item USED_SYRINGE = registerItem("used_syringe",

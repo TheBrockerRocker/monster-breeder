@@ -17,8 +17,9 @@ public class DnaUtil {
 	public static Registry<Dna> getRegistry() {
 		return getRegistry(MonsterBreeder.server);
 	}
-	public static Registry<Dna> getRegistry(MinecraftServer server) {
-		return server.getRegistryManager().get(MonsterBreederRegistries.DNA_REGISTRY_KEY);
+	public static Registry<Dna> getRegistry(@Nullable MinecraftServer server) {
+		return server != null ? server.getRegistryManager().get(MonsterBreederRegistries.DNA_REGISTRY_KEY)
+				: MonsterBreederRegistries.DNA;
 	}
 
 	public static void setPurity(ItemStack stack, int purity) {

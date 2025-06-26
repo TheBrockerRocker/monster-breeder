@@ -26,13 +26,14 @@ import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class MonsterBreeder implements ModInitializer{
     public static final String MOD_ID = "monsterbreeder";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-    public static MinecraftServer server = null;
+    public static @Nullable MinecraftServer server = null;
 
     @Override
     public void onInitialize() {
@@ -41,8 +42,9 @@ public class MonsterBreeder implements ModInitializer{
         ModItems.registerModItems();
         ModBlocks.registerModBlocks();
         ModBlockEntities.registerBlockEntities();
-        ModScreenHandlers.registerScreenHandelers();
-        ModComponents.registerModComponets();
+        ModScreenHandlers.registerScreenHandlers();
+        ModComponents.registerModComponents();
+        ModEntities.registerModEntities();
         ModRecipes.registerRecipes();
         ModDna.registerModDna();
         VanillaDna.registerVanillaDna();

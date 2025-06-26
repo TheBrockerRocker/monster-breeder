@@ -28,9 +28,8 @@ public class ModBlocks {
     }
 
     private static Item registerBlockItem(String name, Block block) {
-        Item item = Registry.register(Registries.ITEM, Identifier.of(MonsterBreeder.MOD_ID + ":" + name),
+        return Registry.register(Registries.ITEM, Identifier.of(MonsterBreeder.MOD_ID + ":" + name),
                 new BlockItem(block, new Item.Settings()));
-        return item;
     }
 
     public static void registerModBlocks() {}

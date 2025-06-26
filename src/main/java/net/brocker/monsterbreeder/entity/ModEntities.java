@@ -15,7 +15,5 @@ public class ModEntities {
 					.maxTrackingRange(8).build());
 
 
-	public static void registerModEntities() {
-		MonsterBreeder.LOGGER.info("Registering Mod Entities for " + MonsterBreeder.MOD_ID);
-	}
+	public static void registerModEntities() {}
 }

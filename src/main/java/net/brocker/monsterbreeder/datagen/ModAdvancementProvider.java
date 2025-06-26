@@ -33,7 +33,7 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
 		AdvancementEntry core = Advancement.Builder.create()
 				.display(
 						ModBlocks.DNA_ALTAR,
-						Text.translatable("itemGroup.monsterbreeder"),
+						Text.translatable("monsterbreeder.mod_name"),
 						Text.literal("Start breeding monsters!"),
 						Identifier.ofVanilla("textures/gui/advancements/backgrounds/adventure.png"),
 						AdvancementFrame.TASK,

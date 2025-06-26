@@ -12,6 +12,7 @@ import net.brocker.monsterbreeder.item.custom.DnaSampleItem;
 import net.brocker.monsterbreeder.recipe.BioReactionRecipe;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class BioReactionRecipeCategory implements IRecipeCategory<BioReactionRecipe> {
@@ -34,12 +35,12 @@ public class BioReactionRecipeCategory implements IRecipeCategory<BioReactionRec
 	}
 
 	@Override
-	public RecipeType<BioReactionRecipe> getRecipeType() {
+	public @NotNull RecipeType<BioReactionRecipe> getRecipeType() {
 		return RECIPE_TYPE;
 	}
 
 	@Override
-	public Text getTitle() {
+	public @NotNull Text getTitle() {
 		return Text.translatable("monsterbreeder.bio_reaction");
 	}
 
