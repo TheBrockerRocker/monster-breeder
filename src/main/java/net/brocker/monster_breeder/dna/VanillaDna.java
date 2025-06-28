@@ -1,9 +1,14 @@
 package net.brocker.monster_breeder.dna;
 
+import net.brocker.monster_breeder.MonsterBreeder;
+import net.brocker.monster_breeder.api.Dna;
 import net.brocker.monster_breeder.api.util.DnaBuilder;
+import net.brocker.monster_breeder.api.util.SuppliedDnaBuilder;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
+
+import java.awt.*;
 
 public class VanillaDna {
 	public static final Identifier ZOMBIE = Identifier.ofVanilla("zombie");
@@ -82,8 +87,13 @@ public class VanillaDna {
 	public static final Identifier ZOMBIE_VILLAGER = Identifier.ofVanilla("zombie_villager");
 
 	public static void registerVanillaDna() {
-		//.setColor template
-		//.setColor("#","#","#","#")
+		/*
+		.setColor template
+
+			.setColor("#","#","#","#")
+		 or
+			.setColor("#")
+		 */
 		DnaBuilder
 				.create(EntityType.ZOMBIE.getTranslationKey())
 				.setColor("#06891b", "#06891b", "#2493bc", "#2493bc")
@@ -247,8 +257,14 @@ public class VanillaDna {
 				.setColor("#e81e0b","#2eaa74","#e81e0b","#2eaa74")
 				.addSourceMobAsSummonResult(EntityType.SALMON)
 				.buildAndRegister(SALMON);
-		DnaBuilder // maybe we can make it rainbow cus of JEB_
+		SuppliedDnaBuilder
 				.create(EntityType.SHEEP.getTranslationKey())
+				.setColorSupplier(() -> {
+					int tick = MonsterBreeder.server.getTicks();
+					int color = Color.HSBtoRGB((tick % 300) / 300.0f, 1.0f, 1.0f);
+					color |= 0xFF000000;
+					return Dna.Color.create(color);
+				})
 				.addSourceMobAsSummonResult(EntityType.SHEEP)
 				.buildAndRegister(SHEEP);
 		DnaBuilder
@@ -273,7 +289,6 @@ public class VanillaDna {
 				.setRarity(Rarity.UNCOMMON)
 				.addSourceMobAsSummonResult(EntityType.TURTLE)
 				.buildAndRegister(TURTLE);
-		// FIXME: Can't extract blood from wandering trader, opens trading GUI instead
 		DnaBuilder
 				.create(EntityType.WANDERING_TRADER.getTranslationKey())
 				.addSourceMobAsSummonResult(EntityType.WANDERING_TRADER)

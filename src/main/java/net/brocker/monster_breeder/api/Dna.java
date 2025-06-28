@@ -49,8 +49,11 @@ public class Dna {
 	}
 
 	public record Color(int color1, int color2, int color3, int color4) {
-		private static Color create(int color1, int color2, int color3, int color4) {
+		public static Color create(int color1, int color2, int color3, int color4) {
 			return new Color(color1, color2, color3, color4);
+		}
+		public static Color create(int color) {
+			return create(color, color, color, color);
 		}
 
 		/**
@@ -63,6 +66,14 @@ public class Dna {
 		 */
 		public static Color create(String color1, String color2, String color3, String color4) {
 			return create(hexCode(color1), hexCode(color2), hexCode(color3), hexCode(color4));
+		}
+		/**
+		 * Create a new DNA color
+		 * @param color A hex code (including the hashtag)
+		 * @return A new DNA color
+		 */
+		public static Color create(String color) {
+			return create(hexCode(color));
 		}
 
 		private static int hexCode(String hexColor) {

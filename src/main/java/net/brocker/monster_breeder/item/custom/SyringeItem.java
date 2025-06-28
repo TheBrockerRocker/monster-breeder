@@ -51,6 +51,7 @@ public class SyringeItem extends Item {
         return stack;
     }
 
+    // FIXME: Can't extract blood from entities with interactions, such as llamas and wandering traders.
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity player, LivingEntity livingEntity, Hand hand) {
         if (player.getWorld().isClient || hand != Hand.MAIN_HAND) return ActionResult.PASS;
