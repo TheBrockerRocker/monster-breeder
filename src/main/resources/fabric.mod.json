@@ -28,7 +28,7 @@
       "net.brocker.monster_breeder.MonsterBreederDataGenerator"
     ],
     "jei_mod_plugin": [
-      "net.brocker.monster_breeder.integrations.jei.JeiPlugin"
+      "net.brocker.monster_breeder.integration.jei.JeiPlugin"
     ]
   },
   "mixins": [
