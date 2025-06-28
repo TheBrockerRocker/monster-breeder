@@ -18,13 +18,17 @@ import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.command.v2.ArgumentTypeRegistry;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
+import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.command.argument.serialize.ConstantArgumentSerializer;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.item.ItemGroups;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 import org.slf4j.Logger;
@@ -57,6 +61,7 @@ public class MonsterBreeder implements ModInitializer{
         addCommands();
 
         listenToServerLifecycleEvents();
+        listenToEntityEvents();
     }
 
     private void addItemsToItemGroups() {
@@ -110,6 +115,19 @@ public class MonsterBreeder implements ModInitializer{
         });
 
         ServerLifecycleEvents.SERVER_STOPPED.register(server -> MonsterBreeder.server = null);
+    }
+
+    private void listenToEntityEvents() {
+        UseEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
+            ItemStack stack = player.getStackInHand(hand);
+            boolean isValidItem = stack.isOf(ModItems.SYRINGE) || stack.isOf(ModItems.USED_SYRINGE) || stack.isOf(ModItems.DNA_EXTRACTOR);
+            boolean isLiving = entity instanceof LivingEntity;
+            boolean isServer = !world.isClient;
+
+            return isValidItem && isLiving && isServer && hitResult == null
+                    ? stack.getItem().useOnEntity(stack, player, (LivingEntity) entity, hand)
+                    : ActionResult.PASS;
+        });
     }
 
     public static Identifier identifier(String path) {
