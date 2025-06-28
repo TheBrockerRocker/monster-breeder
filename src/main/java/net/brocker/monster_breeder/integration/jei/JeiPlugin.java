@@ -5,6 +5,7 @@ import mezz.jei.api.ingredients.subtypes.ISubtypeInterpreter;
 import mezz.jei.api.ingredients.subtypes.UidContext;
 import mezz.jei.api.registration.*;
 import net.brocker.monster_breeder.MonsterBreeder;
+import net.brocker.monster_breeder.api.Dna;
 import net.brocker.monster_breeder.api.util.DnaUtil;
 import net.brocker.monster_breeder.block.ModBlocks;
 import net.brocker.monster_breeder.dna.ModDna;
@@ -24,6 +25,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 
 public class JeiPlugin implements IModPlugin {
 	@Override
@@ -64,7 +66,19 @@ public class JeiPlugin implements IModPlugin {
 		IModPlugin.super.registerExtraIngredients(registration);
 
 		Collection<ItemStack> usedSyringes = new HashSet<>();
-		DnaUtil.getRegistry().getKeys().stream().map(RegistryKey::getValue).filter(identifier -> !identifier.equals(ModDna.UNKNOWN)).forEach(identifier -> usedSyringes.add(SyringeItem.createItemStack(identifier, 100)));
+		DnaUtil.getRegistry()
+				.getKeys()
+				.stream()
+				.map(RegistryKey::getValue)
+				.filter(identifier -> !identifier.equals(ModDna.UNKNOWN))
+				.map(identifier -> DnaUtil.getRegistry().get(identifier))
+				.filter(Objects::nonNull)
+				.map(Dna::getSourceMobs)
+				.forEach(sources -> sources
+						.stream()
+						.map(mob -> DnaUtil.getEntityRegistry().getId(mob))
+						.forEach(identifier -> usedSyringes.add(SyringeItem.createItemStack(identifier, 100)))
+				);
 		registration.addExtraItemStacks(usedSyringes);
 	}
 
@@ -72,8 +86,20 @@ public class JeiPlugin implements IModPlugin {
 	public void registerItemSubtypes(ISubtypeRegistration registration) {
 		IModPlugin.super.registerItemSubtypes(registration);
 
-		registration.registerSubtypeInterpreter(ModItems.USED_SYRINGE, new DnaSubtypeInterpreter());
+		registration.registerSubtypeInterpreter(ModItems.USED_SYRINGE, new BloodTypeSubtypeInterpreter());
 		registration.registerSubtypeInterpreter(ModItems.DNA_SAMPLE, new DnaSubtypeInterpreter());
+	}
+
+	private static class BloodTypeSubtypeInterpreter implements ISubtypeInterpreter<ItemStack> {
+		@Override
+		public @Nullable Object getSubtypeData(ItemStack ingredient, UidContext context) {
+			return getLegacyStringSubtypeInfo(ingredient, context);
+		}
+
+		@Override
+		public @NotNull String getLegacyStringSubtypeInfo(ItemStack ingredient, UidContext context) {
+			return DnaUtil.getBloodTypeIdentifier(ingredient).toString();
+		}
 	}
 
 	private static class DnaSubtypeInterpreter implements ISubtypeInterpreter<ItemStack> {

@@ -21,7 +21,7 @@ public class DnaUtil {
 				: MonsterBreederRegistries.DNA;
 	}
 
-	private static Registry<EntityType<?>> getEntityRegistry() {
+	public static Registry<EntityType<?>> getEntityRegistry() {
 		return MonsterBreeder.server != null ? MonsterBreeder.server.getRegistryManager().get(RegistryKeys.ENTITY_TYPE)
 				: Registries.ENTITY_TYPE;
 	}
@@ -37,8 +37,13 @@ public class DnaUtil {
 	public static void setBloodType(ItemStack stack, EntityType<?> entityType) {
 		stack.set(ModComponents.BLOOD_COMPONENT, getEntityRegistry().getId(entityType));
 	}
+
+	public static @Nullable Identifier getBloodTypeIdentifier(ItemStack stack) {
+		return stack.get(ModComponents.BLOOD_COMPONENT);
+	}
+
 	public static @Nullable EntityType<?> getBloodType(ItemStack stack) {
-		Identifier identifier = stack.get(ModComponents.BLOOD_COMPONENT);
+		Identifier identifier = getBloodTypeIdentifier(stack);
 		return identifier != null ? getEntityRegistry().get(identifier) : null;
 	}
 
