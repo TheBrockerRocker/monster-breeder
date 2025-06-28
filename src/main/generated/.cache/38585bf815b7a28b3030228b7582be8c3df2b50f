@@ -1,8 +1,10 @@
-// 1.21.1	2025-06-26T18:48:17.4519055	Monster Breeder/Recipes
+// 1.21.1	2025-06-28T23:20:15.2152614	Monster Breeder/Recipes
 1433061ab0a339ecf9873c1cf4d42b91259c8cd7 data\monster_breeder\recipe\syringe.json
 69074aa963d5c31a5fee05480760f350084226f4 data\monster_breeder\recipe\skeleton_horse_dna.json
 9e07c6a542a351fcd730b3f97d08fb25b8b6910e data\monster_breeder\advancement\recipes\tools\syringe.json
+42055825d86c297a59497d90c2105865584ee310 data\monster_breeder\recipe\dna_extractor.json
 e9821337a782785a291b8015724ab08675b6bdd5 data\monster_breeder\recipe\mule_dna.json
+4768e4d84d2ddf8c25bee5b19f21ac80c5baca18 data\monster_breeder\advancement\recipes\tools\dna_extractor.json
 5a1821b0740477518435fbcd8c4075f23c6ea570 data\monster_breeder\recipe\ender_creeper_dna.json
 daa2cdc23db275da785af3825c899f269ce6a0c9 data\monster_breeder\advancement\recipes\dna\mule_dna.json
 052072541a3005e0d7f77f9fdbfa71d3f5dddfe6 data\monster_breeder\advancement\recipes\dna\skeleton_horse_dna.json

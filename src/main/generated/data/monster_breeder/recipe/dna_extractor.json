@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "D": {
+      "item": "minecraft:diamond_block"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "S": {
+      "item": "monster_breeder:syringe"
+    }
+  },
+  "pattern": [
+    "GAG",
+    "DSD",
+    "GAG"
+  ],
+  "result": {
+    "count": 1,
+    "id": "monster_breeder:dna_extractor"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_syringe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monster_breeder:syringe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "monster_breeder:dna_extractor"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_syringe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "monster_breeder:dna_extractor"
+    ]
+  }
+}

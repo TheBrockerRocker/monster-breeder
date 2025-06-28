@@ -34,6 +34,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 				.criterion(hasItem(Items.GLASS), conditionsFromItem(Items.GLASS))
 				.offerTo(exporter, Identifier.of(MonsterBreeder.MOD_ID, "syringe"));
 
+		ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.DNA_EXTRACTOR)
+				.pattern("GAG")
+				.pattern("DSD")
+				.pattern("GAG")
+				.input('S', ModItems.SYRINGE)
+				.input('G', Items.GOLD_INGOT)
+				.input('D', Items.DIAMOND_BLOCK)
+				.input('A', Items.AMETHYST_SHARD)
+				.criterion(hasItem(ModItems.SYRINGE), conditionsFromItem(ModItems.SYRINGE))
+				.offerTo(exporter, Identifier.of(MonsterBreeder.MOD_ID, "dna_extractor"));
+
 		BioReactionRecipeJsonBuilder.create(VanillaDna.MULE, VanillaDna.HORSE, VanillaDna.DONKEY)
 				.criterion(hasItem(ModBlocks.BIO_REACTION_CHAMBER), conditionsFromItem(ModBlocks.BIO_REACTION_CHAMBER))
 				.offerTo(exporter, Identifier.ofVanilla("mule_dna"));

@@ -22,10 +22,8 @@ import net.minecraft.util.Identifier;
 public class ModItems {
     public static final Item DNA_SAMPLE = registerItem("dna_sample", new DnaSampleItem());
     public static final Item DNA_EXTRACTOR = registerItem("dna_extractor", new DnaExtractorItem());
-    public static final Item SYRINGE = registerItem("syringe",
-            new SyringeItem());
-    public static final Item USED_SYRINGE = registerItem("used_syringe",
-            new SyringeItem());
+    public static final Item SYRINGE = registerItem("syringe", new SyringeItem());
+    public static final Item USED_SYRINGE = registerItem("used_syringe", new SyringeItem());
     public static final Item ENDER_CREEPER_SPAWN_EGG = registerItem("ender_creeper_spawn_egg",
             new SpawnEggItem(ModEntities.ENDER_CREEPER, hexCode("a521bc"), hexCode("290063"), new Item.Settings()));
 
