@@ -82,6 +82,8 @@ public class VanillaDna {
 	public static final Identifier ZOMBIE_VILLAGER = Identifier.ofVanilla("zombie_villager");
 
 	public static void registerVanillaDna() {
+		//.setColor template
+		//.setColor("#","#","#","#")
 		DnaBuilder
 				.create(EntityType.ZOMBIE.getTranslationKey())
 				.setColor("#06891b", "#06891b", "#2493bc", "#2493bc")
@@ -135,7 +137,7 @@ public class VanillaDna {
 				.buildAndRegister(SNOW_GOLEM);
 		DnaBuilder
 				.create(EntityType.OCELOT.getTranslationKey())
-				.setColor("#ffdd00","#000000","#ffdd00","#000000")
+				.setColor("#ffdd00","#ffdd00","#ffdd00","#000000")
 				.setRarity(Rarity.UNCOMMON)
 				.addSourceMobAsSummonResult(EntityType.OCELOT)
 				.buildAndRegister(OCELOT);
@@ -159,6 +161,7 @@ public class VanillaDna {
 				.buildAndRegister(SKELETON_HORSE);
 		DnaBuilder
 				.create(EntityType.ARMADILLO.getTranslationKey())
+				.setColor("#ae736f","#ae736f","#4d2a28","#4d2a28")
 				.setRarity(Rarity.UNCOMMON)
 				.addSourceMobAsSummonResult(EntityType.ARMADILLO)
 				.buildAndRegister(ARMADILLO);
@@ -170,6 +173,7 @@ public class VanillaDna {
 				.buildAndRegister(VILLAGER);
 		DnaBuilder
 				.create(EntityType.AXOLOTL.getTranslationKey())
+				.setColor("#be009e","#be00b1","#d900c7","#bd00d9")
 				.setRarity(Rarity.RARE)
 				.addSourceMobAsSummonResult(EntityType.AXOLOTL)
 				.buildAndRegister(AXOLOTL);
@@ -191,16 +195,17 @@ public class VanillaDna {
 				.buildAndRegister(CHICKEN);
 		DnaBuilder
 				.create(EntityType.COD.getTranslationKey())
+				.setColor("#a36a62","#b67067","#b68567","#8b7060")
 				.addSourceMobAsSummonResult(EntityType.COD)
 				.buildAndRegister(COD);
 		DnaBuilder
 				.create(EntityType.COW.getTranslationKey())
 				.setColor("#5b2700","#f0f0f0","#5b2700","#f0f0f0")
-
 				.addSourceMobAsSummonResult(EntityType.COW)
 				.buildAndRegister(COW);
 		DnaBuilder
 				.create(EntityType.DONKEY.getTranslationKey())
+				.setColor("#74391a","#74451a","#74391a","#74451a")
 				.addSourceMobAsSummonResult(EntityType.DONKEY)
 				.buildAndRegister(DONKEY);
 		DnaBuilder
@@ -211,11 +216,13 @@ public class VanillaDna {
 				.buildAndRegister(MOOSHROOM);
 		DnaBuilder
 				.create(EntityType.MULE.getTranslationKey())
+				.setColor("#502d1a","#502d1a","#24130c","#24130c")
 				.setRarity(Rarity.UNCOMMON)
 				.addSourceMobAsSummonResult(EntityType.MULE)
 				.buildAndRegister(MULE);
 		DnaBuilder
 				.create(EntityType.PARROT.getTranslationKey())
+				.setColor("#000000","#0080ff","#ff0000","#bfbf00")
 				.setRarity(Rarity.UNCOMMON)
 				.addSourceMobAsSummonResult(EntityType.PARROT)
 				.buildAndRegister(PARROT);
@@ -232,6 +239,7 @@ public class VanillaDna {
 				.buildAndRegister(PUFFERFISH);
 		DnaBuilder
 				.create(EntityType.RABBIT.getTranslationKey())
+				.setColor("#948162","#524839","#524839","#948162")
 				.addSourceMobAsSummonResult(EntityType.RABBIT)
 				.buildAndRegister(RABBIT);
 		DnaBuilder
@@ -239,25 +247,29 @@ public class VanillaDna {
 				.setColor("#e81e0b","#2eaa74","#e81e0b","#2eaa74")
 				.addSourceMobAsSummonResult(EntityType.SALMON)
 				.buildAndRegister(SALMON);
-		DnaBuilder
+		DnaBuilder // maybe we can make it rainbow cus of JEB_
 				.create(EntityType.SHEEP.getTranslationKey())
 				.addSourceMobAsSummonResult(EntityType.SHEEP)
 				.buildAndRegister(SHEEP);
 		DnaBuilder
 				.create(EntityType.STRIDER.getTranslationKey())
+				.setColor("#870000","#8e587f","#870000","#8e587f")
 				.setRarity(Rarity.RARE)
 				.addSourceMobAsSummonResult(EntityType.STRIDER)
 				.buildAndRegister(STRIDER);
 		DnaBuilder
 				.create(EntityType.TADPOLE.getTranslationKey())
+				.setColor("#000000","#000000","#291400","#291400")
 				.addSourceMobAsSummonResult(EntityType.TADPOLE)
 				.buildAndRegister(TADPOLE);
 		DnaBuilder
 				.create(EntityType.TROPICAL_FISH.getTranslationKey())
+				.setColor("#ff7f00","#f5f5f5","#ff7f00","#f5f5f5")
 				.addSourceMobAsSummonResult(EntityType.TROPICAL_FISH)
 				.buildAndRegister(TROPICAL_FISH);
 		DnaBuilder
 				.create(EntityType.TURTLE.getTranslationKey())
+				.setColor("#1a8932","#bdb081","#00881d","#a3a47c")
 				.setRarity(Rarity.UNCOMMON)
 				.addSourceMobAsSummonResult(EntityType.TURTLE)
 				.buildAndRegister(TURTLE);
@@ -268,55 +280,67 @@ public class VanillaDna {
 				.buildAndRegister(WANDERING_TRADER);
 		DnaBuilder
 				.create(EntityType.BEE.getTranslationKey())
+				.setColor("#000000","#ffd000","#000000","#ffd000")
 				.addSourceMobAsSummonResult(EntityType.BEE)
 				.buildAndRegister(BEE);
 		DnaBuilder
 				.create(EntityType.CAVE_SPIDER.getTranslationKey())
+				.setColor("#ce000f","#ce000f","#000a2c","#00102c")
 				.setRarity(Rarity.EPIC)
 				.addSourceMobAsSummonResult(EntityType.CAVE_SPIDER)
 				.buildAndRegister(CAVE_SPIDER);
 		DnaBuilder
 				.create(EntityType.DOLPHIN.getTranslationKey())
+				.setColor("#68aad9","#68aad9","#729cba","#647b8b")
 				.setRarity(Rarity.RARE)
 				.addSourceMobAsSummonResult(EntityType.DOLPHIN)
 				.buildAndRegister(DOLPHIN);
 		DnaBuilder
 				.create(EntityType.DROWNED.getTranslationKey())
+				.setColor("#005c5f","#5f4600","#38ecce","#38ec98")
 				.addSourceMobAsSummonResult(EntityType.DROWNED)
 				.buildAndRegister(DROWNED);
 		DnaBuilder
 				.create(EntityType.ENDERMAN.getTranslationKey())
+				.setColor("#a800c2","#a800c2","#170029","#170029")
 				.setRarity(Rarity.RARE)
 				.addSourceMobAsSummonResult(EntityType.ENDERMAN)
 				.buildAndRegister(ENDERMAN);
 		DnaBuilder
 				.create(EntityType.FOX.getTranslationKey())
+				.setColor("#e6e6e6","#e6e6e6","#f08a1c","#f08a1c")
 				.addSourceMobAsSummonResult(EntityType.FOX)
 				.buildAndRegister(FOX);
 		DnaBuilder
 				.create(EntityType.GOAT.getTranslationKey())
+				.setColor("#585858","#474747","#d4d4d4","#e8e8e8")
 				.setRarity(Rarity.UNCOMMON)
 				.addSourceMobAsSummonResult(EntityType.GOAT)
 				.buildAndRegister(GOAT);
 		DnaBuilder
 				.create(EntityType.IRON_GOLEM.getTranslationKey())
+				.setColor("#f12020","#e2e2e2","#d2d2d2","#c2c2c2")
 				.addSourceMobAsSummonResult(EntityType.IRON_GOLEM)
 				.buildAndRegister(IRON_GOLEM);
 		DnaBuilder
 				.create(EntityType.LLAMA.getTranslationKey())
+				.setColor("#cdc091","#cdc091","#a8551a","#a86d1a")
 				.addSourceMobAsSummonResult(EntityType.LLAMA)
 				.addSourceMob(EntityType.TRADER_LLAMA)
 				.buildAndRegister(LLAMA);
 		DnaBuilder
 				.create(EntityType.PANDA.getTranslationKey())
+				.setColor("#000000","#ffffff","#000000","#ffffff")
 				.addSourceMobAsSummonResult(EntityType.PANDA)
 				.buildAndRegister(PANDA);
 		DnaBuilder
 				.create(EntityType.POLAR_BEAR.getTranslationKey())
+				.setColor("#000000","#ffffff","#fff4ce","#fff7da")
 				.addSourceMobAsSummonResult(EntityType.POLAR_BEAR)
 				.buildAndRegister(POLAR_BEAR);
 		DnaBuilder
 				.create(EntityType.WOLF.getTranslationKey())
+				.setColor("#1c1c1c","#9c9898","#9c9894","#6e6b6c")
 				.setRarity(Rarity.UNCOMMON)
 				.addSourceMobAsSummonResult(EntityType.WOLF)
 				.buildAndRegister(WOLF);
@@ -326,11 +350,13 @@ public class VanillaDna {
 				.buildAndRegister(ZOMBIFIED_PIGLIN);
 		DnaBuilder
 				.create(EntityType.BLAZE.getTranslationKey())
+				.setColor("#e29922","#e2a646","#ee9506","#e2a644")
 				.setRarity(Rarity.RARE)
 				.addSourceMobAsSummonResult(EntityType.BLAZE)
 				.buildAndRegister(BLAZE);
 		DnaBuilder
 				.create(EntityType.BREEZE.getTranslationKey())
+				.setColor("#73abdf","#4f9feb","#a4d3ff","#93b9dd")
 				.setRarity(Rarity.RARE)
 				.addSourceMobAsSummonResult(EntityType.BREEZE)
 				.buildAndRegister(BREEZE);
