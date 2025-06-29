@@ -1,4 +1,4 @@
-a# Monster Breeder – Core Mod (Fabric 1.21.1)
+# Monster Breeder – Core Mod (Fabric 1.21.1)
 
 ## 🎯 Objective
 Combine two DNA items in a GUI to create a hybrid mob with fixed properties.
@@ -49,9 +49,9 @@ Combine two DNA items in a GUI to create a hybrid mob with fixed properties.
 | **Phantom**  | `phantom_dna`  | Flying undead mob, night-based | Adds slow gliding/flying behavior            |
 
 **How to obtain Dna samples:** 
-- make a syringe
-- Use it to the mobs blood
-- put the blood in a centrifuge to turn it in to a Dna Sample
+- Make a syringe
+- Use it to extract the mobs blood
+- Put the blood in a centrifuge to turn it in to a Dna Sample
 
 
 ---
@@ -60,7 +60,7 @@ Combine two DNA items in a GUI to create a hybrid mob with fixed properties.
 - Register a custom block `DnaAltarBlock`
 - Add a `BlockEntity` with 1 input slots
 - Create a `HandledScreen` + `ScreenHandler`
-- Make it so if you use a flint and steel
+- Make it so if you use a flint and steel it summons the mob
 
 **Goal:** A working GUI with 1 input slots and interaction, for summoning the monster.
 
@@ -89,10 +89,10 @@ Combine two DNA items in a GUI to create a hybrid mob with fixed properties.
   - Lookup combination in a `Map<Pair<Item, Item>, HybridDefinition>`
 
   #### Additional Features
--one of the two not both
-  - a pre-render of mob
-  - some stats of the mob
-      -hp, (stamina), purity, stability
+- One of the below
+  - A pre-render of mob
+  - Some stats of the mob
+      - hp, (stamina), purity, stability
 
 
 **Helper Methods:**
