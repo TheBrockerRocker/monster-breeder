@@ -3,6 +3,7 @@ package net.brocker.monster_breeder.item.custom;
 import net.brocker.monster_breeder.MonsterBreeder;
 import net.brocker.monster_breeder.api.util.DnaUtil;
 import net.brocker.monster_breeder.component.ModComponents;
+import net.brocker.monster_breeder.config.ModConfig;
 import net.brocker.monster_breeder.item.ModItems;
 import net.brocker.monster_breeder.util.AdvancementUtil;
 import net.minecraft.entity.EntityType;
@@ -84,7 +85,7 @@ public class SyringeItem extends Item {
                 player.sendMessage(Text.translatable("monster_breeder.max_purity").formatted(Formatting.RED), false);
                 return ActionResult.FAIL;
             }
-            DnaUtil.setPurity(stack, purity + 10);
+            DnaUtil.setPurity(stack, (int) (purity + (10 * ModConfig.bloodPurityModifier)));
 
             player.setStackInHand(hand, stack.withItem(ModItems.USED_SYRINGE));
             player.sendMessage(Text.translatable("monster_breeder.extracted_from", mobName), false);

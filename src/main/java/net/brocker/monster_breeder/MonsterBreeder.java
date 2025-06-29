@@ -1,11 +1,13 @@
 package net.brocker.monster_breeder;
 
+import eu.midnightdust.lib.config.MidnightConfig;
 import net.brocker.monster_breeder.api.registry.MonsterBreederRegistries;
 import net.brocker.monster_breeder.block.ModBlocks;
 import net.brocker.monster_breeder.blockentity.ModBlockEntities;
 import net.brocker.monster_breeder.command.FusionTestCommand;
 import net.brocker.monster_breeder.command.argument.DnaIdentifierArgumentType;
 import net.brocker.monster_breeder.component.ModComponents;
+import net.brocker.monster_breeder.config.ModConfig;
 import net.brocker.monster_breeder.dna.ModDna;
 import net.brocker.monster_breeder.dna.VanillaDna;
 import net.brocker.monster_breeder.entity.ModEntities;
@@ -62,6 +64,8 @@ public class MonsterBreeder implements ModInitializer{
 
         listenToServerLifecycleEvents();
         listenToEntityEvents();
+
+        MidnightConfig.init(MOD_ID, ModConfig.class);
     }
 
     private void addItemsToItemGroups() {

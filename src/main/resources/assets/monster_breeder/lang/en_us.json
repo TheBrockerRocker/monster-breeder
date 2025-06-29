@@ -28,5 +28,13 @@
     "monster_breeder.already_extracted": "You already extracted blood from this mob, try locating another one!",
     "monster_breeder.extracted_from": "Blood extracted from %s!",
     "monster_breeder.click_to_extract": "Interact with a mob to extract blood",
-    "monster_breeder.purity": "%s%% purity"
+    "monster_breeder.purity": "%s%% purity",
+
+    "monster_breeder.midnightconfig.title": "Monster Breeder Config",
+    "monster_breeder.midnightconfig.category.gameplay": "Gameplay",
+    "monster_breeder.midnightconfig.enablePurityUnimplemented":"The 'Enable Purity' option has not been implemented and will not work!",
+    "monster_breeder.midnightconfig.enablePurity": "Enable Purity",
+    "monster_breeder.midnightconfig.enablePurity.label.tooltip": "Should purity be enabled.\nIf false all mechanics related to purity and stability will be disabled!",
+    "monster_breeder.midnightconfig.bloodPurityModifier": "Blood Purity Modifier",
+    "monster_breeder.midnightconfig.bloodPurityModifier.label.tooltip": "When collecting blood, it's purity will be multiplied by this number."
 }
