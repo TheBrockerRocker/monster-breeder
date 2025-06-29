@@ -11,6 +11,7 @@ public class ModDna {
 
 	public static void registerModDna() {
 		DnaBuilder.create(ModEntities.ENDER_CREEPER.getTranslationKey())
+				.setColor("#000000","#27006c","#3c2369","#670881")
 				.addSourceMobAsSummonResult(ModEntities.ENDER_CREEPER)
 				.buildAndRegister(ENDER_CREEPER);
 	}

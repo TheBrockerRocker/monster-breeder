@@ -291,6 +291,7 @@ public class VanillaDna {
 				.buildAndRegister(TURTLE);
 		DnaBuilder
 				.create(EntityType.WANDERING_TRADER.getTranslationKey())
+				.setColor("#5be13a","#e1cb3a","#375db5","#3b67cc")
 				.addSourceMobAsSummonResult(EntityType.WANDERING_TRADER)
 				.buildAndRegister(WANDERING_TRADER);
 		DnaBuilder
@@ -361,6 +362,7 @@ public class VanillaDna {
 				.buildAndRegister(WOLF);
 		DnaBuilder
 				.create(EntityType.ZOMBIFIED_PIGLIN.getTranslationKey())
+				.setColor("#349221","#e3e3e3","#f2f2f2","#d649b8")
 				.addSourceMobAsSummonResult(EntityType.ZOMBIFIED_PIGLIN)
 				.buildAndRegister(ZOMBIFIED_PIGLIN);
 		DnaBuilder
@@ -377,111 +379,134 @@ public class VanillaDna {
 				.buildAndRegister(BREEZE);
 		DnaBuilder
 				.create(EntityType.ELDER_GUARDIAN.getTranslationKey())
+				.setColor("#6cb0c9","#4098b8","#9bb2af","#7e8a88")
 				.setRarity(Rarity.EPIC)
 				.addSourceMobAsSummonResult(EntityType.ELDER_GUARDIAN)
 				.buildAndRegister(ELDER_GUARDIAN);
 		DnaBuilder
 				.create(EntityType.ENDERMITE.getTranslationKey())
+				.setColor("#4522b7","#37189d","#6340d7","#4f3c8e")
 				.setRarity(Rarity.RARE)
 				.addSourceMobAsSummonResult(EntityType.ENDERMITE)
 				.buildAndRegister(ENDERMITE);
 		DnaBuilder
 				.create(EntityType.EVOKER.getTranslationKey())
+				.setColor("#dcaa2c","#00aa11","#667377","#1f2222")
 				.setRarity(Rarity.EPIC)
 				.addSourceMobAsSummonResult(EntityType.EVOKER)
 				.buildAndRegister(EVOKER);
 		DnaBuilder
 				.create(EntityType.GHAST.getTranslationKey())
+				.setColor("#f3f3f3","#dcdcdc","#b8b8b8","#aaaaaa")
 				.setRarity(Rarity.EPIC)
 				.addSourceMobAsSummonResult(EntityType.GHAST)
 				.buildAndRegister(GHAST);
 		DnaBuilder
 				.create(EntityType.GUARDIAN.getTranslationKey())
+				.setColor("#ff7f00","#f28417","#f1bf8c","#209f77")
 				.setRarity(Rarity.UNCOMMON)
 				.addSourceMobAsSummonResult(EntityType.GUARDIAN)
 				.buildAndRegister(GUARDIAN);
 		DnaBuilder
 				.create(EntityType.HOGLIN.getTranslationKey())
+				.setColor("#b8b8b8","#afafaf","#432d2e","#6d494c")
 				.addSourceMobAsSummonResult(EntityType.HOGLIN)
 				.buildAndRegister(HOGLIN);
 		DnaBuilder
 				.create(EntityType.HUSK.getTranslationKey())
+				.setColor("#665419","#776938","#938042","#af9d61")
 				.setRarity(Rarity.UNCOMMON)
 				.addSourceMobAsSummonResult(EntityType.HUSK)
 				.buildAndRegister(HUSK);
 		DnaBuilder
 				.create(EntityType.MAGMA_CUBE.getTranslationKey())
+				.setColor("#a20a00","#800800","#a82a21","#a84c21")
 				.addSourceMobAsSummonResult(EntityType.MAGMA_CUBE)
 				.buildAndRegister(MAGMA_CUBE);
 		DnaBuilder
 				.create(EntityType.PHANTOM.getTranslationKey())
+				.setColor("#b7bdc7","#9b9ea5","#135d88","#235877")
 				.setRarity(Rarity.UNCOMMON)
 				.addSourceMobAsSummonResult(EntityType.PHANTOM)
 				.buildAndRegister(PHANTOM);
 		DnaBuilder
 				.create(EntityType.PIGLIN_BRUTE.getTranslationKey())
+				.setColor("#e2ad26","#ca9d2c","#d6b04f","#c89092")
 				.setRarity(Rarity.RARE)
 				.addSourceMobAsSummonResult(EntityType.PIGLIN_BRUTE)
 				.buildAndRegister(PIGLIN_BRUTE);
 		DnaBuilder
 				.create(EntityType.PILLAGER.getTranslationKey())
+				.setColor("#673c00","#26ba5a","#575d64","#50555d")
 				.addSourceMobAsSummonResult(EntityType.PILLAGER)
 				.buildAndRegister(PILLAGER);
 		DnaBuilder
 				.create(EntityType.RAVAGER.getTranslationKey())
+				.setColor("#8ab5dc","#80a7cc","#394f64","#4b6074")
 				.setRarity(Rarity.RARE)
 				.addSourceMobAsSummonResult(EntityType.RAVAGER)
 				.buildAndRegister(RAVAGER);
 		DnaBuilder
 				.create(EntityType.SHULKER.getTranslationKey())
+				.setColor("#cec2a0","#bdb49c","#b386cc","#b389cc")
 				.setRarity(Rarity.RARE)
 				.addSourceMobAsSummonResult(EntityType.SHULKER)
 				.buildAndRegister(SHULKER);
 		DnaBuilder
 				.create(EntityType.SILVERFISH.getTranslationKey())
+				.setColor("#85898c","#b0b6ba","#919599","#d2d9dd")
 				.setRarity(Rarity.UNCOMMON)
 				.addSourceMobAsSummonResult(EntityType.SILVERFISH)
 				.buildAndRegister(SILVERFISH);
 		DnaBuilder
 				.create(EntityType.SLIME.getTranslationKey())
+				.setColor("#12cc46","#35cc5f","#63cc81","#18cc4b")
 				.addSourceMobAsSummonResult(EntityType.SLIME)
 				.buildAndRegister(SLIME);
 		DnaBuilder
 				.create(EntityType.STRAY.getTranslationKey())
+				.setColor("#305f7c","#a0a0a0","#114f76","#dedede")
 				.setRarity(Rarity.RARE)
 				.addSourceMobAsSummonResult(EntityType.STRAY)
 				.buildAndRegister(STRAY);
 		DnaBuilder
 				.create(EntityType.VEX.getTranslationKey())
+				.setColor("#95bdd6","#85a9bf","#7c9db2","#ddf2ff")
 				.setRarity(Rarity.RARE)
 				.addSourceMobAsSummonResult(EntityType.VEX)
 				.buildAndRegister(VEX);
 		DnaBuilder
 				.create(EntityType.VINDICATOR.getTranslationKey())
+				.setColor("#c3c3c3","#26ba5a","575d64","#50555d")
 				.setRarity(Rarity.RARE)
 				.addSourceMobAsSummonResult(EntityType.VINDICATOR)
 				.buildAndRegister(VINDICATOR);
 		DnaBuilder
 				.create(EntityType.WARDEN.getTranslationKey())
+				.setColor("#103e82","#105a82","#0e4e8e","#0b5a75")
 				.setRarity(Rarity.EPIC)
 				.addSourceMobAsSummonResult(EntityType.WANDERING_TRADER)
 				.buildAndRegister(WARDEN);
 		DnaBuilder
 				.create(EntityType.WITCH.getTranslationKey())
+				.setColor("#4f4853","#aa9eb3","#5c2683","#7d22bd")
 				.setRarity(Rarity.RARE)
 				.addSourceMobAsSummonResult(EntityType.WITCH)
 				.buildAndRegister(WITCH);
 		DnaBuilder
 				.create(EntityType.WITHER_SKELETON.getTranslationKey())
+				.setColor("#474747","#525252","#393939","#4e4e4e")
 				.setRarity(Rarity.EPIC)
 				.addSourceMobAsSummonResult(EntityType.WITHER_SKELETON)
 				.buildAndRegister(WITHER_SKELETON);
 		DnaBuilder
 				.create(EntityType.ZOGLIN.getTranslationKey())
+				.setColor("#b8b8b8","#afafaf","#432d2e","#0b7f26")
 				.addSourceMobAsSummonResult(EntityType.ZOGLIN)
 				.buildAndRegister(ZOGLIN);
 		DnaBuilder
 				.create(EntityType.ZOMBIE_VILLAGER.getTranslationKey())
+				.setColor("#b75c38","#59ff40","#0a7724","#703310")
 				.setRarity(Rarity.UNCOMMON)
 				.addSourceMobAsSummonResult(EntityType.ZOMBIE_VILLAGER)
 				.buildAndRegister(ZOMBIE_VILLAGER);
