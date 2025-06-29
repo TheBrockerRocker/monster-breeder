@@ -15,7 +15,7 @@ public class DnaExtractorItem extends Item {
     public DnaExtractorItem() {
         super(new Settings()
                 .maxCount(1)
-                .maxDamage(16)
+                .maxDamage(8)
                 .rarity(Rarity.EPIC)
         );
     }

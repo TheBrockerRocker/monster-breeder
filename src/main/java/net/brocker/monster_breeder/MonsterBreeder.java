@@ -72,15 +72,12 @@ public class MonsterBreeder implements ModInitializer{
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
+            entries.add(ModItems.DNA_EXTRACTOR);
             entries.add(ModItems.SYRINGE);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> {
             entries.add(ModItems.ENDER_CREEPER_SPAWN_EGG);
-        });
-
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.OPERATOR).register(entries -> {
-            entries.add(ModItems.DNA_EXTRACTOR);
         });
     }
 
