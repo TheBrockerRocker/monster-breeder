@@ -15,7 +15,7 @@
     "issues": "https://github.com/TheBrockerRocker/monster-breeder/issues/new"
   },
   "license": "CC0-1.0",
-  "icon": "assets/monsterbreeder/icon.png",
+  "icon": "assets/monster_breeder/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
