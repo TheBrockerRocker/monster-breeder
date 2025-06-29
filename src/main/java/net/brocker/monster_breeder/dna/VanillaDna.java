@@ -477,7 +477,7 @@ public class VanillaDna {
 				.buildAndRegister(VEX);
 		DnaBuilder
 				.create(EntityType.VINDICATOR.getTranslationKey())
-				.setColor("#c3c3c3","#26ba5a","575d64","#50555d")
+				.setColor("#c3c3c3","#26ba5a","#575d64","#50555d")
 				.setRarity(Rarity.RARE)
 				.addSourceMobAsSummonResult(EntityType.VINDICATOR)
 				.buildAndRegister(VINDICATOR);
