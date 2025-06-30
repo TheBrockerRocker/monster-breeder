@@ -13,6 +13,7 @@
     "block.monster_breeder.dna_altar": "DNA Altar",
     "block.monster_breeder.centrifuge": "Centrifuge",
     "block.monster_breeder.bio_reaction_chamber": "Bio-Reaction Chamber",
+    "block.monster_breeder.growth_chamber": "Growth Chamber",
 
     "entity.monster_breeder.ender_creeper": "Ender Creeper",
     "entity.monster_breeder.zombie_creeper": "Zombie Creeper",
@@ -20,6 +21,7 @@
     "monster_breeder.mod_name": "Monster Breeder",
     "monster_breeder.unknown": "Unknown",
     "monster_breeder.bio_reaction": "Bio-Reaction",
+    "monster_breeder.growth": "DNA Growth",
     "monster_breeder.blood": "%s Blood",
     "monster_breeder.dna": "%s DNA",
     "monster_breeder.dna_source": "Can be obtained from %s",

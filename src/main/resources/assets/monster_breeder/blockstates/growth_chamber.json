@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "monster_breeder:block/growth_chamber",
+      "y": 180
+    },
+    "facing=east": {
+      "model": "monster_breeder:block/growth_chamber",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "monster_breeder:block/growth_chamber",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "monster_breeder:block/growth_chamber",
+      "y": 90
+    }
+  }
+}

@@ -74,6 +74,7 @@ public class MonsterBreeder implements ModInitializer{
             entries.add(ModBlocks.DNA_ALTAR);
             entries.add(ModBlocks.CENTRIFUGE);
             entries.add(ModBlocks.BIO_REACTION_CHAMBER);
+            entries.add(ModBlocks.GROWTH_CHAMBER);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {

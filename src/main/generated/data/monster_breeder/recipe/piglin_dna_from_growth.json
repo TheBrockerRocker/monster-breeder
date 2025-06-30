@@ -1,0 +1,5 @@
+{
+  "type": "monster_breeder:growth",
+  "ingredient": "minecraft:zombified_piglin",
+  "result": "minecraft:piglin"
+}

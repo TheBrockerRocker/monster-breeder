@@ -41,7 +41,7 @@ public class BioReactionRecipeJsonBuilder {
 				.criteriaMerger(AdvancementRequirements.CriterionMerger.OR);
 		this.criteria.forEach(builder::criterion);
 		BioReactionRecipe recipe = new BioReactionRecipe(input1, input2, output);
-		exporter.accept(recipeId, recipe, builder.build(recipeId.withPrefixedPath("recipes/dna/")));
+		exporter.accept(recipeId, recipe, builder.build(recipeId.withPrefixedPath("recipes/bio_reaction/")));
 	}
 
 	private void validate(Identifier recipeId) {

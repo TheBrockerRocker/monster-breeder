@@ -5,17 +5,26 @@ import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
 
 public class ModRecipes {
 	public static final RecipeSerializer<BioReactionRecipe> BIO_REACTION_SERIALIZER = Registry.register(
-			Registries.RECIPE_SERIALIZER, Identifier.of(MonsterBreeder.MOD_ID, "bio_reaction"),
+			Registries.RECIPE_SERIALIZER, MonsterBreeder.identifier("bio_reaction"),
 			new BioReactionRecipe.Serializer());
 	public static final RecipeType<BioReactionRecipe> BIO_REACTION_TYPE = Registry.register(
-			Registries.RECIPE_TYPE, Identifier.of(MonsterBreeder.MOD_ID, "bio_reaction"), new RecipeType<BioReactionRecipe>() {
+			Registries.RECIPE_TYPE, MonsterBreeder.identifier("bio_reaction"), new RecipeType<BioReactionRecipe>() {
 				@Override
 				public String toString() {
 					return "bio_reaction";
+				}
+			});
+	public static final RecipeSerializer<GrowthRecipe> GROWTH_SERIALIZER = Registry.register(
+			Registries.RECIPE_SERIALIZER, MonsterBreeder.identifier("growth"),
+			new GrowthRecipe.Serializer());
+	public static final RecipeType<GrowthRecipe> GROWTH_TYPE = Registry.register(
+			Registries.RECIPE_TYPE, MonsterBreeder.identifier("growth"), new RecipeType<GrowthRecipe>() {
+				@Override
+				public String toString() {
+					return "growth";
 				}
 			});
 

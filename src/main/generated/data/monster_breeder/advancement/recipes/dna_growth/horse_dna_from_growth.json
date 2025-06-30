@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_growth_chamber": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monster_breeder:growth_chamber"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "monster_breeder:horse_dna_from_growth"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_growth_chamber"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "monster_breeder:horse_dna_from_growth"
+    ]
+  }
+}
