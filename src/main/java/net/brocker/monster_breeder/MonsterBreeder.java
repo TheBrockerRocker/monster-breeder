@@ -11,6 +11,7 @@ import net.brocker.monster_breeder.config.ModConfig;
 import net.brocker.monster_breeder.dna.ModDna;
 import net.brocker.monster_breeder.dna.VanillaDna;
 import net.brocker.monster_breeder.entity.ModEntities;
+import net.brocker.monster_breeder.entity.custom.ZombieCreeperEntity;
 import net.brocker.monster_breeder.item.ModItems;
 import net.brocker.monster_breeder.recipe.ModRecipes;
 import net.brocker.monster_breeder.screen.ModScreenHandlers;
@@ -82,6 +83,7 @@ public class MonsterBreeder implements ModInitializer{
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> {
             entries.add(ModItems.ENDER_CREEPER_SPAWN_EGG);
+            entries.add(ModItems.ZOMBIE_CREEPER_SPAWN_EGG);
         });
     }
 
@@ -91,6 +93,7 @@ public class MonsterBreeder implements ModInitializer{
 
     private void addDefaultAttributes() {
         FabricDefaultAttributeRegistry.register(ModEntities.ENDER_CREEPER, CreeperEntity.createCreeperAttributes());
+        FabricDefaultAttributeRegistry.register(ModEntities.ZOMBIE_CREEPER, ZombieCreeperEntity.createZombieCreeperAttributes());
     }
 
     private void addCommandArgumentTypes() {

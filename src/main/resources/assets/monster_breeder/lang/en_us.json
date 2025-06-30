@@ -8,12 +8,14 @@
     "item.monster_breeder.syringe": "Empty Syringe",
     "item.monster_breeder.used_syringe": "Used Syringe",
     "item.monster_breeder.ender_creeper_spawn_egg": "Ender Creeper Spawn Egg",
+    "item.monster_breeder.zombie_creeper_spawn_egg": "Zombie Creeper Spawn Egg",
 
     "block.monster_breeder.dna_altar": "DNA Altar",
     "block.monster_breeder.centrifuge": "Centrifuge",
     "block.monster_breeder.bio_reaction_chamber": "Bio-Reaction Chamber",
 
     "entity.monster_breeder.ender_creeper": "Ender Creeper",
+    "entity.monster_breeder.zombie_creeper": "Zombie Creeper",
 
     "monster_breeder.mod_name": "Monster Breeder",
     "monster_breeder.unknown": "Unknown",

@@ -160,7 +160,6 @@ public class VanillaDna {
 		DnaBuilder
 				.create(EntityType.HORSE.getTranslationKey())
 				.setColor("#991c00","#8d4600","#8d3800","#eeeeee")
-				.setRarity(Rarity.UNCOMMON)
 				.addSourceMobAsSummonResult(EntityType.HORSE)
 				.buildAndRegister(HORSE);
 		DnaBuilder
@@ -221,7 +220,7 @@ public class VanillaDna {
 		DnaBuilder
 				.create(EntityType.MOOSHROOM.getTranslationKey())
 				.setColor("#c9002b","#f0f0f0","#c9002b","#f0f0f0")
-				.setRarity(Rarity.RARE)
+				.setRarity(Rarity.EPIC)
 				.addSourceMobAsSummonResult(EntityType.MOOSHROOM)
 				.buildAndRegister(MOOSHROOM);
 		DnaBuilder
@@ -368,13 +367,13 @@ public class VanillaDna {
 		DnaBuilder
 				.create(EntityType.BLAZE.getTranslationKey())
 				.setColor("#e29922","#e2a646","#ee9506","#e2a644")
-				.setRarity(Rarity.RARE)
+				.setRarity(Rarity.EPIC)
 				.addSourceMobAsSummonResult(EntityType.BLAZE)
 				.buildAndRegister(BLAZE);
 		DnaBuilder
 				.create(EntityType.BREEZE.getTranslationKey())
 				.setColor("#73abdf","#4f9feb","#a4d3ff","#93b9dd")
-				.setRarity(Rarity.RARE)
+				.setRarity(Rarity.EPIC)
 				.addSourceMobAsSummonResult(EntityType.BREEZE)
 				.buildAndRegister(BREEZE);
 		DnaBuilder
@@ -443,7 +442,7 @@ public class VanillaDna {
 		DnaBuilder
 				.create(EntityType.RAVAGER.getTranslationKey())
 				.setColor("#8ab5dc","#80a7cc","#394f64","#4b6074")
-				.setRarity(Rarity.RARE)
+				.setRarity(Rarity.EPIC)
 				.addSourceMobAsSummonResult(EntityType.RAVAGER)
 				.buildAndRegister(RAVAGER);
 		DnaBuilder

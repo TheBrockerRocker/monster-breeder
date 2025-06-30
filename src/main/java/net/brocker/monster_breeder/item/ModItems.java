@@ -9,10 +9,7 @@ import net.brocker.monster_breeder.item.custom.DnaExtractorItem;
 import net.brocker.monster_breeder.item.custom.DnaSampleItem;
 import net.brocker.monster_breeder.item.custom.SyringeItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -25,7 +22,9 @@ public class ModItems {
     public static final Item SYRINGE = registerItem("syringe", new SyringeItem());
     public static final Item USED_SYRINGE = registerItem("used_syringe", new SyringeItem());
     public static final Item ENDER_CREEPER_SPAWN_EGG = registerItem("ender_creeper_spawn_egg",
-            new SpawnEggItem(ModEntities.ENDER_CREEPER, hexCode("a521bc"), hexCode("290063"), new Item.Settings()));
+            new SpawnEggItem(ModEntities.ENDER_CREEPER, hexCode("#a521bc"), hexCode("#290063"), new Item.Settings()));
+    public static final Item ZOMBIE_CREEPER_SPAWN_EGG = registerItem("zombie_creeper_spawn_egg",
+            new SpawnEggItem(ModEntities.ZOMBIE_CREEPER, hexCode("#0DA70B"), hexCode("#799C65"), new Item.Settings()));
 
     public static final RegistryKey<ItemGroup> GROUP_ITEMS_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(MonsterBreeder.MOD_ID, "items"));
     public static final ItemGroup GROUP_ITEMS = FabricItemGroup.builder()
@@ -46,6 +45,7 @@ public class ModItems {
             .displayName(Text.translatable("itemGroup.monster_breeder.eggs"))
             .entries((displayContext, entries) -> {
                 entries.add(new ItemStack(ENDER_CREEPER_SPAWN_EGG));
+                entries.add(new ItemStack(ZOMBIE_CREEPER_SPAWN_EGG));
             })
             .build();
 

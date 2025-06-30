@@ -23,5 +23,6 @@ public class ModModelProvider extends FabricModelProvider {
         Model spawnEggModel = new Model(Optional.of(Identifier.of("item/template_spawn_egg")), Optional.empty());
 
         itemModelGenerator.register(ModItems.ENDER_CREEPER_SPAWN_EGG, spawnEggModel);
+        itemModelGenerator.register(ModItems.ZOMBIE_CREEPER_SPAWN_EGG, spawnEggModel);
     }
 }

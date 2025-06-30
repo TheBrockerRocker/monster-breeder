@@ -32,7 +32,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 				.input('G', Items.GLASS)
 				.input('N', Items.IRON_NUGGET)
 				.criterion(hasItem(Items.GLASS), conditionsFromItem(Items.GLASS))
-				.offerTo(exporter, Identifier.of(MonsterBreeder.MOD_ID, "syringe"));
+				.offerTo(exporter, MonsterBreeder.identifier("syringe"));
 
 		ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.DNA_EXTRACTOR)
 				.pattern("GAG")
@@ -43,7 +43,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 				.input('D', Items.DIAMOND_BLOCK)
 				.input('A', Items.AMETHYST_SHARD)
 				.criterion(hasItem(ModItems.SYRINGE), conditionsFromItem(ModItems.SYRINGE))
-				.offerTo(exporter, Identifier.of(MonsterBreeder.MOD_ID, "dna_extractor"));
+				.offerTo(exporter, MonsterBreeder.identifier("dna_extractor"));
 
 		BioReactionRecipeJsonBuilder.create(VanillaDna.MULE, VanillaDna.HORSE, VanillaDna.DONKEY)
 				.criterion(hasItem(ModBlocks.BIO_REACTION_CHAMBER), conditionsFromItem(ModBlocks.BIO_REACTION_CHAMBER))
@@ -55,6 +55,10 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
 		BioReactionRecipeJsonBuilder.create(ModDna.ENDER_CREEPER, VanillaDna.CREEPER, VanillaDna.ENDERMAN)
 				.criterion(hasItem(ModBlocks.BIO_REACTION_CHAMBER), conditionsFromItem(ModBlocks.BIO_REACTION_CHAMBER))
-				.offerTo(exporter, Identifier.of(MonsterBreeder.MOD_ID, "ender_creeper_dna"));
+				.offerTo(exporter, MonsterBreeder.identifier("ender_creeper_dna"));
+
+		BioReactionRecipeJsonBuilder.create(ModDna.ZOMBIE_CREEPER, VanillaDna.CREEPER, VanillaDna.ZOMBIE)
+				.criterion(hasItem(ModBlocks.BIO_REACTION_CHAMBER), conditionsFromItem(ModBlocks.BIO_REACTION_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("zombie_creeper_dna"));
 	}
 }

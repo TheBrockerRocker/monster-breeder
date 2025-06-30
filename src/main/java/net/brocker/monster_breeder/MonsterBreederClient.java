@@ -5,13 +5,14 @@ import net.brocker.monster_breeder.api.util.DnaUtil;
 import net.brocker.monster_breeder.blockentity.ModBlockEntities;
 import net.brocker.monster_breeder.blockentity.renderer.DnaAltarBlockEntityRenderer;
 import net.brocker.monster_breeder.entity.ModEntities;
-import net.brocker.monster_breeder.entity.client.EnderCreeperEntityRenderer;
+import net.brocker.monster_breeder.entity.client.*;
 import net.brocker.monster_breeder.item.ModItems;
 import net.brocker.monster_breeder.screen.ModScreenHandlers;
 import net.brocker.monster_breeder.screen.custom.BioReactorChamberScreen;
 import net.brocker.monster_breeder.screen.custom.DnaAltarScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
@@ -25,6 +26,7 @@ public class MonsterBreederClient implements ClientModInitializer {
         addEntityRenderers();
         addColorProviders();
         addModelPredicates();
+        addEntityModelLayers();
     }
 
     private void addScreenHandlers() {
@@ -38,6 +40,7 @@ public class MonsterBreederClient implements ClientModInitializer {
 
     private void addEntityRenderers() {
         EntityRendererRegistry.register(ModEntities.ENDER_CREEPER, EnderCreeperEntityRenderer::new);
+        EntityRendererRegistry.register(ModEntities.ZOMBIE_CREEPER, ZombieCreeperEntityRenderer::new);
     }
 
     private void addColorProviders() {
@@ -70,5 +73,9 @@ public class MonsterBreederClient implements ClientModInitializer {
                     float purity = DnaUtil.getPurity(stack);
                     return (float) Math.ceil(purity / 12.5f) / 8f;
                 });
+    }
+
+    private void addEntityModelLayers() {
+        EntityModelLayerRegistry.registerModelLayer(ZombieCreeperModel.LAYER, ZombieCreeperModel::getTexturedModelData);
     }
 }
