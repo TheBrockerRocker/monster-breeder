@@ -45,11 +45,11 @@ public class GrowthChamberScreenHandler extends ScreenHandler {
     }
 
     public int getScaledArrowProgress() {
-        int progress = this.propertyDelegate.get(0);
-        int maxProgress = this.propertyDelegate.get(1); // Max Progress
-        int arrowPixelSize = 44;
+        float progress = this.propertyDelegate.get(0);
+        float maxProgress = this.propertyDelegate.get(1);
+        int arrowPixelSize = 22;
 
-        return maxProgress != 0 && progress != 0 ? progress * arrowPixelSize / maxProgress : 0;
+        return maxProgress != 0 && progress != 0 ? (int) Math.ceil(progress * arrowPixelSize / maxProgress) : 0;
     }
 
     @Override

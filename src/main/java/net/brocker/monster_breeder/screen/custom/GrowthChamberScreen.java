@@ -13,7 +13,7 @@ public class GrowthChamberScreen extends HandledScreen<GrowthChamberScreenHandle
     private static final Identifier GUI_TEXTURE =
             Identifier.of(MonsterBreeder.MOD_ID, "textures/gui/growth_chamber/growth_chamber_gui.png");
     private static final Identifier ARROW_TEXTURE =
-            Identifier.of(MonsterBreeder.MOD_ID, "textures/gui/dna_arrow.png");
+            Identifier.of(MonsterBreeder.MOD_ID, "textures/gui/growth_chamber/dna_arrow.png");
 
     public GrowthChamberScreen(GrowthChamberScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
@@ -36,8 +36,8 @@ public class GrowthChamberScreen extends HandledScreen<GrowthChamberScreenHandle
 
     private void renderProgressArrow(DrawContext context, int x, int y) {
         if(handler.isCrafting()) {
-            context.drawTexture(ARROW_TEXTURE, x + 16, y + 34, 0, 0,
-                    handler.getScaledArrowProgress(), 16, 44, 16);
+            context.drawTexture(ARROW_TEXTURE, x + 38, y + 34, 0, 0,
+                    handler.getScaledArrowProgress(), 16, 22, 16);
         }
     }
 

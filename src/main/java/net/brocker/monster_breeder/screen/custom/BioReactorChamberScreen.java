@@ -13,7 +13,7 @@ public class BioReactorChamberScreen extends HandledScreen<BioReactorChamberScre
     private static final Identifier GUI_TEXTURE =
             Identifier.of(MonsterBreeder.MOD_ID, "textures/gui/bio_reaction_chamber/bio_reaction_chamber_gui.png");
     private static final Identifier ARROW_TEXTURE =
-            Identifier.of(MonsterBreeder.MOD_ID, "textures/gui/dna_arrow.png");
+            Identifier.of(MonsterBreeder.MOD_ID, "textures/gui/bio_reaction_chamber/dna_arrow.png");
 
     public BioReactorChamberScreen(BioReactorChamberScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
