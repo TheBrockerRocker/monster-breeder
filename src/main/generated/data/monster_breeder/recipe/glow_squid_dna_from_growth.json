@@ -1,0 +1,5 @@
+{
+  "type": "monster_breeder:growth",
+  "ingredient": "minecraft:squid",
+  "result": "minecraft:glow_squid"
+}

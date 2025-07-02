@@ -2,6 +2,7 @@ package net.brocker.monster_breeder.datagen;
 
 import net.brocker.monster_breeder.MonsterBreeder;
 import net.brocker.monster_breeder.api.datagen.BioReactionRecipeJsonBuilder;
+import net.brocker.monster_breeder.api.datagen.GrowthRecipeJsonBuilder;
 import net.brocker.monster_breeder.block.ModBlocks;
 import net.brocker.monster_breeder.dna.ModDna;
 import net.brocker.monster_breeder.dna.VanillaDna;
@@ -60,5 +61,105 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 		BioReactionRecipeJsonBuilder.create(ModDna.ZOMBIE_CREEPER, VanillaDna.CREEPER, VanillaDna.ZOMBIE)
 				.criterion(hasItem(ModBlocks.BIO_REACTION_CHAMBER), conditionsFromItem(ModBlocks.BIO_REACTION_CHAMBER))
 				.offerTo(exporter, MonsterBreeder.identifier("zombie_creeper_dna"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.ENDERMAN, VanillaDna.ENDERMITE)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("enderman_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.ZOMBIE, VanillaDna.DROWNED)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("zombie_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.MOOSHROOM, VanillaDna.COW)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("mooshroom_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.HORSE, VanillaDna.DONKEY)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("horse_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.ELDER_GUARDIAN, VanillaDna.GUARDIAN)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("elder_guardian_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.EVOKER, VanillaDna.VINDICATOR)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("evoker_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.VINDICATOR, VanillaDna.PILLAGER)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("vindicator_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.PILLAGER, VanillaDna.VILLAGER)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("pillager_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.VILLAGER, VanillaDna.ZOMBIE_VILLAGER)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("villager_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.PIGLIN_BRUTE, VanillaDna.PIGLIN)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("piglin_brute_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.PIGLIN, VanillaDna.ZOMBIFIED_PIGLIN)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("piglin_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.PIGLIN, VanillaDna.PIG)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("piglin_dna_from_pig_dna_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.GLOW_SQUID, VanillaDna.SQUID)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("glow_squid_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.FROG, VanillaDna.TADPOLE)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("frog_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.BOGGED, VanillaDna.SKELETON)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("bogged_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.BLAZE, VanillaDna.BREEZE)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("blaze_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.CAVE_SPIDER, VanillaDna.SPIDER)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("cave_spider_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.HOGLIN, VanillaDna.ZOGLIN)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("hoglin_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.OCELOT, VanillaDna.CAT)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("ocelot_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.LLAMA, VanillaDna.SHEEP)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("llama_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.GUARDIAN, VanillaDna.PUFFERFISH)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("guardian_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.SHULKER, VanillaDna.PHANTOM)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("shulker_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.PARROT, VanillaDna.CHICKEN)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("parrot_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.DOLPHIN, VanillaDna.COD)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("dolphin_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.AXOLOTL, VanillaDna.TROPICAL_FISH)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("axolotl_dna_from_growth"));
 	}
 }

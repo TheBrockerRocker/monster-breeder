@@ -72,6 +72,7 @@ public class VanillaDna {
 	public static final Identifier MAGMA_CUBE = Identifier.ofVanilla("magma_cube");
 	public static final Identifier PHANTOM = Identifier.ofVanilla("phantom");
 	public static final Identifier PIGLIN_BRUTE = Identifier.ofVanilla("piglin_brute");
+	public static final Identifier PIGLIN = Identifier.ofVanilla("piglin");
 	public static final Identifier PILLAGER = Identifier.ofVanilla("pillager");
 	public static final Identifier RAVAGER = Identifier.ofVanilla("ravager");
 	public static final Identifier SHULKER = Identifier.ofVanilla("shulker");
@@ -434,6 +435,11 @@ public class VanillaDna {
 				.setRarity(Rarity.RARE)
 				.addSourceMobAsSummonResult(EntityType.PIGLIN_BRUTE)
 				.buildAndRegister(PIGLIN_BRUTE);
+		DnaBuilder
+				.create(EntityType.PIGLIN.getTranslationKey())
+				.setColor("#f2f2f2","#f2f2f2","#d6b04f","#c89092")
+				.addSourceMobAsSummonResult(EntityType.PIGLIN)
+				.buildAndRegister(PIGLIN);
 		DnaBuilder
 				.create(EntityType.PILLAGER.getTranslationKey())
 				.setColor("#673c00","#26ba5a","#575d64","#50555d")

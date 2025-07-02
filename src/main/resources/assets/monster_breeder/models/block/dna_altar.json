@@ -1,5 +1,6 @@
 {
 	"credit": "Made with Blockbench",
+	"parent": "block/block",
 	"texture_size": [64, 64],
 	"textures": {
 		"0": "monster_breeder:block/dna_altar",
@@ -146,27 +147,5 @@
 				"down": {"uv": [6, 10, 5, 11], "texture": "#0"}
 			}
 		}
-	],
-	"display": {
-		"thirdperson_righthand": {
-			"scale": [0.5, 0.5, 0.5],
-			"translation": [-1, -2, 0]
-		},
-		"thirdperson_lefthand": {
-			"scale": [0.5, 0.5, 0.5],
-			"translation": [-1, -2, 0]
-		},
-		"firstperson_righthand": {
-			"scale": [0.5, 0.5, 0.5],
-			"translation": [0, 2, 0]
-		},
-		"firstperson_lefthand": {
-			"scale": [0.5, 0.5, 0.5],
-			"translation": [0, 2, 0]
-		},
-		"ground": {
-			"scale": [0.4, 0.4, 0.4],
-			"translation": [0, 4, 0]
-		}
-	}
+	]
 }

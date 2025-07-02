@@ -4,6 +4,7 @@ import net.brocker.monster_breeder.MonsterBreeder;
 import net.brocker.monster_breeder.block.custom.BioReactionChamberBlock;
 import net.brocker.monster_breeder.block.custom.CentrifugeBlock;
 import net.brocker.monster_breeder.block.custom.DnaAltarBlock;
+import net.brocker.monster_breeder.block.custom.GrowthChamberBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
@@ -21,6 +22,9 @@ public class ModBlocks {
 
     public static final Block BIO_REACTION_CHAMBER = registerBlock("bio_reaction_chamber",
             new BioReactionChamberBlock(AbstractBlock.Settings.create().nonOpaque()));
+
+    public static final Block GROWTH_CHAMBER = registerBlock("growth_chamber",
+            new GrowthChamberBlock(AbstractBlock.Settings.create()));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

@@ -34,6 +34,7 @@ public class ModItems {
                 entries.add(new ItemStack(ModBlocks.DNA_ALTAR));
                 entries.add(new ItemStack(ModBlocks.CENTRIFUGE));
                 entries.add(new ItemStack(ModBlocks.BIO_REACTION_CHAMBER));
+                entries.add(new ItemStack(ModBlocks.GROWTH_CHAMBER));
                 entries.add(new ItemStack(DNA_EXTRACTOR));
                 entries.add(new ItemStack(SYRINGE));
             })

@@ -12,6 +12,7 @@ import net.brocker.monster_breeder.dna.ModDna;
 import net.brocker.monster_breeder.item.ModItems;
 import net.brocker.monster_breeder.item.custom.SyringeItem;
 import net.brocker.monster_breeder.recipe.BioReactionRecipe;
+import net.brocker.monster_breeder.recipe.GrowthRecipe;
 import net.brocker.monster_breeder.recipe.ModRecipes;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.ItemStack;
@@ -38,6 +39,7 @@ public class JeiPlugin implements IModPlugin {
 		IModPlugin.super.registerCategories(registration);
 
 		registration.addRecipeCategories(new BioReactionRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+		registration.addRecipeCategories(new GrowthRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
 	}
 
 	@Override
@@ -50,8 +52,14 @@ public class JeiPlugin implements IModPlugin {
 				.stream()
 				.map(RecipeEntry::value)
 				.toList();
+		List<GrowthRecipe> growthRecipes = manager
+				.listAllOfType(ModRecipes.GROWTH_TYPE)
+				.stream()
+				.map(RecipeEntry::value)
+				.toList();
 
 		registration.addRecipes(BioReactionRecipeCategory.RECIPE_TYPE, bioReactionRecipes);
+		registration.addRecipes(GrowthRecipeCategory.RECIPE_TYPE, growthRecipes);
 	}
 
 	@Override
@@ -59,6 +67,7 @@ public class JeiPlugin implements IModPlugin {
 		IModPlugin.super.registerRecipeCatalysts(registration);
 
 		registration.addRecipeCatalyst(ModBlocks.BIO_REACTION_CHAMBER, BioReactionRecipeCategory.RECIPE_TYPE);
+		registration.addRecipeCatalyst(ModBlocks.GROWTH_CHAMBER, GrowthRecipeCategory.RECIPE_TYPE);
 	}
 
 	@Override
