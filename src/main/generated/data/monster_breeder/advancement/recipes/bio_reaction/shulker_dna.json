@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_growth_chamber": {
+    "has_bio_reaction_chamber": {
       "conditions": {
         "items": [
           {
-            "items": "monster_breeder:growth_chamber"
+            "items": "monster_breeder:bio_reaction_chamber"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "monster_breeder:shulker_dna_from_growth"
+        "recipe": "monster_breeder:shulker_dna"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_growth_chamber"
+      "has_bio_reaction_chamber"
     ]
   ],
   "rewards": {
     "recipes": [
-      "monster_breeder:shulker_dna_from_growth"
+      "monster_breeder:shulker_dna"
     ]
   }
 }

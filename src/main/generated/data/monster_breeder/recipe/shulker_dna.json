@@ -1,0 +1,6 @@
+{
+  "type": "monster_breeder:bio_reaction",
+  "ingredient1": "minecraft:phantom",
+  "ingredient2": "minecraft:enderman",
+  "result": "minecraft:shulker"
+}
