@@ -41,7 +41,7 @@ public class BioReactionChamberBlockEntity extends BlockEntity implements Extend
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
-    private int maxProgress = 100;
+    private int maxProgress = 1000;
 
     public BioReactionChamberBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.BIO_REACTION_CHAMBER, pos, state);
@@ -123,7 +123,7 @@ public class BioReactionChamberBlockEntity extends BlockEntity implements Extend
 
     private void resetProgress() {
         this.progress = 0;
-        this.maxProgress = 100;
+        this.maxProgress = 1000;
     }
 
     private void craftItem() {

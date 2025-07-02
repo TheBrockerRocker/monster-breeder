@@ -46,11 +46,11 @@ public class BioReactorChamberScreenHandler extends ScreenHandler {
     }
 
     public int getScaledArrowProgress() {
-        int progress = this.propertyDelegate.get(0);
-        int maxProgress = this.propertyDelegate.get(1); // Max Progress
+        float progress = this.propertyDelegate.get(0);
+        float maxProgress = this.propertyDelegate.get(1);
         int arrowPixelSize = 44;
 
-        return maxProgress != 0 && progress != 0 ? progress * arrowPixelSize / maxProgress : 0;
+        return maxProgress != 0 && progress != 0 ? (int) Math.ceil(progress * arrowPixelSize / maxProgress) : 0;
     }
 
     @Override
