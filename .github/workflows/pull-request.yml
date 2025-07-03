@@ -1,0 +1,28 @@
+# Automatically build the project and run any configured tests for every push
+# and submitted pull request. This can help catch issues that only occur on
+# certain platforms or Java versions, and provides a first line of defence
+# against bad commits.
+
+name: On pull request
+on: [pull_request]
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Try build
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Validate gradle wrapper
+        uses: gradle/actions/wrapper-validation@v4
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'microsoft'
+      - name: Make gradle wrapper executable
+        run: chmod +x ./gradlew
+      - name: Build gradle project
+        run: ./gradlew build

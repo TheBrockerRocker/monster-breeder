@@ -3,48 +3,53 @@
 # certain platforms or Java versions, and provides a first line of defence
 # against bad commits.
 
-name: build
-on: [pull_request, push]
+name: On tag pushed
+on:
+  push:
+    tags:
+      - '**'
+      - '!indev**'
 permissions:
   contents: write
 
 jobs:
   build:
+    name: Build and release
     runs-on: ubuntu-24.04
+    if: startsWith(github.ref_name, 'indev') == false
     steps:
-      - name: checkout repository
+      - name: Checkout repository
         uses: actions/checkout@v4
-      - name: validate gradle wrapper
+      - name: Validate gradle wrapper
         uses: gradle/actions/wrapper-validation@v4
-      - name: setup jdk
+      - name: Setup JDK
         uses: actions/setup-java@v4
         with:
           java-version: '21'
           distribution: 'microsoft'
-      - name: make gradle wrapper executable
+      - name: Make gradle wrapper executable
         run: chmod +x ./gradlew
-      - name: build
+      - name: Build gradle project
         run: ./gradlew build
-      - name: Read Version Name
+      - name: Read version name
         id: version
         uses: juliangruber/read-file-action@v1
         with:
-          path: ./update/VERSION
+          path: ./VERSION
       - name: Read Changelog
         id: changelog
         uses: juliangruber/read-file-action@v1
         with:
           path: ./update/CHANGELOG.md
-      - name: Get Short Commit Hash
+      - name: Get short commit hash
         id: sha
         run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-      - name: Upload Mod Files to Release
+      - name: Upload files to release
         uses: svenstaro/upload-release-action@v2
-        if: github.ref == 'refs/heads/master'
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: build/libs/*
-          tag: ${{steps.version.outputs.content}}-build-${{steps.sha.outputs.sha_short}}
+          tag: ${{ github.ref_name }}
           release_name: Version ${{ steps.version.outputs.content}}
           overwrite: true
           file_glob: true
