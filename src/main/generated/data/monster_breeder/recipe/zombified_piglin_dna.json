@@ -1,0 +1,6 @@
+{
+  "type": "monster_breeder:bio_reaction",
+  "ingredient1": "minecraft:piglin",
+  "ingredient2": "minecraft:zombie",
+  "result": "minecraft:zombified_piglin"
+}

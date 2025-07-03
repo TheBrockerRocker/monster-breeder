@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bio_reaction_chamber": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monster_breeder:bio_reaction_chamber"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "monster_breeder:zombified_piglin_dna"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_bio_reaction_chamber"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "monster_breeder:zombified_piglin_dna"
+    ]
+  }
+}

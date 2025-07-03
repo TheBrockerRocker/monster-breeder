@@ -1,0 +1,6 @@
+{
+  "type": "monster_breeder:bio_reaction",
+  "ingredient1": "minecraft:hoglin",
+  "ingredient2": "minecraft:zombie",
+  "result": "minecraft:zoglin"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "monster_breeder:bio_reaction",
+  "ingredient1": "minecraft:villager",
+  "ingredient2": "minecraft:zombie",
+  "result": "minecraft:zombie_villager"
+}
