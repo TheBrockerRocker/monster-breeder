@@ -7,7 +7,9 @@
   },
   "display": {
     "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
-    "description": "Use a syringe to extract blood from a Zoglin",
+    "description": {
+      "translate": "advancements.monster_breeder.extract_blood_from_zoglin.description"
+    },
     "frame": "challenge",
     "icon": {
       "components": {
@@ -16,7 +18,9 @@
       "count": 1,
       "id": "monster_breeder:dna_sample"
     },
-    "title": "Zoglin Blood"
+    "title": {
+      "translate": "advancements.monster_breeder.extract_blood_from_zoglin"
+    }
   },
   "requirements": [
     [

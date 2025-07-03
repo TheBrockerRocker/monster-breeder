@@ -7,7 +7,9 @@
   "display": {
     "announce_to_chat": false,
     "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
-    "description": "Start breeding monsters!",
+    "description": {
+      "translate": "advancements.monster_breeder.core.description"
+    },
     "hidden": true,
     "icon": {
       "count": 1,
@@ -15,7 +17,7 @@
     },
     "show_toast": false,
     "title": {
-      "translate": "monster_breeder.mod_name"
+      "translate": "advancements.monster_breeder.core"
     }
   },
   "requirements": [

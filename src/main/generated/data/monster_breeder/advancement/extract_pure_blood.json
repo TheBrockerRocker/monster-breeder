@@ -7,7 +7,9 @@
   },
   "display": {
     "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
-    "description": "Use a syringe to extract 100% pure blood from any mob",
+    "description": {
+      "translate": "advancements.monster_breeder.extract_pure_blood.description"
+    },
     "frame": "goal",
     "icon": {
       "components": {
@@ -16,7 +18,9 @@
       "count": 1,
       "id": "monster_breeder:dna_sample"
     },
-    "title": "Pure Blood"
+    "title": {
+      "translate": "advancements.monster_breeder.extract_pure_blood"
+    }
   },
   "requirements": [
     [

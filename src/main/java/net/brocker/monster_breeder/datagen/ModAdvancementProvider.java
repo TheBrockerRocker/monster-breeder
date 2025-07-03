@@ -22,7 +22,7 @@ import net.minecraft.util.Identifier;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
-// TODO: Add l10n
+// TODO: Add more advancements for existing features
 public class ModAdvancementProvider extends FabricAdvancementProvider {
 	public ModAdvancementProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
 		super(output, registryLookup);
@@ -33,8 +33,8 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
 		AdvancementEntry core = Advancement.Builder.create()
 				.display(
 						ModBlocks.DNA_ALTAR,
-						Text.translatable("monster_breeder.mod_name"),
-						Text.literal("Start breeding monsters!"),
+						Text.translatable("advancements.monster_breeder.core"),
+						Text.translatable("advancements.monster_breeder.core.description"),
 						Identifier.ofVanilla("textures/gui/advancements/backgrounds/adventure.png"),
 						AdvancementFrame.TASK,
 						false,
@@ -47,8 +47,8 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
 				.parent(core)
 				.display(
 						ModItems.USED_SYRINGE,
-						Text.literal("Extract Blood"),
-						Text.literal("Use a syringe to extract blood from any mob"),
+						Text.translatable("advancements.monster_breeder.extract_blood"),
+						Text.translatable("advancements.monster_breeder.extract_blood.description"),
 						Identifier.ofVanilla("textures/gui/advancements/backgrounds/adventure.png"),
 						AdvancementFrame.TASK,
 						true,
@@ -61,8 +61,8 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
 				.parent(extractBlood)
 				.display(
 						DnaSampleItem.createItemStack(ModDna.UNKNOWN),
-						Text.literal("Pure Blood"),
-						Text.literal("Use a syringe to extract 100% pure blood from any mob"),
+						Text.translatable("advancements.monster_breeder.extract_pure_blood"),
+						Text.translatable("advancements.monster_breeder.extract_pure_blood.description"),
 						Identifier.ofVanilla("textures/gui/advancements/backgrounds/adventure.png"),
 						AdvancementFrame.GOAL,
 						true,
@@ -75,8 +75,8 @@ public class ModAdvancementProvider extends FabricAdvancementProvider {
 				.parent(extractBlood)
 				.display(
 						DnaSampleItem.createItemStack(VanillaDna.ZOGLIN),
-						Text.literal("Zoglin Blood"),
-						Text.literal("Use a syringe to extract blood from a Zoglin"),
+						Text.translatable("advancements.monster_breeder.extract_blood_from_zoglin"),
+						Text.translatable("advancements.monster_breeder.extract_blood_from_zoglin.description"),
 						Identifier.ofVanilla("textures/gui/advancements/backgrounds/adventure.png"),
 						AdvancementFrame.CHALLENGE,
 						true,

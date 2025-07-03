@@ -14,12 +14,16 @@
   },
   "display": {
     "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
-    "description": "Use a syringe to extract blood from any mob",
+    "description": {
+      "translate": "advancements.monster_breeder.extract_blood.description"
+    },
     "icon": {
       "count": 1,
       "id": "monster_breeder:used_syringe"
     },
-    "title": "Extract Blood"
+    "title": {
+      "translate": "advancements.monster_breeder.extract_blood"
+    }
   },
   "requirements": [
     [

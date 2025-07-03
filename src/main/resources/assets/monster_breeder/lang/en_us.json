@@ -18,7 +18,15 @@
     "entity.monster_breeder.ender_creeper": "Ender Creeper",
     "entity.monster_breeder.zombie_creeper": "Zombie Creeper",
 
-    "monster_breeder.mod_name": "Monster Breeder",
+    "advancements.monster_breeder.core": "Monster Breeder",
+    "advancements.monster_breeder.core.description": "Start breeding monsters!",
+    "advancements.monster_breeder.extract_blood": "Extract Blood",
+    "advancements.monster_breeder.extract_blood.description": "Use a syringe to extract blood from any mob.",
+    "advancements.monster_breeder.extract_pure_blood": "Pure Blood",
+    "advancements.monster_breeder.extract_pure_blood.description" : "Use a syringe to obtain blood with 100%% purity.",
+    "advancements.monster_breeder.extract_blood_from_zoglin": "Zoglin Blood",
+    "advancements.monster_breeder.extract_blood_from_zoglin.description": "Use a syringe to extract blood from a zoglin.",
+
     "monster_breeder.unknown": "Unknown",
     "monster_breeder.bio_reaction": "Bio-Reaction",
     "monster_breeder.growth": "DNA Growth",
