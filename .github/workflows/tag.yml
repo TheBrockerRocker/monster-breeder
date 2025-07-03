@@ -3,7 +3,7 @@
 # certain platforms or Java versions, and provides a first line of defence
 # against bad commits.
 
-name: On tag pushed
+name: On Tag Pushed
 on:
   push:
     tags:
@@ -14,37 +14,34 @@ permissions:
 
 jobs:
   build:
-    name: Build and release
+    name: Build and Release
     runs-on: ubuntu-24.04
     if: startsWith(github.ref_name, 'indev') == false
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: Validate gradle wrapper
+      - name: Validate Gradle Wrapper
         uses: gradle/actions/wrapper-validation@v4
       - name: Setup JDK
         uses: actions/setup-java@v4
         with:
           java-version: '21'
           distribution: 'microsoft'
-      - name: Make gradle wrapper executable
+      - name: Make Gradle Wrapper Executable
         run: chmod +x ./gradlew
-      - name: Build gradle project
+      - name: Build Gradle Project
         run: ./gradlew build
-      - name: Read version name
+      - name: Read Version Name
         id: version
         uses: juliangruber/read-file-action@v1
         with:
-          path: ./VERSION
+          path: ./update/VERSION
       - name: Read Changelog
         id: changelog
         uses: juliangruber/read-file-action@v1
         with:
           path: ./update/CHANGELOG.md
-      - name: Get short commit hash
-        id: sha
-        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-      - name: Upload files to release
+      - name: Upload Files to Release
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}

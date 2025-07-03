@@ -3,26 +3,26 @@
 # certain platforms or Java versions, and provides a first line of defence
 # against bad commits.
 
-name: On pull request
+name: On Pull Request
 on: [pull_request]
 permissions:
   contents: write
 
 jobs:
   build:
-    name: Try build
+    name: Try Build
     runs-on: ubuntu-24.04
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: Validate gradle wrapper
+      - name: Validate Gradle Wrapper
         uses: gradle/actions/wrapper-validation@v4
       - name: Setup JDK
         uses: actions/setup-java@v4
         with:
           java-version: '21'
           distribution: 'microsoft'
-      - name: Make gradle wrapper executable
+      - name: Make Gradle Wrapper Executable
         run: chmod +x ./gradlew
-      - name: Build gradle project
+      - name: Build Gradle Project
         run: ./gradlew build
