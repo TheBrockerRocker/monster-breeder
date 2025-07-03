@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build:
-    name: Try Build
+    name: Build
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout Repository

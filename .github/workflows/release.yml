@@ -1,14 +1,5 @@
-# Automatically build the project and run any configured tests for every push
-# and submitted pull request. This can help catch issues that only occur on
-# certain platforms or Java versions, and provides a first line of defence
-# against bad commits.
-
-name: On Tag Pushed
-on:
-  push:
-    tags:
-      - '**'
-      - '!indev**'
+name: Release
+on: [workflow_dispatch]
 permissions:
   contents: write
 
@@ -16,7 +7,6 @@ jobs:
   build:
     name: Build and Release
     runs-on: ubuntu-24.04
-    if: startsWith(github.ref_name, 'indev') == false
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -46,8 +36,8 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: build/libs/*
-          tag: ${{ github.ref_name }}
-          release_name: Version ${{ steps.version.outputs.content}}
+          tag: ${{ steps.version.outputs.content }}
+          release_name: Version ${{ steps.version.outputs.content }}
           overwrite: true
           file_glob: true
           body: |

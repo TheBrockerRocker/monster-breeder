@@ -41,8 +41,8 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: build/libs/*
-          tag: indev-${{steps.version.outputs.content}}-build-${{steps.sha.outputs.sha_short}}
-          release_name: Version ${{ steps.version.outputs.content}}
+          tag: indev-${{ steps.version.outputs.content }}-build-${{ steps.sha.outputs.sha_short }}
+          release_name: Version ${{ steps.version.outputs.content }}
           prerelease: true
           make_latest: false
           overwrite: true
