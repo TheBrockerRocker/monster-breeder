@@ -25,6 +25,16 @@ class ModRecipeProvider extends FabricRecipeProvider {
 
 	@Override
 	public void generate(RecipeExporter exporter) {
+		ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.GROWTH_CHAMBER)
+				.pattern("IBI")
+				.pattern("BEB")
+				.pattern("IBI")
+				.input('I', Items.IRON_BLOCK)
+				.input('B', Items.IRON_BARS)
+				.input('E', Items.EMERALD_BLOCK)
+				.criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+				.offerTo(exporter, MonsterBreeder.identifier("growth_chamber"));
+
 		ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.SYRINGE)
 				.pattern("  I")
 				.pattern(" G ")

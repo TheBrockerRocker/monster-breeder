@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:iron_bars"
+    },
+    "E": {
+      "item": "minecraft:emerald_block"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "pattern": [
+    "IBI",
+    "BEB",
+    "IBI"
+  ],
+  "result": {
+    "count": 1,
+    "id": "monster_breeder:growth_chamber"
+  }
+}
