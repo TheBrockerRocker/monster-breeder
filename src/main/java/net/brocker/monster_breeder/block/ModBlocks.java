@@ -11,20 +11,21 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 public class ModBlocks {
     public static final Block DNA_ALTAR = registerBlock("dna_altar",
-            new DnaAltarBlock(AbstractBlock.Settings.create().nonOpaque()));
+            new DnaAltarBlock(AbstractBlock.Settings.create().strength(1.5F, 6.0F).sounds(BlockSoundGroup.METAL).nonOpaque().requiresTool()));
 
     public static final Block CENTRIFUGE = registerBlock("centrifuge",
-            new CentrifugeBlock(AbstractBlock.Settings.create()));
+            new CentrifugeBlock(AbstractBlock.Settings.create().strength(1.5F, 6.0F).sounds(BlockSoundGroup.METAL).nonOpaque().requiresTool()));
 
     public static final Block BIO_REACTION_CHAMBER = registerBlock("bio_reaction_chamber",
-            new BioReactionChamberBlock(AbstractBlock.Settings.create().nonOpaque()));
+            new BioReactionChamberBlock(AbstractBlock.Settings.create().strength(1.5F, 6.0F).sounds(BlockSoundGroup.METAL).nonOpaque().requiresTool()));
 
     public static final Block GROWTH_CHAMBER = registerBlock("growth_chamber",
-            new GrowthChamberBlock(AbstractBlock.Settings.create()));
+            new GrowthChamberBlock(AbstractBlock.Settings.create().strength(1.5F, 6.0F).sounds(BlockSoundGroup.METAL).requiresTool()));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
