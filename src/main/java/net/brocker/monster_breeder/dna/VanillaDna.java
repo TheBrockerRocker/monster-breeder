@@ -3,7 +3,6 @@ package net.brocker.monster_breeder.dna;
 import net.brocker.monster_breeder.MonsterBreeder;
 import net.brocker.monster_breeder.api.Dna;
 import net.brocker.monster_breeder.api.util.DnaBuilder;
-import net.brocker.monster_breeder.api.util.SuppliedDnaBuilder;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
@@ -257,7 +256,7 @@ public class VanillaDna {
 				.setColor("#e81e0b","#2eaa74","#e81e0b","#2eaa74")
 				.addSourceMobAsSummonResult(EntityType.SALMON)
 				.buildAndRegister(SALMON);
-		SuppliedDnaBuilder
+		DnaBuilder
 				.create(EntityType.SHEEP.getTranslationKey())
 				.setColorSupplier(() -> {
 					int tick = MonsterBreeder.server.getTicks();

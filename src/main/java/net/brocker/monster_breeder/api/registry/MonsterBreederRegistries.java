@@ -10,11 +10,16 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.SimpleDefaultedRegistry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
+import org.jetbrains.annotations.ApiStatus;
 
 import java.util.HashSet;
 
+@ApiStatus.AvailableSince("1.0.0")
 public class MonsterBreederRegistries {
+	@ApiStatus.AvailableSince("1.0.0")
 	public static final RegistryKey<Registry<Dna>> DNA_REGISTRY_KEY = RegistryKey.ofRegistry(Identifier.of(MonsterBreeder.MOD_ID, "dna"));
+
+	@ApiStatus.AvailableSince("1.0.0")
 	public static final SimpleDefaultedRegistry<Dna> DNA = FabricRegistryBuilder
 			.createDefaulted(DNA_REGISTRY_KEY, ModDna.UNKNOWN)
 			.attribute(RegistryAttribute.SYNCED)

@@ -6,15 +6,19 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
+import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Supplier;
 
+@ApiStatus.AvailableSince("1.0.0")
 public class DnaBuilder {
 	protected final String name;
 	protected Rarity rarity = Rarity.COMMON;
 	protected Dna.Color color = Dna.Color.create("#ffffff");
+	protected Supplier<Dna.Color> colorSupplier = null;
 	protected final Set<EntityType<?>> sourceMobs = new HashSet<>();
 	protected @Nullable EntityType<?> summonResult = null;
 
@@ -52,6 +56,7 @@ public class DnaBuilder {
 		this.color = Dna.Color.create(color1, color2, color3, color4);
 		return this;
 	}
+
 	/**
 	 * Sets a new DNA color
 	 * @param color A hex code (including the hashtag)
@@ -59,6 +64,16 @@ public class DnaBuilder {
 	 */
 	public DnaBuilder setColor(String color) {
 		this.color = Dna.Color.create(color);
+		return this;
+	}
+
+	/**
+	 * Sets a new DNA color
+	 * @param color A supplier that return the color of this DNA
+	 * @return The current DNA builder
+	 */
+	public DnaBuilder setColorSupplier(Supplier<Dna.Color> color) {
+		this.colorSupplier = color;
 		return this;
 	}
 
@@ -94,8 +109,11 @@ public class DnaBuilder {
 	}
 
 	public Dna build() {
-		return new Dna(name, rarity, color, sourceMobs, summonResult);
+		return colorSupplier != null
+				? new Dna(name, rarity, colorSupplier, sourceMobs, summonResult)
+				: new Dna(name, rarity, color, sourceMobs, summonResult);
 	}
+
 	public void buildAndRegister(Identifier identifier) {
 		Registry.register(MonsterBreederRegistries.DNA, identifier, build());
 	}

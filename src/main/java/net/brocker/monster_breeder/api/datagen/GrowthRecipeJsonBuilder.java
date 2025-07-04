@@ -8,10 +8,12 @@ import net.minecraft.advancement.AdvancementRewards;
 import net.minecraft.advancement.criterion.RecipeUnlockedCriterion;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.ApiStatus;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+@ApiStatus.AvailableSince("1.0.0")
 public class GrowthRecipeJsonBuilder {
 	private final Identifier output;
 	private final Identifier input;

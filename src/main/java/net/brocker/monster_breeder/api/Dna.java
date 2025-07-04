@@ -4,15 +4,20 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Rarity;
+import org.jetbrains.annotations.ApiStatus;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Collections;
 import java.util.Set;
+import java.util.function.Supplier;
 
+@ApiStatus.AvailableSince("1.0.0")
 public class Dna {
 	protected final String name;
 	protected final Rarity rarity;
 	protected final Color color;
+	protected final Supplier<Color> colorSupplier;
 	protected final Set<EntityType<?>> sourceMobs;
 	protected final @Nullable EntityType<?> summonResult;
 
@@ -24,24 +29,42 @@ public class Dna {
 	 * @param sourceMobs The mobs that this DNA can be extracted from.
 	 * @param summonResult What should the DNA altar summon
 	 */
-	public Dna(String name, Rarity rarity, Color color, Set<EntityType<?>> sourceMobs, @Nullable EntityType<?> summonResult) {
+	public Dna(@NotNull String name, @NotNull Rarity rarity, @NotNull Color color, @NotNull Set<EntityType<?>> sourceMobs, @Nullable EntityType<?> summonResult) {
 		this.name = name;
 		this.rarity = rarity;
 		this.color = color;
+		this.colorSupplier = null;
 		this.sourceMobs = Collections.unmodifiableSet(sourceMobs);
 		this.summonResult = summonResult;
 	}
 
-	public MutableText getName() {
+	/**
+	 * Creates a new DNA type.
+	 * @param name A translatable string
+	 * @param rarity How rare is this DNA
+	 * @param color What color is the DNA item?
+	 * @param sourceMobs The mobs that this DNA can be extracted from.
+	 * @param summonResult What should the DNA altar summon
+	 */
+	public Dna(@NotNull String name, @NotNull Rarity rarity, @NotNull Supplier<@NotNull Color> color, @NotNull Set<EntityType<?>> sourceMobs, @Nullable EntityType<?> summonResult) {
+		this.name = name;
+		this.rarity = rarity;
+		this.color = null;
+		this.colorSupplier = color;
+		this.sourceMobs = Collections.unmodifiableSet(sourceMobs);
+		this.summonResult = summonResult;
+	}
+
+	public @NotNull MutableText getName() {
 		return Text.translatable(name);
 	}
-	public Rarity getRarity() {
+	public @NotNull Rarity getRarity() {
 		return rarity;
 	}
-	public Color getColor() {
-		return color;
+	public @NotNull Color getColor() {
+		return colorSupplier != null ? colorSupplier.get() : color;
 	}
-	public Set<EntityType<?>> getSourceMobs() {
+	public @NotNull Set<EntityType<?>> getSourceMobs() {
 		return sourceMobs;
 	}
 	public @Nullable EntityType<?> getSummonResult() {
