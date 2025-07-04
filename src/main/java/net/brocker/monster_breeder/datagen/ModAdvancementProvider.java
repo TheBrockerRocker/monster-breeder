@@ -23,8 +23,8 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 // TODO: Add more advancements for existing features
-public class ModAdvancementProvider extends FabricAdvancementProvider {
-	public ModAdvancementProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+class ModAdvancementProvider extends FabricAdvancementProvider {
+	ModAdvancementProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
 		super(output, registryLookup);
 	}
 

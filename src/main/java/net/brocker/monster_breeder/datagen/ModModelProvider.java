@@ -10,8 +10,8 @@ import net.minecraft.util.Identifier;
 
 import java.util.Optional;
 
-public class ModModelProvider extends FabricModelProvider {
-    public ModModelProvider(FabricDataOutput output) {
+class ModModelProvider extends FabricModelProvider {
+    ModModelProvider(FabricDataOutput output) {
         super(output);
     }
 

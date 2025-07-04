@@ -25,7 +25,7 @@
       "net.brocker.monster_breeder.MonsterBreederClient"
     ],
     "fabric-datagen": [
-      "net.brocker.monster_breeder.MonsterBreederDataGenerator"
+      "net.brocker.monster_breeder.datagen.DataGenerator"
     ],
     "jei_mod_plugin": [
       "net.brocker.monster_breeder.integration.jei.JeiPlugin"

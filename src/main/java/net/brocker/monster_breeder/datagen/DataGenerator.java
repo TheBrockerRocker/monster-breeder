@@ -1,12 +1,9 @@
-package net.brocker.monster_breeder;
+package net.brocker.monster_breeder.datagen;
 
-import net.brocker.monster_breeder.datagen.ModAdvancementProvider;
-import net.brocker.monster_breeder.datagen.ModModelProvider;
-import net.brocker.monster_breeder.datagen.ModRecipeProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
-public class MonsterBreederDataGenerator implements DataGeneratorEntrypoint {
+public class DataGenerator implements DataGeneratorEntrypoint {
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
@@ -14,5 +11,7 @@ public class MonsterBreederDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(ModModelProvider::new);
 		pack.addProvider(ModAdvancementProvider::new);
 		pack.addProvider(ModRecipeProvider::new);
+		pack.addProvider(ModBlockLootTableProvider::new);
+		pack.addProvider(ModEntityLootTableProvider::new);
 	}
 }
