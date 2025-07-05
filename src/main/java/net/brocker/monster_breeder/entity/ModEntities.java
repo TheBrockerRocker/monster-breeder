@@ -21,5 +21,6 @@ public class ModEntities {
 					.maxTrackingRange(8).build());
 
 
+	@SuppressWarnings("EmptyMethod")
 	public static void registerModEntities() {}
 }

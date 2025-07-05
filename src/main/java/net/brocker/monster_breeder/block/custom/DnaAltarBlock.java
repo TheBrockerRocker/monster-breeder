@@ -78,7 +78,7 @@ public class DnaAltarBlock extends BlockWithEntity implements BlockEntityProvide
             putItem(stackInHand, state, pos, world, player, blockEntity);
         } else if(isTopOfBlock && !isAltarEmpty && isHandEmpty && !player.isSneaking()) {
             takeItem(stackOnAltar, state, pos, world, player, hand, blockEntity);
-        } else if (isTopOfBlock && !isAltarEmpty && !isHandEmpty && stackInHand.isOf(Items.FLINT_AND_STEEL) && !blockEntity.isSummoning()) {
+        } else if (isTopOfBlock && !isAltarEmpty && !isHandEmpty && stackInHand.isOf(Items.FLINT_AND_STEEL) && blockEntity.isIdle()) {
             stackInHand.damage(1, player, LivingEntity.getSlotForHand(hand));
             blockEntity.startSummon();
         } else if(player.isSneaking() && !world.isClient()) {

@@ -28,5 +28,6 @@ public class ModBlockEntities {
             Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(MonsterBreeder.MOD_ID, "growth_chamber"),
                     BlockEntityType.Builder.create(GrowthChamberBlockEntity::new, ModBlocks.GROWTH_CHAMBER).build(null));
 
+    @SuppressWarnings("EmptyMethod")
     public static void registerBlockEntities() {}
 }

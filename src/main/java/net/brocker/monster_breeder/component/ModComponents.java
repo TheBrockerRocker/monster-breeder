@@ -34,5 +34,6 @@ public class ModComponents {
 			ComponentType.<List<String>>builder().codec(Codec.STRING.listOf()).build()
 	);
 
+	@SuppressWarnings("EmptyMethod")
 	public static void registerModComponents() {}
 }

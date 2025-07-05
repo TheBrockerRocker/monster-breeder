@@ -20,7 +20,7 @@ public class ZombieCreeperEntity extends HostileEntity {
 	public static DefaultAttributeContainer.Builder createZombieCreeperAttributes() {
 		return HostileEntity.createHostileAttributes()
 				.add(EntityAttributes.GENERIC_FOLLOW_RANGE, 35)
-				.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.5)
+				.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.23000000417232513)
 				.add(EntityAttributes.GENERIC_MAX_HEALTH, 40);
 	}
 

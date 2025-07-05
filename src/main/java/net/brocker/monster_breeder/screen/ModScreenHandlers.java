@@ -28,5 +28,6 @@ public class ModScreenHandlers {
             Registry.register(Registries.SCREEN_HANDLER, MonsterBreeder.identifier("growth_screen_handler"),
                     new ExtendedScreenHandlerType<>(GrowthChamberScreenHandler::new, BlockPos.PACKET_CODEC));
 
+    @SuppressWarnings("EmptyMethod")
     public static void registerScreenHandlers() {}
 }

@@ -28,5 +28,6 @@ public class ModRecipes {
 				}
 			});
 
+	@SuppressWarnings("EmptyMethod")
 	public static void registerRecipes() {}
 }

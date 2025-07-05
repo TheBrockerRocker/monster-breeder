@@ -12,12 +12,12 @@ import net.minecraft.util.Identifier;
 public class ZombieCreeperEntityRenderer<T extends ZombieCreeperEntity> extends MobEntityRenderer<T, ZombieCreeperModel<T>> {
 	private static final Identifier TEXTURE = Identifier.of(MonsterBreeder.MOD_ID, "textures/entity/zombie_creeper/zombie_creeper.png");
 
-	protected ZombieCreeperEntityRenderer(EntityRendererFactory.Context context, ZombieCreeperModel<T> entityModel, float shadowRadius) {
-		super(context, entityModel, shadowRadius);
+	protected ZombieCreeperEntityRenderer(EntityRendererFactory.Context context, ZombieCreeperModel<T> entityModel) {
+		super(context, entityModel, 0.5f);
 	}
 
 	public ZombieCreeperEntityRenderer(EntityRendererFactory.Context context) {
-		this(context, new ZombieCreeperModel<>(context.getPart(ZombieCreeperModel.LAYER)), 0.5F);
+		this(context, new ZombieCreeperModel<>(context.getPart(ZombieCreeperModel.LAYER)));
 	}
 
 	@Override

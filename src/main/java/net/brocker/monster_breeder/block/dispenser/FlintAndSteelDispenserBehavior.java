@@ -21,7 +21,7 @@ public class FlintAndSteelDispenserBehavior extends FallibleItemDispenserBehavio
 
 		if (!serverWorld.isClient && blockState.isOf(ModBlocks.DNA_ALTAR)) {
 			DnaAltarBlockEntity blockEntity = (DnaAltarBlockEntity) serverWorld.getBlockEntity(blockPos);
-			if (blockEntity != null && !blockEntity.isSummoning()) {
+			if (blockEntity != null && blockEntity.isIdle()) {
 				blockEntity.startSummon();
 				setSuccess(true);
 			}

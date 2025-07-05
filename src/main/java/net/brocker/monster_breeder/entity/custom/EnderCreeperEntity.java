@@ -100,15 +100,13 @@ public class EnderCreeperEntity extends CreeperEntity implements Angerable {
 		return (entity.squaredDistanceTo(this) < 6 && getTarget() == entity) || Angerable.super.shouldAngerAt(entity);
 	}
 
-	protected boolean teleportRandomly() {
-		if (!this.getWorld().isClient() && this.isAlive()) {
-			double d = this.getX() + (this.random.nextDouble() - 0.5) * 64.0;
-			double e = this.getY() + (double)(this.random.nextInt(64) - 32);
-			double f = this.getZ() + (this.random.nextDouble() - 0.5) * 64.0;
-			return this.teleportTo(d, e, f);
-		} else {
-			return false;
-		}
+	protected void teleportRandomly() {
+		if (this.getWorld().isClient() || !this.isAlive()) return;
+
+		double d = this.getX() + (this.random.nextDouble() - 0.5) * 64.0;
+		double e = this.getY() + (double)(this.random.nextInt(64) - 32);
+		double f = this.getZ() + (this.random.nextDouble() - 0.5) * 64.0;
+		this.teleportTo(d, e, f);
 	}
 
 	boolean teleportTo(Entity entity) {

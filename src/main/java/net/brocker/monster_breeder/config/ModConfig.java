@@ -7,5 +7,6 @@ public class ModConfig extends MidnightConfig {
 
 	@Comment(category = GAMEPLAY) public static Comment enablePurityUnimplemented;
 	@Entry(category = GAMEPLAY) public static boolean enablePurity = true;
+	@SuppressWarnings("CanBeFinal")
 	@Entry(category = GAMEPLAY, min = 0.1, max = 2, isSlider = true) public static float bloodPurityModifier = 1;
 }

@@ -116,8 +116,8 @@ public class DnaAltarBlockEntity extends BlockEntity implements ImplementedInven
         markDirty();
     }
 
-    public boolean isSummoning() {
-        return summoning;
+    public boolean isIdle() {
+        return !summoning;
     }
 
     public void sendUpdate() {

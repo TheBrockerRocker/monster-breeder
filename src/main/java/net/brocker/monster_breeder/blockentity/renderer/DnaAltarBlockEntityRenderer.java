@@ -18,7 +18,7 @@ import java.util.Map;
 
 public class DnaAltarBlockEntityRenderer implements BlockEntityRenderer<DnaAltarBlockEntity> {
 	protected final BlockEntityRendererFactory.Context context;
-	protected Map<DnaAltarBlockEntity, Float> ticks = new HashMap<>();
+	protected final Map<DnaAltarBlockEntity, Float> ticks = new HashMap<>();
 
 	public DnaAltarBlockEntityRenderer(BlockEntityRendererFactory.Context context) {
 		this.context = context;

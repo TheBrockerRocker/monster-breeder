@@ -32,10 +32,11 @@ public class ModBlocks {
         return Registry.register(Registries.BLOCK, Identifier.of(MonsterBreeder.MOD_ID, name), block);
     }
 
-    private static Item registerBlockItem(String name, Block block) {
-        return Registry.register(Registries.ITEM, Identifier.of(MonsterBreeder.MOD_ID + ":" + name),
+    private static void registerBlockItem(String name, Block block) {
+        Registry.register(Registries.ITEM, Identifier.of(MonsterBreeder.MOD_ID + ":" + name),
                 new BlockItem(block, new Item.Settings()));
     }
 
+    @SuppressWarnings("EmptyMethod")
     public static void registerModBlocks() {}
 }
