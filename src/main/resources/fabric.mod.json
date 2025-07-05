@@ -29,6 +29,12 @@
     ],
     "jei_mod_plugin": [
       "net.brocker.monster_breeder.integration.jei.JeiPlugin"
+    ],
+    "rei_client": [
+      "net.brocker.monster_breeder.integration.rei.ReiClientPlugin"
+    ],
+    "rei_server": [
+      "net.brocker.monster_breeder.integration.rei.ReiServerPlugin"
     ]
   },
   "mixins": [
@@ -41,7 +47,8 @@
     "fabric-api": "*"
   },
   "suggests": {
-    "jei": ">=19.8.2.99"
+    "jei": ">=19.8.2.99",
+    "rei": ">=16.0.799"
   },
   "custom": {
     "modmenu": {
