@@ -76,15 +76,15 @@ public class SyringeItem extends Item {
                 return ActionResult.FAIL;
             }
             extractedFrom.add(mobId);
-            stack.set(ModComponents.BLOOD_EXTRACTED_FROM_COMPONENT, extractedFrom);
-
-            DnaUtil.setBloodType(stack, mobType);
 
             int purity = DnaUtil.getPurity(stack);
             if (purity >= 100) {
                 player.sendMessage(Text.translatable("monster_breeder.max_purity").formatted(Formatting.RED), false);
                 return ActionResult.FAIL;
             }
+
+            stack.set(ModComponents.BLOOD_EXTRACTED_FROM_COMPONENT, extractedFrom);
+            DnaUtil.setBloodType(stack, mobType);
             DnaUtil.setPurity(stack, (int) (purity + (10 * ModConfig.bloodPurityModifier)));
 
             player.setStackInHand(hand, stack.withItem(ModItems.USED_SYRINGE));

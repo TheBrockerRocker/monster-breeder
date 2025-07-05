@@ -13,9 +13,12 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.RotationAxis;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class DnaAltarBlockEntityRenderer implements BlockEntityRenderer<DnaAltarBlockEntity> {
 	protected final BlockEntityRendererFactory.Context context;
-	protected float tick = 0;
+	protected Map<DnaAltarBlockEntity, Float> ticks = new HashMap<>();
 
 	public DnaAltarBlockEntityRenderer(BlockEntityRendererFactory.Context context) {
 		this.context = context;
@@ -24,17 +27,17 @@ public class DnaAltarBlockEntityRenderer implements BlockEntityRenderer<DnaAltar
 	@Override
 	public void render(DnaAltarBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
 		if (entity.getStack(0).isEmpty()) {
-			tick = 0;
+			ticks.put(entity, 0f);
 			return;
 		}
-		if (!MinecraftClient.getInstance().isPaused()) tick += tickDelta;
-		
+		if (!MinecraftClient.getInstance().isPaused()) ticks.put(entity, ticks.getOrDefault(entity, 0f) + tickDelta);
+
 		float progress = (float) entity.progress / DnaAltarBlockEntity.maxProgress;
 		float speed = 1 + (progress * 8);
 
 		matrices.push();
 		matrices.translate(0.5, 1.3, 0.5);
-		matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(AnimationUtil.getAnimationFrame(tick, 10 / speed) * 360));
+		matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(AnimationUtil.getAnimationFrame(ticks.get(entity), 10 / speed) * 360));
 		matrices.scale(0.6f, 0.6f, 0.6f);
 
 		renderItem(entity.getStack(0), matrices, vertexConsumers, light, overlay);

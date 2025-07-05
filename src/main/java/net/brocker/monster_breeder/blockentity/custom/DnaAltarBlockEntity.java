@@ -7,6 +7,7 @@ import net.brocker.monster_breeder.item.ModItems;
 import net.brocker.monster_breeder.screen.custom.DnaAltarScreenHandler;
 import net.brocker.monster_breeder.util.ImplementedInventory;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.EntityType;
@@ -31,6 +32,8 @@ import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Collections;
+
 public class DnaAltarBlockEntity extends BlockEntity implements ImplementedInventory, ExtendedScreenHandlerFactory<BlockPos> {
     public static final int maxProgress = 500;
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(1, ItemStack.EMPTY);
@@ -48,7 +51,7 @@ public class DnaAltarBlockEntity extends BlockEntity implements ImplementedInven
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
-        if (!summoning) return;
+        if (!summoning || world.isClient) return;
 
         ItemStack stack = this.getStack(0);
         if (!stack.isOf(ModItems.DNA_SAMPLE) || DnaUtil.getDna(stack).getSummonResult() == null) {
@@ -60,12 +63,11 @@ public class DnaAltarBlockEntity extends BlockEntity implements ImplementedInven
         progress++;
 
         if(progress >= maxProgress) {
-            if (!world.isClient) {
-                summonEntity();
-            }
+            summonEntity();
             stack.decrement(1);
             stopSummon();
         }
+        sendUpdate(world, pos, state);
         markDirty(world, pos, state);
     }
 
@@ -102,6 +104,7 @@ public class DnaAltarBlockEntity extends BlockEntity implements ImplementedInven
 
     public void startSummon() {
         summoning = true;
+        sendUpdate();
         markDirty();
     }
 
@@ -109,11 +112,20 @@ public class DnaAltarBlockEntity extends BlockEntity implements ImplementedInven
         summoning = false;
         progress = 0;
         dna = null;
+        sendUpdate();
         markDirty();
     }
 
     public boolean isSummoning() {
         return summoning;
+    }
+
+    public void sendUpdate() {
+        sendUpdate(world, pos, world.getBlockState(pos));
+    }
+
+    public void sendUpdate(World world, BlockPos pos, BlockState state) {
+        world.updateListeners(pos, state, state, Block.NOTIFY_ALL);
     }
 
     @Override
@@ -128,6 +140,7 @@ public class DnaAltarBlockEntity extends BlockEntity implements ImplementedInven
     @Override
     protected void readNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         super.readNbt(nbt, registryLookup);
+        Collections.fill(inventory, ItemStack.EMPTY);
         Inventories.readNbt(nbt, inventory, registryLookup);
         progress = nbt.getInt("progress");
         summoning = nbt.getBoolean("summoning");

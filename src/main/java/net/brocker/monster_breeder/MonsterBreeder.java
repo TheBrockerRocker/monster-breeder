@@ -3,6 +3,9 @@ package net.brocker.monster_breeder;
 import eu.midnightdust.lib.config.MidnightConfig;
 import net.brocker.monster_breeder.api.registry.MonsterBreederRegistries;
 import net.brocker.monster_breeder.block.ModBlocks;
+import net.brocker.monster_breeder.block.dispenser.DnaExtractorDispenserBehavior;
+import net.brocker.monster_breeder.block.dispenser.FlintAndSteelDispenserBehavior;
+import net.brocker.monster_breeder.block.dispenser.SyringeDispenserBehavior;
 import net.brocker.monster_breeder.blockentity.ModBlockEntities;
 import net.brocker.monster_breeder.command.FusionTestCommand;
 import net.brocker.monster_breeder.command.argument.DnaIdentifierArgumentType;
@@ -24,12 +27,14 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.minecraft.block.DispenserBlock;
 import net.minecraft.command.argument.serialize.ConstantArgumentSerializer;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
@@ -62,6 +67,7 @@ public class MonsterBreeder implements ModInitializer{
         addDefaultAttributes();
         addCommandArgumentTypes();
         addCommands();
+        addDispenserBehavior();
 
         listenToServerLifecycleEvents();
         listenToEntityEvents();
@@ -107,6 +113,13 @@ public class MonsterBreeder implements ModInitializer{
 
     private void addCommands() {
         CommandRegistrationCallback.EVENT.register(FusionTestCommand::register);
+    }
+
+    private void addDispenserBehavior() {
+        DispenserBlock.registerBehavior(Items.FLINT_AND_STEEL, new FlintAndSteelDispenserBehavior());
+        DispenserBlock.registerBehavior(ModItems.DNA_EXTRACTOR, new DnaExtractorDispenserBehavior());
+        DispenserBlock.registerBehavior(ModItems.SYRINGE, new SyringeDispenserBehavior());
+        DispenserBlock.registerBehavior(ModItems.USED_SYRINGE, new SyringeDispenserBehavior());
     }
 
     private void listenToServerLifecycleEvents() {
