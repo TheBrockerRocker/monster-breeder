@@ -18,7 +18,7 @@ public class ModEntities {
 	public static final EntityType<ZombieCreeperEntity> ZOMBIE_CREEPER = Registry.register(Registries.ENTITY_TYPE,
 			Identifier.of(MonsterBreeder.MOD_ID, "zombie_creeper"),
 			EntityType.Builder.create(ZombieCreeperEntity::new, SpawnGroup.MONSTER)
-					.maxTrackingRange(8).build());
+					.maxTrackingRange(8).dimensions(0.6f, 2.25f).eyeHeight(1.8125f).build());
 
 
 	@SuppressWarnings("EmptyMethod")

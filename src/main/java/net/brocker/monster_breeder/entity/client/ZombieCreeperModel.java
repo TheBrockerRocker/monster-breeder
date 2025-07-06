@@ -23,28 +23,17 @@ public class ZombieCreeperModel<T extends ZombieCreeperEntity> extends SinglePar
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
-		modelPartData.addChild("rightArm", ModelPartBuilder.create().uv(48, 42).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(6.0F, 0.0F, 1.0F));
-
-		ModelPartData Body = modelPartData.addChild("body", ModelPartBuilder.create().uv(32, 12).cuboid(-4.0F, -6.0F, -2.0F, 8.0F, 12.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 6.0F, 1.0F));
-
-		ModelPartData BagPack = Body.addChild("bagPack", ModelPartBuilder.create().uv(32, 28).cuboid(-4.0F, -4.0F, 2.0F, 8.0F, 9.0F, 5.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
-
-		ModelPartData TnT = BagPack.addChild("tnt", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
-
-		TnT.addChild("tnt2_r1", ModelPartBuilder.create().uv(38, 6).cuboid(-2.0F, -3.0F, -1.0F, 3.0F, 3.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(-1.0F, -3.0F, 3.0F, -0.4871F, -0.3502F, 0.4964F));
-
-		TnT.addChild("tnt1_r1", ModelPartBuilder.create().uv(38, 0).cuboid(-2.0F, -3.0F, -1.0F, 3.0F, 3.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(1.0F, -3.0F, 3.0F, -0.4724F, 0.4828F, 0.1019F));
-
-		modelPartData.addChild("leftLeg", ModelPartBuilder.create().uv(16, 39).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(-2.0F, 12.0F, 1.0F));
-
-		modelPartData.addChild("rightLeg", ModelPartBuilder.create().uv(0, 39).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(2.0F, 12.0F, 1.0F));
-
-		modelPartData.addChild("leftArm", ModelPartBuilder.create().uv(32, 42).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(-6.0F, 0.0F, 1.0F));
-
-		ModelPartData Head = modelPartData.addChild("head", ModelPartBuilder.create().uv(0, 12).cuboid(-4.0F, -32.0F, -3.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
-
-		Head.addChild("hat", ModelPartBuilder.create().uv(0, 0).cuboid(-4.0F, 0.0F, -7.0F, 8.0F, 1.0F, 11.0F, new Dilation(0.0F))
-				.uv(0, 28).cuboid(-4.0F, -3.0F, -4.0F, 8.0F, 3.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -33.0F, 1.0F));
+		modelPartData.addChild("rightArm", ModelPartBuilder.create().uv(48, 42).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(6.0F, 0.0F, 0.0F));
+		ModelPartData body = modelPartData.addChild("body", ModelPartBuilder.create().uv(32, 12).cuboid(-4.0F, -6.0F, -2.0F, 8.0F, 12.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 6.0F, 0.0F));
+		ModelPartData bagPack = body.addChild("bagPack", ModelPartBuilder.create().uv(32, 28).cuboid(-4.0F, -4.0F, 2.0F, 8.0F, 9.0F, 5.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+		ModelPartData tnt = bagPack.addChild("tnt", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+		tnt.addChild("tnt2_r1", ModelPartBuilder.create().uv(38, 6).cuboid(-2.0F, -3.0F, -1.0F, 3.0F, 3.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(-1.0F, -3.0F, 3.0F, -0.4871F, -0.3502F, 0.4964F));
+		tnt.addChild("tnt1_r1", ModelPartBuilder.create().uv(38, 0).cuboid(-2.0F, -3.0F, -1.0F, 3.0F, 3.0F, 3.0F, new Dilation(0.0F)), ModelTransform.of(1.0F, -3.0F, 3.0F, -0.4724F, 0.4828F, 0.1019F));
+		modelPartData.addChild("leftLeg", ModelPartBuilder.create().uv(16, 39).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(-2.0F, 12.0F, 0.0F));
+		modelPartData.addChild("rightLeg", ModelPartBuilder.create().uv(0, 39).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(2.0F, 12.0F, 0.0F));
+		modelPartData.addChild("leftArm", ModelPartBuilder.create().uv(32, 42).cuboid(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(-6.0F, 0.0F, 0.0F));
+		ModelPartData head = modelPartData.addChild("head", ModelPartBuilder.create().uv(0, 12).cuboid(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+		head.addChild("hat", ModelPartBuilder.create().uv(0, 0).cuboid(-4.0F, 0.0F, -7.0F, 8.0F, 1.0F, 11.0F, new Dilation(0.0F)).uv(0, 28).cuboid(-4.0F, -3.0F, -4.0F, 8.0F, 3.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -9.0F, 0.0F));
 		return TexturedModelData.of(modelData, 64, 64);
 	}
 
@@ -53,7 +42,7 @@ public class ZombieCreeperModel<T extends ZombieCreeperEntity> extends SinglePar
 		this.getPart().traverse().forEach(ModelPart::resetTransform);
 		this.setHeadAngles(netHeadYaw, headPitch);
 
-		this.animateMovement(ZombieCreeperAnimations.WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
+		this.animateMovement(ZombieCreeperAnimations.WALKING, limbSwing, limbSwingAmount, 2f, 2.5f);
 		// this.updateAnimation(entity.idleAnimationState, ZombieCreeperAnimations.IDLE, ageInTicks, 1f);
 	}
 
