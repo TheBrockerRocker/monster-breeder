@@ -28,6 +28,7 @@ import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.block.DispenserBlock;
+import net.minecraft.block.dispenser.ProjectileDispenserBehavior;
 import net.minecraft.command.argument.serialize.ConstantArgumentSerializer;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnGroup;
@@ -83,6 +84,10 @@ public class MonsterBreeder implements ModInitializer{
             entries.add(ModBlocks.GROWTH_CHAMBER);
         });
 
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.REDSTONE).register(entries -> {
+            entries.add(ModItems.MINI_TNT);
+        });
+
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
             entries.add(ModItems.DNA_EXTRACTOR);
             entries.add(ModItems.SYRINGE);
@@ -120,6 +125,7 @@ public class MonsterBreeder implements ModInitializer{
         DispenserBlock.registerBehavior(ModItems.DNA_EXTRACTOR, new DnaExtractorDispenserBehavior());
         DispenserBlock.registerBehavior(ModItems.SYRINGE, new SyringeDispenserBehavior());
         DispenserBlock.registerBehavior(ModItems.USED_SYRINGE, new SyringeDispenserBehavior());
+        DispenserBlock.registerBehavior(ModItems.MINI_TNT, new ProjectileDispenserBehavior(ModItems.MINI_TNT));
     }
 
     private void listenToServerLifecycleEvents() {

@@ -12,6 +12,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.Items;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
@@ -25,6 +26,22 @@ class ModRecipeProvider extends FabricRecipeProvider {
 
 	@Override
 	public void generate(RecipeExporter exporter) {
+		ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, ModItems.MINI_TNT)
+				.pattern("#X")
+				.pattern("X#")
+				.input('#', Ingredient.ofItems(Items.SAND, Items.RED_SAND))
+				.input('X', Items.GUNPOWDER)
+				.criterion(hasItem(Items.GUNPOWDER), conditionsFromItem(Items.GUNPOWDER))
+				.offerTo(exporter, MonsterBreeder.identifier("mini_tnt"));
+
+		ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, ModItems.MINI_TNT)
+				.pattern("X#")
+				.pattern("#X")
+				.input('#', Ingredient.ofItems(Items.SAND, Items.RED_SAND))
+				.input('X', Items.GUNPOWDER)
+				.criterion(hasItem(Items.GUNPOWDER), conditionsFromItem(Items.GUNPOWDER))
+				.offerTo(exporter, MonsterBreeder.identifier("mini_tnt_2"));
+
 		ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.GROWTH_CHAMBER)
 				.pattern("IBI")
 				.pattern("BEB")

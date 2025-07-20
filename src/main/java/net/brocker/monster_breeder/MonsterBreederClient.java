@@ -5,7 +5,10 @@ import net.brocker.monster_breeder.api.util.DnaUtil;
 import net.brocker.monster_breeder.blockentity.ModBlockEntities;
 import net.brocker.monster_breeder.blockentity.renderer.DnaAltarBlockEntityRenderer;
 import net.brocker.monster_breeder.entity.ModEntities;
-import net.brocker.monster_breeder.entity.client.*;
+import net.brocker.monster_breeder.entity.client.EnderCreeperEntityRenderer;
+import net.brocker.monster_breeder.entity.client.MiniTntEntityRenderer;
+import net.brocker.monster_breeder.entity.client.ZombieCreeperEntityRenderer;
+import net.brocker.monster_breeder.entity.client.ZombieCreeperModel;
 import net.brocker.monster_breeder.item.ModItems;
 import net.brocker.monster_breeder.screen.ModScreenHandlers;
 import net.brocker.monster_breeder.screen.custom.BioReactorChamberScreen;
@@ -43,6 +46,8 @@ public class MonsterBreederClient implements ClientModInitializer {
     private void addEntityRenderers() {
         EntityRendererRegistry.register(ModEntities.ENDER_CREEPER, EnderCreeperEntityRenderer::new);
         EntityRendererRegistry.register(ModEntities.ZOMBIE_CREEPER, ZombieCreeperEntityRenderer::new);
+
+        EntityRendererRegistry.register(ModEntities.MINI_TNT, MiniTntEntityRenderer::new);
     }
 
     private void addColorProviders() {

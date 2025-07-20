@@ -7,6 +7,7 @@
     "item.monster_breeder.dna_extractor": "DNA Extractor",
     "item.monster_breeder.syringe": "Empty Syringe",
     "item.monster_breeder.used_syringe": "Used Syringe",
+    "item.monster_breeder.mini_tnt": "Mini TNT",
     "item.monster_breeder.ender_creeper_spawn_egg": "Ender Creeper Spawn Egg",
     "item.monster_breeder.zombie_creeper_spawn_egg": "Zombie Creeper Spawn Egg",
 
@@ -48,5 +49,9 @@
     "monster_breeder.midnightconfig.enablePurity": "Enable Purity",
     "monster_breeder.midnightconfig.enablePurity.label.tooltip": "Should purity be enabled.\nIf false all mechanics related to purity and stability will be disabled!",
     "monster_breeder.midnightconfig.bloodPurityModifier": "Blood Purity Modifier",
-    "monster_breeder.midnightconfig.bloodPurityModifier.label.tooltip": "When collecting blood, it's purity will be multiplied by this number."
+    "monster_breeder.midnightconfig.bloodPurityModifier.label.tooltip": "When collecting blood, it's purity will be multiplied by this number.",
+    "monster_breeder.midnightconfig.shouldZombieCreepersDropTntOnDeath": "Zombie Creepers Drop Mini TNT on Death",
+    "monster_breeder.midnightconfig.shouldZombieCreepersDropTntOnDeath.label.tooltip": "If true Zombie Creepers will drop their remaining mini TNT on death.",
+    "monster_breeder.midnightconfig.zombieCreeperDropChance": "Zombie Creeper Drop Chance",
+    "monster_breeder.midnightconfig.zombieCreeperDropChance.label.tooltip": "The chance of a Zombie Creeper dropping any of its mini TNT on death. Ignored if zombie creepers drop mini TNT on death is false."
 }

@@ -7,6 +7,7 @@ import net.brocker.monster_breeder.dna.ModDna;
 import net.brocker.monster_breeder.entity.ModEntities;
 import net.brocker.monster_breeder.item.custom.DnaExtractorItem;
 import net.brocker.monster_breeder.item.custom.DnaSampleItem;
+import net.brocker.monster_breeder.item.custom.MiniTntItem;
 import net.brocker.monster_breeder.item.custom.SyringeItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.*;
@@ -21,6 +22,7 @@ public class ModItems {
     public static final Item DNA_EXTRACTOR = registerItem("dna_extractor", new DnaExtractorItem());
     public static final Item SYRINGE = registerItem("syringe", new SyringeItem());
     public static final Item USED_SYRINGE = registerItem("used_syringe", new SyringeItem());
+    public static final Item MINI_TNT = registerItem("mini_tnt", new MiniTntItem());
     public static final Item ENDER_CREEPER_SPAWN_EGG = registerItem("ender_creeper_spawn_egg",
             new SpawnEggItem(ModEntities.ENDER_CREEPER, hexCode("#a521bc"), hexCode("#290063"), new Item.Settings()));
     public static final Item ZOMBIE_CREEPER_SPAWN_EGG = registerItem("zombie_creeper_spawn_egg",
@@ -37,6 +39,7 @@ public class ModItems {
                 entries.add(new ItemStack(ModBlocks.GROWTH_CHAMBER));
                 entries.add(new ItemStack(DNA_EXTRACTOR));
                 entries.add(new ItemStack(SYRINGE));
+                entries.add(new ItemStack(MINI_TNT));
             })
             .build();
 
