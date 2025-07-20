@@ -12,7 +12,7 @@ public class ReiServerPlugin implements REIServerPlugin {
 	public void registerItemComparators(ItemComparatorRegistry registry) {
 		registry.registerComponents(ModItems.DNA_SAMPLE);
 
-		EntryComparator<ComponentMap> componentHasher = EntryComparator.component(ModComponents.PURITY_COMPONENT);
+		EntryComparator<ComponentMap> componentHasher = EntryComparator.component(ModComponents.PURITY_COMPONENT); // Used to ignore purity
 		registry.register((context, stack) -> componentHasher.hash(context, stack.getComponents()), ModItems.USED_SYRINGE);
 	}
 }

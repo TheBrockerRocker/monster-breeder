@@ -3,17 +3,20 @@ package net.brocker.monster_breeder.integration.rei;
 import me.shedaniel.rei.api.client.plugins.REIClientPlugin;
 import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
 import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
+import me.shedaniel.rei.api.client.registry.entry.CollapsibleEntryRegistry;
 import me.shedaniel.rei.api.client.registry.entry.EntryRegistry;
 import me.shedaniel.rei.api.common.entry.EntryStack;
 import me.shedaniel.rei.api.common.entry.comparison.EntryComparator;
 import me.shedaniel.rei.api.common.entry.comparison.ItemComparatorRegistry;
 import me.shedaniel.rei.api.common.util.EntryStacks;
+import net.brocker.monster_breeder.MonsterBreeder;
 import net.brocker.monster_breeder.api.Dna;
 import net.brocker.monster_breeder.api.util.DnaUtil;
 import net.brocker.monster_breeder.block.ModBlocks;
 import net.brocker.monster_breeder.component.ModComponents;
 import net.brocker.monster_breeder.dna.ModDna;
 import net.brocker.monster_breeder.item.ModItems;
+import net.brocker.monster_breeder.item.custom.DnaSampleItem;
 import net.brocker.monster_breeder.item.custom.SyringeItem;
 import net.brocker.monster_breeder.recipe.BioReactionRecipe;
 import net.brocker.monster_breeder.recipe.GrowthRecipe;
@@ -21,10 +24,10 @@ import net.brocker.monster_breeder.recipe.ModRecipes;
 import net.minecraft.component.ComponentMap;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.text.Text;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class ReiClientPlugin implements REIClientPlugin {
 	@Override
@@ -66,10 +69,46 @@ public class ReiClientPlugin implements REIClientPlugin {
 	}
 
 	@Override
+	public void registerCollapsibleEntries(CollapsibleEntryRegistry registry) {
+		registry.group(
+				MonsterBreeder.identifier("dna_samples"),
+				Text.translatable("monster_breeder.dna_samples"),
+				DnaUtil.getRegistry()
+						.getKeys()
+						.stream()
+						.map(RegistryKey::getValue)
+						.filter(identifier -> !identifier.equals(ModDna.UNKNOWN))
+						.map(DnaSampleItem::createItemStack)
+						.map(EntryStacks::of)
+						.collect(Collectors.toList())
+		);
+
+		List<EntryStack<ItemStack>> bloodSampleEntryStacks = new ArrayList<>();
+		DnaUtil.getRegistry()
+				.getKeys()
+				.stream()
+				.map(RegistryKey::getValue)
+				.filter(identifier -> !identifier.equals(ModDna.UNKNOWN))
+				.map(identifier -> DnaUtil.getRegistry().get(identifier))
+				.filter(Objects::nonNull)
+				.map(Dna::getSourceMobs)
+				.forEach(sources -> sources
+						.stream()
+						.map(mob -> DnaUtil.getEntityRegistry().getId(mob))
+						.forEach(identifier -> bloodSampleEntryStacks.add(EntryStacks.of(SyringeItem.createItemStack(identifier, 100))))
+				);
+		registry.group(
+				MonsterBreeder.identifier("blood_samples"),
+				Text.translatable("monster_breeder.blood_samples"),
+				bloodSampleEntryStacks
+		);
+	}
+
+	@Override
 	public void registerItemComparators(ItemComparatorRegistry registry) {
 		registry.registerComponents(ModItems.DNA_SAMPLE);
 
-		EntryComparator<ComponentMap> componentHasher = EntryComparator.component(ModComponents.PURITY_COMPONENT);
+		EntryComparator<ComponentMap> componentHasher = EntryComparator.component(ModComponents.PURITY_COMPONENT); // Used to ignore purity
 		registry.register((context, stack) -> componentHasher.hash(context, stack.getComponents()), ModItems.USED_SYRINGE);
 	}
 }
