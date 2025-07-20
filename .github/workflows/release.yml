@@ -26,6 +26,16 @@ jobs:
         uses: juliangruber/read-file-action@v1
         with:
           path: ./update/VERSION
+      - name: Read Loader Name
+        id: loader
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./update/LOADER
+      - name: Read Minecraft Version
+        id: minecraft
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./update/MINECRAFT_VERSION
       - name: Read Changelog
         id: changelog
         uses: juliangruber/read-file-action@v1
@@ -36,8 +46,8 @@ jobs:
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: build/libs/*
-          tag: ${{ steps.version.outputs.content }}
-          release_name: Version ${{ steps.version.outputs.content }}
+          tag: ${{ steps.version.outputs.content }}-${{ steps.loader.outputs.content }}-${{ steps.minecraft.outputs.content }}
+          release_name: Version ${{ steps.version.outputs.content }} for ${{ steps.loader.outputs.content }} ${{ steps.minecraft.outputs.content }}
           overwrite: true
           file_glob: true
           body: |
