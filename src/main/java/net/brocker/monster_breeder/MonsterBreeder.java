@@ -33,6 +33,7 @@ import net.minecraft.block.dispenser.ProjectileDispenserBehavior;
 import net.minecraft.command.argument.serialize.ConstantArgumentSerializer;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.boss.dragon.EnderDragonPart;
 import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.ItemStack;
@@ -93,6 +94,7 @@ public class MonsterBreeder implements ModInitializer{
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(entries -> {
             entries.add(ModItems.DNA_EXTRACTOR);
             entries.add(ModItems.SYRINGE);
+            entries.add(ModItems.SYRINGE_ARROW);
         });
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(entries -> {
@@ -147,6 +149,8 @@ public class MonsterBreeder implements ModInitializer{
 
     private void listenToEntityEvents() {
         UseEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
+            if (entity instanceof EnderDragonPart part) entity = part.owner;
+
             ItemStack stack = player.getStackInHand(hand);
             boolean isValidItem = stack.isOf(ModItems.SYRINGE) || stack.isOf(ModItems.USED_SYRINGE) || stack.isOf(ModItems.DNA_EXTRACTOR);
             boolean isLiving = entity instanceof LivingEntity;

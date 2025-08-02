@@ -17,6 +17,7 @@ import net.brocker.monster_breeder.component.ModComponents;
 import net.brocker.monster_breeder.dna.ModDna;
 import net.brocker.monster_breeder.item.ModItems;
 import net.brocker.monster_breeder.item.custom.DnaSampleItem;
+import net.brocker.monster_breeder.item.custom.SyringeArrowItem;
 import net.brocker.monster_breeder.item.custom.SyringeItem;
 import net.brocker.monster_breeder.recipe.BioReactionRecipe;
 import net.brocker.monster_breeder.recipe.GrowthRecipe;
@@ -50,8 +51,10 @@ public class ReiClientPlugin implements REIClientPlugin {
 	@Override
 	public void registerEntries(EntryRegistry registry) {
 		registry.removeEntry(EntryStacks.of(new ItemStack(ModItems.USED_SYRINGE)));
+		registry.removeEntry(EntryStacks.of(new ItemStack(ModItems.USED_SYRINGE_ARROW)));
 
 		Collection<EntryStack<ItemStack>> usedSyringes = new HashSet<>();
+		Collection<EntryStack<ItemStack>> usedSyringeArrows = new HashSet<>();
 		DnaUtil.getRegistry()
 				.getKeys()
 				.stream()
@@ -63,9 +66,13 @@ public class ReiClientPlugin implements REIClientPlugin {
 				.forEach(sources -> sources
 						.stream()
 						.map(mob -> DnaUtil.getEntityRegistry().getId(mob))
-						.forEach(identifier -> usedSyringes.add(EntryStacks.of(SyringeItem.createItemStack(identifier, 100))))
+						.forEach(identifier -> {
+							usedSyringes.add(EntryStacks.of(SyringeItem.createItemStack(identifier, 100)));
+							usedSyringeArrows.add(EntryStacks.of(SyringeArrowItem.createItemStack(identifier, 100)));
+						})
 				);
 		registry.addEntries(usedSyringes);
+		registry.addEntries(usedSyringeArrows);
 	}
 
 	@Override
@@ -95,7 +102,10 @@ public class ReiClientPlugin implements REIClientPlugin {
 				.forEach(sources -> sources
 						.stream()
 						.map(mob -> DnaUtil.getEntityRegistry().getId(mob))
-						.forEach(identifier -> bloodSampleEntryStacks.add(EntryStacks.of(SyringeItem.createItemStack(identifier, 100))))
+						.forEach(identifier -> {
+							bloodSampleEntryStacks.add(EntryStacks.of(SyringeItem.createItemStack(identifier, 100)));
+							bloodSampleEntryStacks.add(EntryStacks.of(SyringeArrowItem.createItemStack(identifier, 100)));
+						})
 				);
 		registry.group(
 				MonsterBreeder.identifier("blood_samples"),
@@ -109,6 +119,6 @@ public class ReiClientPlugin implements REIClientPlugin {
 		registry.registerComponents(ModItems.DNA_SAMPLE);
 
 		EntryComparator<ComponentMap> componentHasher = EntryComparator.component(ModComponents.PURITY_COMPONENT); // Used to ignore purity
-		registry.register((context, stack) -> componentHasher.hash(context, stack.getComponents()), ModItems.USED_SYRINGE);
+		registry.register((context, stack) -> componentHasher.hash(context, stack.getComponents()), ModItems.USED_SYRINGE, ModItems.USED_SYRINGE_ARROW);
 	}
 }

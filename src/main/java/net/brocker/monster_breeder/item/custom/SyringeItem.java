@@ -26,9 +26,7 @@ import java.util.List;
 
 public class SyringeItem extends Item {
     public SyringeItem() {
-        super(new Settings()
-                .maxCount(1)
-        );
+        super(new Settings().maxCount(1));
     }
 
     /**
@@ -83,17 +81,18 @@ public class SyringeItem extends Item {
                 player.sendMessage(Text.translatable("monster_breeder.max_purity").formatted(Formatting.RED), false);
                 return ActionResult.FAIL;
             }
+            purity += 10 * ModConfig.bloodPurityModifier;
 
             stack.set(ModComponents.BLOOD_EXTRACTED_FROM_COMPONENT, extractedFrom);
             DnaUtil.setBloodType(stack, mobType);
-            DnaUtil.setPurity(stack, (int) (purity + (10 * ModConfig.bloodPurityModifier)));
+            DnaUtil.setPurity(stack, purity);
 
             player.setStackInHand(hand, stack.withItem(ModItems.USED_SYRINGE));
             player.sendMessage(Text.translatable("monster_breeder.extracted_from", mobName), false);
 
             if (player instanceof ServerPlayerEntity serverPlayer) {
                 ModCriteria.EXTRACTED_BLOOD.trigger(serverPlayer, mobType);
-                if (purity + 10 >= 100) {
+                if (purity >= 100) {
                     AdvancementUtil.grant(serverPlayer, AdvancementUtil.get(serverPlayer.server, MonsterBreeder.identifier("extract_pure_blood")));
                 }
             }

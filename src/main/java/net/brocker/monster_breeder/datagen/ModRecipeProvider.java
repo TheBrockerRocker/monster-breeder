@@ -11,6 +11,7 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
+import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
@@ -61,6 +62,12 @@ class ModRecipeProvider extends FabricRecipeProvider {
 				.input('N', Items.IRON_NUGGET)
 				.criterion(hasItem(Items.GLASS), conditionsFromItem(Items.GLASS))
 				.offerTo(exporter, MonsterBreeder.identifier("syringe"));
+
+		ShapelessRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.SYRINGE_ARROW)
+				.input(Items.ARROW)
+				.input(ModItems.SYRINGE)
+				.criterion(hasItem(Items.ARROW), conditionsFromItem(Items.ARROW))
+				.offerTo(exporter, MonsterBreeder.identifier("syringe_arrow"));
 
 		ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, ModItems.DNA_EXTRACTOR)
 				.pattern("GAG")

@@ -7,6 +7,8 @@
     "item.monster_breeder.dna_extractor": "DNA Extractor",
     "item.monster_breeder.syringe": "Empty Syringe",
     "item.monster_breeder.used_syringe": "Used Syringe",
+    "item.monster_breeder.syringe_arrow": "Empty Syringe Arrow",
+    "item.monster_breeder.used_syringe_arrow": "Used Syringe Arrow",
     "item.monster_breeder.mini_tnt": "Mini TNT",
     "item.monster_breeder.ender_creeper_spawn_egg": "Ender Creeper Spawn Egg",
     "item.monster_breeder.zombie_creeper_spawn_egg": "Zombie Creeper Spawn Egg",
@@ -45,6 +47,7 @@
     "monster_breeder.already_extracted": "You already extracted blood from this mob, try locating another one!",
     "monster_breeder.extracted_from": "Blood extracted from %s!",
     "monster_breeder.click_to_extract": "Interact with a mob to extract blood",
+    "monster_breeder.shoot_to_extract": "Shoot at a mob to extract blood",
     "monster_breeder.purity": "%s%% purity",
 
     "monster_breeder.midnightconfig.title": "Monster Breeder Config",

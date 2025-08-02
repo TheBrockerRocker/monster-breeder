@@ -10,6 +10,7 @@ import net.brocker.monster_breeder.api.util.DnaUtil;
 import net.brocker.monster_breeder.block.ModBlocks;
 import net.brocker.monster_breeder.dna.ModDna;
 import net.brocker.monster_breeder.item.ModItems;
+import net.brocker.monster_breeder.item.custom.SyringeArrowItem;
 import net.brocker.monster_breeder.item.custom.SyringeItem;
 import net.brocker.monster_breeder.recipe.BioReactionRecipe;
 import net.brocker.monster_breeder.recipe.GrowthRecipe;
@@ -75,6 +76,7 @@ public class JeiPlugin implements IModPlugin {
 		IModPlugin.super.registerExtraIngredients(registration);
 
 		Collection<ItemStack> usedSyringes = new HashSet<>();
+		Collection<ItemStack> usedSyringeArrows = new HashSet<>();
 		DnaUtil.getRegistry()
 				.getKeys()
 				.stream()
@@ -86,9 +88,13 @@ public class JeiPlugin implements IModPlugin {
 				.forEach(sources -> sources
 						.stream()
 						.map(mob -> DnaUtil.getEntityRegistry().getId(mob))
-						.forEach(identifier -> usedSyringes.add(SyringeItem.createItemStack(identifier, 100)))
+						.forEach(identifier -> {
+							usedSyringes.add(SyringeItem.createItemStack(identifier, 100));
+							usedSyringeArrows.add(SyringeArrowItem.createItemStack(identifier, 100));
+						})
 				);
 		registration.addExtraItemStacks(usedSyringes);
+		registration.addExtraItemStacks(usedSyringeArrows);
 	}
 
 	@Override
@@ -96,6 +102,7 @@ public class JeiPlugin implements IModPlugin {
 		IModPlugin.super.registerItemSubtypes(registration);
 
 		registration.registerSubtypeInterpreter(ModItems.USED_SYRINGE, new BloodTypeSubtypeInterpreter());
+		registration.registerSubtypeInterpreter(ModItems.USED_SYRINGE_ARROW, new BloodTypeSubtypeInterpreter());
 		registration.registerSubtypeInterpreter(ModItems.DNA_SAMPLE, new DnaSubtypeInterpreter());
 	}
 
