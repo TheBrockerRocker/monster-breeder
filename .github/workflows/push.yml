@@ -42,6 +42,11 @@ jobs:
         uses: juliangruber/read-file-action@v1
         with:
           path: ./update/MINECRAFT_VERSION
+      - name: Delete Release and Tag
+        uses: dev-drprasad/delete-tag-and-release@v1.1
+        with:
+          tag_name: indev-${{ steps.version.outputs.content }}-${{ steps.loader.outputs.content }}-${{ steps.minecraft.outputs.content }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload Files to Release
         uses: svenstaro/upload-release-action@v2
         if: github.ref == 'refs/heads/master'
