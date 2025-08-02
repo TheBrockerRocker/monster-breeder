@@ -13,10 +13,11 @@
     "frame": "goal",
     "icon": {
       "components": {
-        "monster_breeder:dna": "monster_breeder:unknown"
+        "monster_breeder:blood": "monster_breeder:unknown",
+        "monster_breeder:purity": 100
       },
       "count": 1,
-      "id": "monster_breeder:dna_sample"
+      "id": "monster_breeder:used_syringe"
     },
     "title": {
       "translate": "advancements.monster_breeder.extract_pure_blood"

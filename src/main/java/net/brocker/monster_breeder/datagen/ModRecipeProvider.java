@@ -81,6 +81,10 @@ class ModRecipeProvider extends FabricRecipeProvider {
 				.criterion(hasItem(ModBlocks.BIO_REACTION_CHAMBER), conditionsFromItem(ModBlocks.BIO_REACTION_CHAMBER))
 				.offerTo(exporter, Identifier.ofVanilla("skeleton_horse_dna"));
 
+		BioReactionRecipeJsonBuilder.create(VanillaDna.ZOMBIE_HORSE, VanillaDna.HORSE, VanillaDna.ZOMBIE)
+				.criterion(hasItem(ModBlocks.BIO_REACTION_CHAMBER), conditionsFromItem(ModBlocks.BIO_REACTION_CHAMBER))
+				.offerTo(exporter, Identifier.ofVanilla("zombie_horse_dna"));
+
 		BioReactionRecipeJsonBuilder.create(VanillaDna.ZOGLIN, VanillaDna.HOGLIN, VanillaDna.ZOMBIE)
 				.criterion(hasItem(ModBlocks.BIO_REACTION_CHAMBER), conditionsFromItem(ModBlocks.BIO_REACTION_CHAMBER))
 				.offerTo(exporter, MonsterBreeder.identifier("zoglin_dna"));
@@ -104,6 +108,14 @@ class ModRecipeProvider extends FabricRecipeProvider {
 		BioReactionRecipeJsonBuilder.create(ModDna.ZOMBIE_CREEPER, VanillaDna.CREEPER, VanillaDna.ZOMBIE)
 				.criterion(hasItem(ModBlocks.BIO_REACTION_CHAMBER), conditionsFromItem(ModBlocks.BIO_REACTION_CHAMBER))
 				.offerTo(exporter, MonsterBreeder.identifier("zombie_creeper_dna"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.ALLAY, VanillaDna.VEX)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("allay_dna_from_growth"));
+
+		GrowthRecipeJsonBuilder.create(VanillaDna.VEX, VanillaDna.ALLAY)
+				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))
+				.offerTo(exporter, MonsterBreeder.identifier("vex_dna_from_growth"));
 
 		GrowthRecipeJsonBuilder.create(VanillaDna.ENDERMAN, VanillaDna.ENDERMITE)
 				.criterion(hasItem(ModBlocks.GROWTH_CHAMBER), conditionsFromItem(ModBlocks.GROWTH_CHAMBER))

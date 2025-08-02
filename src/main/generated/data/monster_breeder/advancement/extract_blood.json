@@ -1,15 +1,8 @@
 {
   "parent": "monster_breeder:core",
   "criteria": {
-    "got_used_syringe": {
-      "conditions": {
-        "items": [
-          {
-            "items": "monster_breeder:used_syringe"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
+    "extracted_blood": {
+      "trigger": "monster_breeder:extracted_blood"
     }
   },
   "display": {
@@ -19,7 +12,7 @@
     },
     "icon": {
       "count": 1,
-      "id": "monster_breeder:used_syringe"
+      "id": "monster_breeder:syringe"
     },
     "title": {
       "translate": "advancements.monster_breeder.extract_blood"
@@ -27,7 +20,7 @@
   },
   "requirements": [
     [
-      "got_used_syringe"
+      "extracted_blood"
     ]
   ],
   "sends_telemetry_event": true

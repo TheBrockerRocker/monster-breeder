@@ -27,6 +27,8 @@
     "advancements.monster_breeder.extract_pure_blood.description" : "Use a syringe to obtain blood with 100%% purity.",
     "advancements.monster_breeder.extract_blood_from_zoglin": "Zoglin Blood",
     "advancements.monster_breeder.extract_blood_from_zoglin.description": "Use a syringe to extract blood from a zoglin.",
+    "advancements.monster_breeder.extract_blood_from_boss": "Boss Blood",
+    "advancements.monster_breeder.extract_blood_from_boss.description": "Use a syringe to extract blood from a boss mob.",
 
     "monster_breeder.unknown": "Unknown",
     "monster_breeder.bio_reaction": "Bio-Reaction",

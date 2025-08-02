@@ -1,6 +1,7 @@
 package net.brocker.monster_breeder;
 
 import eu.midnightdust.lib.config.MidnightConfig;
+import net.brocker.monster_breeder.advancement.ModCriteria;
 import net.brocker.monster_breeder.api.registry.MonsterBreederRegistries;
 import net.brocker.monster_breeder.block.ModBlocks;
 import net.brocker.monster_breeder.block.dispenser.DnaExtractorDispenserBehavior;
@@ -57,6 +58,7 @@ public class MonsterBreeder implements ModInitializer{
         ModBlockEntities.registerBlockEntities();
         ModScreenHandlers.registerScreenHandlers();
         ModComponents.registerModComponents();
+        ModCriteria.registerModCriteria();
         ModEntities.registerModEntities();
         ModRecipes.registerRecipes();
         ModDna.registerModDna();
@@ -132,10 +134,12 @@ public class MonsterBreeder implements ModInitializer{
         ServerLifecycleEvents.SERVER_STARTED.register(server -> {
             MonsterBreeder.server = server;
 
-            server.getRegistryManager()
-                    .get(MonsterBreederRegistries.DNA_REGISTRY_KEY)
-                    .getKeys()
-                    .forEach(key -> LOGGER.info("DNA of type {} registered!", key.getValue()));
+            LOGGER.info("{} DNA types registered!",
+                    server.getRegistryManager()
+                            .get(MonsterBreederRegistries.DNA_REGISTRY_KEY)
+                            .getKeys()
+                            .size()
+            );
         });
 
         ServerLifecycleEvents.SERVER_STOPPED.register(server -> MonsterBreeder.server = null);

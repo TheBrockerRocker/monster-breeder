@@ -1,9 +1,9 @@
 {
   "parent": "monster_breeder:extract_blood",
   "criteria": {
-    "extracted_zoglin_blood": {
+    "extracted_boss_blood": {
       "conditions": {
-        "bloodType": "minecraft:zoglin"
+        "bloodType": "#monster_breeder:bosses"
       },
       "trigger": "monster_breeder:extracted_blood"
     }
@@ -11,23 +11,24 @@
   "display": {
     "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
     "description": {
-      "translate": "advancements.monster_breeder.extract_blood_from_zoglin.description"
+      "translate": "advancements.monster_breeder.extract_blood_from_boss.description"
     },
     "frame": "challenge",
     "icon": {
       "components": {
-        "monster_breeder:dna": "minecraft:zoglin"
+        "minecraft:rarity": "epic",
+        "monster_breeder:dna": "minecraft:ender_dragon"
       },
       "count": 1,
       "id": "monster_breeder:dna_sample"
     },
     "title": {
-      "translate": "advancements.monster_breeder.extract_blood_from_zoglin"
+      "translate": "advancements.monster_breeder.extract_blood_from_boss"
     }
   },
   "requirements": [
     [
-      "extracted_zoglin_blood"
+      "extracted_boss_blood"
     ]
   ],
   "sends_telemetry_event": true

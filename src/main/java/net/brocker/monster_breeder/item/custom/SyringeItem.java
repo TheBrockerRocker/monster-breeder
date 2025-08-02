@@ -1,6 +1,7 @@
 package net.brocker.monster_breeder.item.custom;
 
 import net.brocker.monster_breeder.MonsterBreeder;
+import net.brocker.monster_breeder.advancement.ModCriteria;
 import net.brocker.monster_breeder.api.util.DnaUtil;
 import net.brocker.monster_breeder.component.ModComponents;
 import net.brocker.monster_breeder.config.ModConfig;
@@ -91,9 +92,7 @@ public class SyringeItem extends Item {
             player.sendMessage(Text.translatable("monster_breeder.extracted_from", mobName), false);
 
             if (player instanceof ServerPlayerEntity serverPlayer) {
-                if (mobType == EntityType.ZOGLIN) {
-                    AdvancementUtil.grant(serverPlayer, AdvancementUtil.get(serverPlayer.server, MonsterBreeder.identifier("extract_blood_from_zoglin")));
-                }
+                ModCriteria.EXTRACTED_BLOOD.trigger(serverPlayer, mobType);
                 if (purity + 10 >= 100) {
                     AdvancementUtil.grant(serverPlayer, AdvancementUtil.get(serverPlayer.server, MonsterBreeder.identifier("extract_pure_blood")));
                 }

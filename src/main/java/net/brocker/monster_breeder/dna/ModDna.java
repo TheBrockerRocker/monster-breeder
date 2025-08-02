@@ -17,7 +17,6 @@ public class ModDna {
 				.setRarity(Rarity.RARE)
 				.addSourceMobAsSummonResult(ModEntities.ENDER_CREEPER)
 				.buildAndRegister(ENDER_CREEPER);
-
 		DnaBuilder.create(ModEntities.ZOMBIE_CREEPER.getTranslationKey())
 				.setColor("#06891b","#43da1b","#2493bc","#439f2b")
 				.addSourceMobAsSummonResult(ModEntities.ZOMBIE_CREEPER)

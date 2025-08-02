@@ -1,11 +1,14 @@
 package net.brocker.monster_breeder.datagen;
 
 import net.brocker.monster_breeder.MonsterBreeder;
+import net.brocker.monster_breeder.advancement.ExtractedBloodCriterion;
 import net.brocker.monster_breeder.block.ModBlocks;
 import net.brocker.monster_breeder.dna.ModDna;
 import net.brocker.monster_breeder.dna.VanillaDna;
 import net.brocker.monster_breeder.item.ModItems;
 import net.brocker.monster_breeder.item.custom.DnaSampleItem;
+import net.brocker.monster_breeder.item.custom.SyringeItem;
+import net.brocker.monster_breeder.tag.ModEntityTypeTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
 import net.minecraft.advancement.Advancement;
@@ -13,8 +16,9 @@ import net.minecraft.advancement.AdvancementEntry;
 import net.minecraft.advancement.AdvancementFrame;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.advancement.criterion.ImpossibleCriterion;
-import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.advancement.criterion.TickCriterion;
+import net.minecraft.entity.EntityType;
+import net.minecraft.predicate.entity.EntityTypePredicate;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -46,7 +50,7 @@ class ModAdvancementProvider extends FabricAdvancementProvider {
 		AdvancementEntry extractBlood = Advancement.Builder.create()
 				.parent(core)
 				.display(
-						ModItems.USED_SYRINGE,
+						ModItems.SYRINGE,
 						Text.translatable("advancements.monster_breeder.extract_blood"),
 						Text.translatable("advancements.monster_breeder.extract_blood.description"),
 						Identifier.ofVanilla("textures/gui/advancements/backgrounds/adventure.png"),
@@ -55,12 +59,12 @@ class ModAdvancementProvider extends FabricAdvancementProvider {
 						true,
 						false
 				)
-				.criterion("got_used_syringe", InventoryChangedCriterion.Conditions.items(ModItems.USED_SYRINGE))
+				.criterion("extracted_blood", ExtractedBloodCriterion.Conditions.create(null))
 				.build(consumer, MonsterBreeder.MOD_ID + ":extract_blood");
 		AdvancementEntry extractPureBlood = Advancement.Builder.create()
 				.parent(extractBlood)
 				.display(
-						DnaSampleItem.createItemStack(ModDna.UNKNOWN),
+						SyringeItem.createItemStack(ModDna.UNKNOWN, 100),
 						Text.translatable("advancements.monster_breeder.extract_pure_blood"),
 						Text.translatable("advancements.monster_breeder.extract_pure_blood.description"),
 						Identifier.ofVanilla("textures/gui/advancements/backgrounds/adventure.png"),
@@ -83,7 +87,21 @@ class ModAdvancementProvider extends FabricAdvancementProvider {
 						true,
 						false
 				)
-				.criterion("got_used_syringe_with_zoglin_blood", Criteria.IMPOSSIBLE.create(new ImpossibleCriterion.Conditions()))
+				.criterion("extracted_zoglin_blood", ExtractedBloodCriterion.Conditions.create(EntityTypePredicate.create(EntityType.ZOGLIN)))
 				.build(consumer, MonsterBreeder.MOD_ID + ":extract_blood_from_zoglin");
+		AdvancementEntry extractBloodFromBoss = Advancement.Builder.create()
+				.parent(extractBlood)
+				.display(
+						DnaSampleItem.createItemStack(VanillaDna.ENDER_DRAGON),
+						Text.translatable("advancements.monster_breeder.extract_blood_from_boss"),
+						Text.translatable("advancements.monster_breeder.extract_blood_from_boss.description"),
+						Identifier.ofVanilla("textures/gui/advancements/backgrounds/adventure.png"),
+						AdvancementFrame.CHALLENGE,
+						true,
+						true,
+						false
+				)
+				.criterion("extracted_boss_blood", ExtractedBloodCriterion.Conditions.create(EntityTypePredicate.create(ModEntityTypeTags.BOSSES)))
+				.build(consumer, MonsterBreeder.MOD_ID + ":extract_blood_from_boss");
 	}
 }
