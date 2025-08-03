@@ -1,0 +1,34 @@
+{
+  "parent": "monster_breeder:extract_blood",
+  "criteria": {
+    "got_dna": {
+      "conditions": {
+        "items": [
+          {
+            "items": "monster_breeder:dna_sample"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "description": {
+      "translate": "advancements.monster_breeder.get_dna.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monster_breeder:dna_sample"
+    },
+    "title": {
+      "translate": "advancements.monster_breeder.get_dna"
+    }
+  },
+  "requirements": [
+    [
+      "got_dna"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -36,6 +36,10 @@
     "advancements.monster_breeder.extract_blood_from_zoglin.description": "Use a syringe to extract blood from a zoglin.",
     "advancements.monster_breeder.extract_blood_from_boss": "Boss Blood",
     "advancements.monster_breeder.extract_blood_from_boss.description": "Use a syringe to extract blood from a boss mob.",
+    "advancements.monster_breeder.get_dna": "DNA Extraction",
+    "advancements.monster_breeder.get_dna.description": "Use a centrifuge to extract DNA from blood.",
+    "advancements.monster_breeder.summon_mob": "The power of summoning",
+    "advancements.monster_breeder.summon_mob.description": "Use a DNA altar to summon a mob.",
 
     "monster_breeder.unknown": "Unknown",
     "monster_breeder.bio_reaction": "Bio-Reaction",

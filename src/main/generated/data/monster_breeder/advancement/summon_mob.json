@@ -1,0 +1,27 @@
+{
+  "parent": "monster_breeder:get_dna",
+  "criteria": {
+    "summon_mob": {
+      "trigger": "monster_breeder:summoned_entity"
+    }
+  },
+  "display": {
+    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "description": {
+      "translate": "advancements.monster_breeder.summon_mob.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "monster_breeder:dna_altar"
+    },
+    "title": {
+      "translate": "advancements.monster_breeder.summon_mob"
+    }
+  },
+  "requirements": [
+    [
+      "summon_mob"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

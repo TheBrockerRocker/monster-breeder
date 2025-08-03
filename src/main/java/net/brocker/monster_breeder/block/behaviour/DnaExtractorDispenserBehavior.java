@@ -1,4 +1,4 @@
-package net.brocker.monster_breeder.block.dispenser;
+package net.brocker.monster_breeder.block.behaviour;
 
 import net.brocker.monster_breeder.api.util.DnaUtil;
 import net.brocker.monster_breeder.item.custom.DnaSampleItem;

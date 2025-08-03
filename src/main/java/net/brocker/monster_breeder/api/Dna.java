@@ -1,6 +1,7 @@
 package net.brocker.monster_breeder.api;
 
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Rarity;
@@ -19,7 +20,7 @@ public class Dna {
 	protected final Color color;
 	protected final Supplier<Color> colorSupplier;
 	protected final Set<EntityType<?>> sourceMobs;
-	protected final @Nullable EntityType<?> summonResult;
+	protected final @Nullable SummoningBehaviour<?> summoningBehaviour;
 
 	/**
 	 * Creates a new DNA type.
@@ -27,15 +28,15 @@ public class Dna {
 	 * @param rarity How rare is this DNA
 	 * @param color What color is the DNA item?
 	 * @param sourceMobs The mobs that this DNA can be extracted from.
-	 * @param summonResult What should the DNA altar summon
+	 * @param summoningBehaviour How will the DNA altar summon a mob from this DNA
 	 */
-	public Dna(@NotNull String name, @NotNull Rarity rarity, @NotNull Color color, @NotNull Set<EntityType<?>> sourceMobs, @Nullable EntityType<?> summonResult) {
+	public Dna(@NotNull String name, @NotNull Rarity rarity, @NotNull Color color, @NotNull Set<EntityType<? extends LivingEntity>> sourceMobs, @Nullable SummoningBehaviour<?> summoningBehaviour) {
 		this.name = name;
 		this.rarity = rarity;
 		this.color = color;
 		this.colorSupplier = null;
 		this.sourceMobs = Collections.unmodifiableSet(sourceMobs);
-		this.summonResult = summonResult;
+		this.summoningBehaviour = summoningBehaviour;
 	}
 
 	/**
@@ -44,15 +45,15 @@ public class Dna {
 	 * @param rarity How rare is this DNA
 	 * @param color What color is the DNA item?
 	 * @param sourceMobs The mobs that this DNA can be extracted from.
-	 * @param summonResult What should the DNA altar summon
+	 * @param summoningBehaviour How will the DNA altar summon a mob from this DNA
 	 */
-	public Dna(@NotNull String name, @NotNull Rarity rarity, @NotNull Supplier<@NotNull Color> color, @NotNull Set<EntityType<?>> sourceMobs, @Nullable EntityType<?> summonResult) {
+	public Dna(@NotNull String name, @NotNull Rarity rarity, @NotNull Supplier<@NotNull Color> color, @NotNull Set<EntityType<? extends LivingEntity>> sourceMobs, @Nullable SummoningBehaviour<?> summoningBehaviour) {
 		this.name = name;
 		this.rarity = rarity;
 		this.color = null;
 		this.colorSupplier = color;
 		this.sourceMobs = Collections.unmodifiableSet(sourceMobs);
-		this.summonResult = summonResult;
+		this.summoningBehaviour = summoningBehaviour;
 	}
 
 	public @NotNull MutableText getName() {
@@ -67,8 +68,8 @@ public class Dna {
 	public @NotNull Set<EntityType<?>> getSourceMobs() {
 		return sourceMobs;
 	}
-	public @Nullable EntityType<?> getSummonResult() {
-		return summonResult;
+	public @Nullable SummoningBehaviour<?> getSummoningBehaviour() {
+		return summoningBehaviour;
 	}
 
 	public record Color(int color1, int color2, int color3, int color4) {

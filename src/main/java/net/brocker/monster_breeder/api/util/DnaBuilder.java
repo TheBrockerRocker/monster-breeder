@@ -1,8 +1,11 @@
 package net.brocker.monster_breeder.api.util;
 
 import net.brocker.monster_breeder.api.Dna;
+import net.brocker.monster_breeder.api.SummoningBehaviour;
 import net.brocker.monster_breeder.api.registry.MonsterBreederRegistries;
+import net.brocker.monster_breeder.block.behaviour.DefaultSummoningBehaviour;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
@@ -19,8 +22,8 @@ public class DnaBuilder {
 	protected Rarity rarity = Rarity.COMMON;
 	protected Dna.Color color = Dna.Color.create("#ffffff");
 	protected Supplier<Dna.Color> colorSupplier = null;
-	protected final Set<EntityType<?>> sourceMobs = new HashSet<>();
-	protected @Nullable EntityType<?> summonResult = null;
+	protected final Set<EntityType<? extends LivingEntity>> sourceMobs = new HashSet<>();
+	protected @Nullable SummoningBehaviour<?> summoningBehaviour = null;
 
 	protected DnaBuilder(String name) {
 		this.name = name;
@@ -82,7 +85,7 @@ public class DnaBuilder {
 	 * @param sourceMob The mob to get this DNA from
 	 * @return The current DNA builder
 	 */
-	public DnaBuilder addSourceMob(EntityType<?> sourceMob) {
+	public DnaBuilder addSourceMob(EntityType<? extends LivingEntity> sourceMob) {
 		this.sourceMobs.add(sourceMob);
 		return this;
 	}
@@ -92,10 +95,8 @@ public class DnaBuilder {
 	 * @param sourceMob The mob to get this DNA from, and the mob to spawn with the DNA Altar
 	 * @return The current DNA builder
 	 */
-	public DnaBuilder addSourceMobAsSummonResult(EntityType<?> sourceMob) {
-		this.sourceMobs.add(sourceMob);
-		this.summonResult = sourceMob;
-		return this;
+	public DnaBuilder addSourceMobAsSummonResult(EntityType<? extends LivingEntity> sourceMob) {
+		return addSourceMob(sourceMob).setSummonResult(sourceMob);
 	}
 
 	/**
@@ -103,15 +104,20 @@ public class DnaBuilder {
 	 * @param summonResult The mob to spawn with the DNA altar
 	 * @return The current DNA builder
 	 */
-	public DnaBuilder setSummonResult(EntityType<?> summonResult) {
-		this.summonResult = summonResult;
+	public DnaBuilder setSummonResult(EntityType<? extends LivingEntity> summonResult) {
+		this.summoningBehaviour = new DefaultSummoningBehaviour<>(summonResult);
+		return this;
+	}
+
+	public DnaBuilder setSummoningBehaviour(SummoningBehaviour<?> summoningBehaviour) {
+		this.summoningBehaviour = summoningBehaviour;
 		return this;
 	}
 
 	public Dna build() {
 		return colorSupplier != null
-				? new Dna(name, rarity, colorSupplier, sourceMobs, summonResult)
-				: new Dna(name, rarity, color, sourceMobs, summonResult);
+				? new Dna(name, rarity, colorSupplier, sourceMobs, summoningBehaviour)
+				: new Dna(name, rarity, color, sourceMobs, summoningBehaviour);
 	}
 
 	public void buildAndRegister(Identifier identifier) {

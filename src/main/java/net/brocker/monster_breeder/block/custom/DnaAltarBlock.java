@@ -73,16 +73,14 @@ public class DnaAltarBlock extends BlockWithEntity implements BlockEntityProvide
         boolean isTopOfBlock = hit.getSide() == Direction.UP;
         boolean isHandEmpty = stackInHand.isEmpty();
         boolean isAltarEmpty = stackOnAltar.isEmpty();
+        boolean idle = blockEntity.isIdle();
 
         if(isTopOfBlock && isAltarEmpty && !isHandEmpty && stackInHand.isOf(ModItems.DNA_SAMPLE)) {
             putItem(stackInHand, state, pos, world, player, blockEntity);
-        } else if(isTopOfBlock && !isAltarEmpty && isHandEmpty && !player.isSneaking()) {
+        } else if(isTopOfBlock && !isAltarEmpty && isHandEmpty && !player.isSneaking() && idle) {
             takeItem(stackOnAltar, state, pos, world, player, hand, blockEntity);
-        } else if (isTopOfBlock && !isAltarEmpty && !isHandEmpty && stackInHand.isOf(Items.FLINT_AND_STEEL) && blockEntity.isIdle()) {
-            stackInHand.damage(1, player, LivingEntity.getSlotForHand(hand));
-            blockEntity.startSummon();
-        } else if(player.isSneaking() && !world.isClient()) {
-            player.openHandledScreen(blockEntity);
+        } else if (isTopOfBlock && !isAltarEmpty && !isHandEmpty && stackInHand.isOf(Items.FLINT_AND_STEEL) && idle) {
+            if (blockEntity.startSummon()) stackInHand.damage(1, player, LivingEntity.getSlotForHand(hand));
         } else
             return ItemActionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 

@@ -1,4 +1,4 @@
-package net.brocker.monster_breeder.block.dispenser;
+package net.brocker.monster_breeder.block.behaviour;
 
 import net.brocker.monster_breeder.block.ModBlocks;
 import net.brocker.monster_breeder.blockentity.custom.DnaAltarBlockEntity;

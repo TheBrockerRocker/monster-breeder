@@ -9,7 +9,6 @@ import net.brocker.monster_breeder.entity.client.*;
 import net.brocker.monster_breeder.item.ModItems;
 import net.brocker.monster_breeder.screen.ModScreenHandlers;
 import net.brocker.monster_breeder.screen.custom.BioReactorChamberScreen;
-import net.brocker.monster_breeder.screen.custom.DnaAltarScreen;
 import net.brocker.monster_breeder.screen.custom.GrowthChamberScreen;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
@@ -31,7 +30,6 @@ public class MonsterBreederClient implements ClientModInitializer {
     }
 
     private void addScreenHandlers() {
-        HandledScreens.register(ModScreenHandlers.DNA_ALTAR_SCREEN_HANDLER, DnaAltarScreen::new);
         HandledScreens.register(ModScreenHandlers.BIO_REACTOR_CHAMBER_SCREEN_HANDLER, BioReactorChamberScreen::new);
         HandledScreens.register(ModScreenHandlers.GROWTH_CHAMBER_SCREEN_HANDLER, GrowthChamberScreen::new);
     }

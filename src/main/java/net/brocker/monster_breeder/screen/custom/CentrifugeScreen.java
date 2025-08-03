@@ -9,11 +9,11 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class CentrifugeScreen extends HandledScreen<DnaAltarScreenHandler> {
+public class CentrifugeScreen extends HandledScreen<CentrifugeScreenHandler> {
     public static final Identifier GUI_TEXTURE =
             Identifier.of(MonsterBreeder.MOD_ID, "textures/gui/dna_altar/dna_altar_gui.png");
 
-    public CentrifugeScreen(DnaAltarScreenHandler handler, PlayerInventory inventory, Text title) {
+    public CentrifugeScreen(CentrifugeScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
     }
 

@@ -1,5 +1,6 @@
 package net.brocker.monster_breeder.blockentity.renderer;
 
+import net.brocker.monster_breeder.MonsterBreeder;
 import net.brocker.monster_breeder.blockentity.custom.DnaAltarBlockEntity;
 import net.brocker.monster_breeder.util.AnimationUtil;
 import net.minecraft.client.MinecraftClient;
@@ -18,7 +19,7 @@ import java.util.Map;
 
 public class DnaAltarBlockEntityRenderer implements BlockEntityRenderer<DnaAltarBlockEntity> {
 	protected final BlockEntityRendererFactory.Context context;
-	protected final Map<DnaAltarBlockEntity, Float> ticks = new HashMap<>();
+	public static final Map<DnaAltarBlockEntity, Float> TICKS = new HashMap<>();
 
 	public DnaAltarBlockEntityRenderer(BlockEntityRendererFactory.Context context) {
 		this.context = context;
@@ -26,26 +27,21 @@ public class DnaAltarBlockEntityRenderer implements BlockEntityRenderer<DnaAltar
 
 	@Override
 	public void render(DnaAltarBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
-		if (entity.getStack(0).isEmpty()) {
-			ticks.put(entity, 0f);
-			return;
+		if (!MinecraftClient.getInstance().isPaused()) TICKS.put(entity, TICKS.getOrDefault(entity, 0f) + tickDelta);
+
+		if (entity.render(context, tickDelta, matrices, vertexConsumers, light, overlay)) {
+			matrices.push();
+			matrices.translate(0.5, 1.3, 0.5);
+			matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(AnimationUtil.getAnimationFrame(TICKS.get(entity), 10) * 360));
+			matrices.scale(0.6f, 0.6f, 0.6f);
+
+			renderItem(entity.getStack(0), matrices, vertexConsumers, light, overlay);
+
+			matrices.pop();
 		}
-		if (!MinecraftClient.getInstance().isPaused()) ticks.put(entity, ticks.getOrDefault(entity, 0f) + tickDelta);
-
-		float progress = (float) entity.progress / DnaAltarBlockEntity.maxProgress;
-		float speed = 1 + (progress * 8);
-
-		matrices.push();
-		matrices.translate(0.5, 1.3, 0.5);
-		matrices.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(AnimationUtil.getAnimationFrame(ticks.get(entity), 10 / speed) * 360));
-		matrices.scale(0.6f, 0.6f, 0.6f);
-
-		renderItem(entity.getStack(0), matrices, vertexConsumers, light, overlay);
-
-		matrices.pop();
 	}
 
-	private void renderItem(ItemStack stack, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
+	protected void renderItem(ItemStack stack, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
 		ItemRenderer itemRenderer = context.getItemRenderer();
 		BakedModel model = itemRenderer.getModel(stack, null, null, 0);
 

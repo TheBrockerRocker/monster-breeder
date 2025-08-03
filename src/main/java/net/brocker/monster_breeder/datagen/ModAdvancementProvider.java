@@ -2,6 +2,7 @@ package net.brocker.monster_breeder.datagen;
 
 import net.brocker.monster_breeder.MonsterBreeder;
 import net.brocker.monster_breeder.advancement.ExtractedBloodCriterion;
+import net.brocker.monster_breeder.advancement.SummonedEntityCriterion;
 import net.brocker.monster_breeder.block.ModBlocks;
 import net.brocker.monster_breeder.dna.ModDna;
 import net.brocker.monster_breeder.dna.VanillaDna;
@@ -16,6 +17,7 @@ import net.minecraft.advancement.AdvancementEntry;
 import net.minecraft.advancement.AdvancementFrame;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.advancement.criterion.ImpossibleCriterion;
+import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.advancement.criterion.TickCriterion;
 import net.minecraft.entity.EntityType;
 import net.minecraft.predicate.entity.EntityTypePredicate;
@@ -103,5 +105,33 @@ class ModAdvancementProvider extends FabricAdvancementProvider {
 				)
 				.criterion("extracted_boss_blood", ExtractedBloodCriterion.Conditions.create(EntityTypePredicate.create(ModEntityTypeTags.BOSSES)))
 				.build(consumer, MonsterBreeder.MOD_ID + ":extract_blood_from_boss");
+		AdvancementEntry getDna = Advancement.Builder.create()
+				.parent(extractBlood)
+				.display(
+						ModItems.DNA_SAMPLE,
+						Text.translatable("advancements.monster_breeder.get_dna"),
+						Text.translatable("advancements.monster_breeder.get_dna.description"),
+						Identifier.ofVanilla("textures/gui/advancements/backgrounds/adventure.png"),
+						AdvancementFrame.TASK,
+						true,
+						true,
+						false
+				)
+				.criterion("got_dna", InventoryChangedCriterion.Conditions.items(ModItems.DNA_SAMPLE))
+				.build(consumer, MonsterBreeder.MOD_ID + ":get_dna");
+		AdvancementEntry summonMob = Advancement.Builder.create()
+				.parent(getDna)
+				.display(
+						ModBlocks.DNA_ALTAR,
+						Text.translatable("advancements.monster_breeder.summon_mob"),
+						Text.translatable("advancements.monster_breeder.summon_mob.description"),
+						Identifier.ofVanilla("textures/gui/advancements/backgrounds/adventure.png"),
+						AdvancementFrame.TASK,
+						true,
+						true,
+						false
+				)
+				.criterion("summon_mob", SummonedEntityCriterion.Conditions.create(null))
+				.build(consumer, MonsterBreeder.MOD_ID + ":summon_mob");
 	}
 }
