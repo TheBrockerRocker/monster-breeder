@@ -55,12 +55,12 @@ class ModRecipeProvider extends FabricRecipeProvider {
 				.offerTo(exporter, MonsterBreeder.identifier("dna_altar"));
 
 		ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.CENTRIFUGE)
-				.pattern(" P ")
-				.pattern("PiP")
+				.pattern(" B ")
+				.pattern("BiB")
 				.pattern("III")
 				.input('I', Items.IRON_BLOCK)
 				.input('i', Items.IRON_INGOT)
-				.input('P', Items.HEAVY_WEIGHTED_PRESSURE_PLATE)
+				.input('B', Items.GLASS_BOTTLE)
 				.criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
 				.offerTo(exporter, MonsterBreeder.identifier("centrifuge"));
 

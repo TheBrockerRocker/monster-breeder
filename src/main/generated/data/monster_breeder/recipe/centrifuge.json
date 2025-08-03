@@ -2,19 +2,19 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
+    "B": {
+      "item": "minecraft:glass_bottle"
+    },
     "I": {
       "item": "minecraft:iron_block"
-    },
-    "P": {
-      "item": "minecraft:heavy_weighted_pressure_plate"
     },
     "i": {
       "item": "minecraft:iron_ingot"
     }
   },
   "pattern": [
-    " P ",
-    "PiP",
+    " B ",
+    "BiB",
     "III"
   ],
   "result": {
