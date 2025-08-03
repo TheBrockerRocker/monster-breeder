@@ -43,6 +43,27 @@ class ModRecipeProvider extends FabricRecipeProvider {
 				.criterion(hasItem(Items.GUNPOWDER), conditionsFromItem(Items.GUNPOWDER))
 				.offerTo(exporter, MonsterBreeder.identifier("mini_tnt_2"));
 
+		ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.DNA_ALTAR)
+				.pattern("BGB")
+				.pattern("GEG")
+				.pattern("SSS")
+				.input('G', Items.GOLD_BLOCK)
+				.input('B', Items.BOOK)
+				.input('S', Items.STONE_BRICKS)
+				.input('E', Items.ENCHANTING_TABLE)
+				.criterion(hasItem(Items.ENCHANTING_TABLE), conditionsFromItem(Items.ENCHANTING_TABLE))
+				.offerTo(exporter, MonsterBreeder.identifier("dna_altar"));
+
+		ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.CENTRIFUGE)
+				.pattern(" P ")
+				.pattern("PiP")
+				.pattern("III")
+				.input('I', Items.IRON_BLOCK)
+				.input('i', Items.IRON_INGOT)
+				.input('P', Items.HEAVY_WEIGHTED_PRESSURE_PLATE)
+				.criterion(hasItem(Items.IRON_INGOT), conditionsFromItem(Items.IRON_INGOT))
+				.offerTo(exporter, MonsterBreeder.identifier("centrifuge"));
+
 		ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.GROWTH_CHAMBER)
 				.pattern("IBI")
 				.pattern("BEB")
