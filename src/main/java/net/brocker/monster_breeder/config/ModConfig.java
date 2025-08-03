@@ -2,6 +2,7 @@ package net.brocker.monster_breeder.config;
 
 import eu.midnightdust.lib.config.MidnightConfig;
 
+@SuppressWarnings("CanBeFinal")
 public class ModConfig extends MidnightConfig {
 	public static final String GAMEPLAY = "gameplay";
 

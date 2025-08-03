@@ -107,10 +107,12 @@ public class ZombieCreeperEntity extends HostileEntity {
 		return false;
 	}
 
+	@SuppressWarnings("SameReturnValue")
 	protected int getHardAttackInterval() {
 		return 20;
 	}
 
+	@SuppressWarnings("SameReturnValue")
 	protected int getRegularAttackInterval() {
 		return 40;
 	}
