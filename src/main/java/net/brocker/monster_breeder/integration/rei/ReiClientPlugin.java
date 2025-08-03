@@ -9,6 +9,7 @@ import me.shedaniel.rei.api.common.entry.EntryStack;
 import me.shedaniel.rei.api.common.entry.comparison.EntryComparator;
 import me.shedaniel.rei.api.common.entry.comparison.ItemComparatorRegistry;
 import me.shedaniel.rei.api.common.util.EntryStacks;
+import me.shedaniel.rei.plugin.common.displays.DefaultInformationDisplay;
 import net.brocker.monster_breeder.MonsterBreeder;
 import net.brocker.monster_breeder.api.Dna;
 import net.brocker.monster_breeder.api.util.DnaUtil;
@@ -23,6 +24,7 @@ import net.brocker.monster_breeder.recipe.BioReactionRecipe;
 import net.brocker.monster_breeder.recipe.GrowthRecipe;
 import net.brocker.monster_breeder.recipe.ModRecipes;
 import net.minecraft.component.ComponentMap;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
@@ -46,6 +48,19 @@ public class ReiClientPlugin implements REIClientPlugin {
 				BioReactionRecipeCategory.Display::new);
 		registry.registerRecipeFiller(GrowthRecipe.class, ModRecipes.GROWTH_TYPE,
 				GrowthRecipeCategory.Display::new);
+
+		registerInfo(registry, ModBlocks.DNA_ALTAR, Text.translatable("block.monster_breeder.dna_altar.description"));
+		registerInfo(registry, ModBlocks.CENTRIFUGE, Text.translatable("block.monster_breeder.centrifuge.description"));
+		registerInfo(registry, ModBlocks.BIO_REACTION_CHAMBER, Text.translatable("block.monster_breeder.bio_reaction_chamber.description"));
+		registerInfo(registry, ModBlocks.GROWTH_CHAMBER, Text.translatable("block.monster_breeder.growth_chamber.description"));
+
+		registerInfo(registry, ModItems.DNA_EXTRACTOR, Text.translatable("monster_breeder.click_to_extract_dna"));
+		registerInfo(registry, ModItems.SYRINGE, Text.translatable("monster_breeder.click_to_extract"));
+		registerInfo(registry, ModItems.SYRINGE_ARROW, Text.translatable("monster_breeder.shoot_to_extract"));
+	}
+
+	public void registerInfo(DisplayRegistry registry, ItemConvertible itemConvertible, Text text) {
+		registry.add(DefaultInformationDisplay.createFromEntry(EntryStacks.of(itemConvertible), itemConvertible.asItem().getName()).lines(text));
 	}
 
 	@Override

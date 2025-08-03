@@ -20,6 +20,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.recipe.RecipeManager;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -46,6 +47,15 @@ public class JeiPlugin implements IModPlugin {
 	@Override
 	public void registerRecipes(IRecipeRegistration registration) {
 		IModPlugin.super.registerRecipes(registration);
+
+		registration.addIngredientInfo(ModBlocks.DNA_ALTAR, Text.translatable("block.monster_breeder.dna_altar.description"));
+		registration.addIngredientInfo(ModBlocks.CENTRIFUGE, Text.translatable("block.monster_breeder.centrifuge.description"));
+		registration.addIngredientInfo(ModBlocks.BIO_REACTION_CHAMBER, Text.translatable("block.monster_breeder.bio_reaction_chamber.description"));
+		registration.addIngredientInfo(ModBlocks.GROWTH_CHAMBER, Text.translatable("block.monster_breeder.growth_chamber.description"));
+
+		registration.addIngredientInfo(ModItems.DNA_EXTRACTOR, Text.translatable("monster_breeder.click_to_extract_dna"));
+		registration.addIngredientInfo(ModItems.SYRINGE, Text.translatable("monster_breeder.click_to_extract"));
+		registration.addIngredientInfo(ModItems.SYRINGE_ARROW, Text.translatable("monster_breeder.shoot_to_extract"));
 
 		RecipeManager manager = MinecraftClient.getInstance().world.getRecipeManager();
 		List<BioReactionRecipe> bioReactionRecipes = manager

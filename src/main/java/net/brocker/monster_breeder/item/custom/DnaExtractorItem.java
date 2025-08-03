@@ -8,8 +8,11 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.text.Text;
 import net.minecraft.util.*;
+
+import java.util.List;
 
 public class DnaExtractorItem extends Item {
     public DnaExtractorItem() {
@@ -45,5 +48,10 @@ public class DnaExtractorItem extends Item {
     @Override
     public boolean canRepair(ItemStack stack, ItemStack ingredient) {
         return stack != null && !stack.isEmpty() && ingredient.isOf(Items.DIAMOND);
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.translatable("monster_breeder.click_to_extract_dna").formatted(Formatting.GRAY));
     }
 }

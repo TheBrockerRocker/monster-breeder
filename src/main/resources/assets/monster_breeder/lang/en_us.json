@@ -18,6 +18,11 @@
     "block.monster_breeder.bio_reaction_chamber": "Bio-Reaction Chamber",
     "block.monster_breeder.growth_chamber": "Growth Chamber",
 
+    "block.monster_breeder.dna_altar.description": "Place a DNA sample onto the altar and light it with a flint and steel to start the summoning process.",
+    "block.monster_breeder.centrifuge.description": "Used to extract DNA samples from blood.",
+    "block.monster_breeder.bio_reaction_chamber.description": "Reacts two DNA samples together to form a new DNA sample.",
+    "block.monster_breeder.growth_chamber.description": "Grows a DNA sample.",
+
     "entity.monster_breeder.ender_creeper": "Ender Creeper",
     "entity.monster_breeder.zombie_creeper": "Zombie Creeper",
 
@@ -46,6 +51,7 @@
     "monster_breeder.max_purity": "Max purity reached, you need a new syringe!",
     "monster_breeder.already_extracted": "You already extracted blood from this mob, try locating another one!",
     "monster_breeder.extracted_from": "Blood extracted from %s!",
+    "monster_breeder.click_to_extract_dna": "Interact with a mob to extract DNA",
     "monster_breeder.click_to_extract": "Interact with a mob to extract blood",
     "monster_breeder.shoot_to_extract": "Shoot at a mob to extract blood",
     "monster_breeder.purity": "%s%% purity",
