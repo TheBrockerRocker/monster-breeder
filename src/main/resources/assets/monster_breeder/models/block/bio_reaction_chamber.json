@@ -3,8 +3,8 @@
 	"parent": "block/block",
 	"texture_size": [64, 64],
 	"textures": {
-		"0": "monster_breeder:block/glow",
-		"1": "monster_breeder:block/reactor",
+		"0": "monster_breeder:block/reactor",
+		"1": "monster_breeder:block/glow",
 		"particle": "monster_breeder:block/glow"
 	},
 	"elements": [

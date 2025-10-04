@@ -1,6 +1,7 @@
 package net.brocker.monster_breeder.block.custom;
 
 import com.mojang.serialization.MapCodec;
+import net.brocker.monster_breeder.MonsterBreeder;
 import net.brocker.monster_breeder.blockentity.custom.CentrifugeBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
@@ -13,7 +14,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 // TODO: Make this functional
 public class CentrifugeBlock extends BlockWithEntity implements BlockEntityProvider {
@@ -35,9 +35,9 @@ public class CentrifugeBlock extends BlockWithEntity implements BlockEntityProvi
         return CODEC;
     }
 
-    @Nullable
     @Override
     public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+        MonsterBreeder.LOGGER.info("opened a ui");
         return new CentrifugeBlockEntity(pos, state);
     }
 
